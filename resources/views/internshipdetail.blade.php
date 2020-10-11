@@ -18,21 +18,26 @@
         </nav>
     </div>
 
-    <h1>{{$name}}</h1>
+    <h1>{{$company}}</h1>
 
     <img src="#" alt="">Image company
 
-    <h2>{{$location}}</h2>
+    <h2>{{$subtitle}}</h2>
 
-    <p>{{$description}}</p>
+    <h3>{{$location}}</h3>
+
+    <p>{{$explanation}}</p>
 
     <ul>
-        @foreach ($internships as $internship)
-        <li>{{$internship}} <a href ="#">More</a></li>
+        @foreach ($summaries as $summary)
+        <li>{{$summary}}</li>
         @endforeach
 
     </ul>
 
+    <input type="submit" value="Apply">
+
     <footer>Copyright Appli</footer>
 </body>
 </html>
+
