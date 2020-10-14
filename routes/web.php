@@ -21,4 +21,6 @@ Route::get('/register',  'App\Http\Controllers\RegisterController@index');
 
 Route::get('/login', 'App\Http\Controllers\LoginController@index');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index');
+Route::get('/homeStudent', 'App\Http\Controllers\HomeStudentController@index');
+
+Route::get('/homeCompany', 'App\Http\Controllers\HomeCompanyController@index');
