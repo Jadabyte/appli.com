@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< Updated upstream
 Route::get('/internshipdetail', function() {
     $data = [
         "company" => "Capgemini",
@@ -51,3 +52,27 @@ Route::get('/companydetail', function() {
     ];
     return view('companydetail', $data);
 });
+=======
+
+/* GENERAL*/
+
+
+
+
+
+
+/* STUDENTS*/
+Route::get('/student', 'StudentController@index');
+
+
+
+
+/* COMPANIES*/
+Route::get('/company', 'CompanyController@index');
+
+
+
+
+/* INTERNSHIPS*/
+Route::get('/internship', 'InternshipController@index');
+>>>>>>> Stashed changes
