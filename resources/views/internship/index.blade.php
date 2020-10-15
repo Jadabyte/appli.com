@@ -11,7 +11,3 @@
 
     <input type="submit" value="Apply">
 
-    <footer>Copyright Appli</footer>
-</body>
-</html>
-
