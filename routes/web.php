@@ -39,3 +39,4 @@ Route::get('/company/create', 'CompanyController@getCompanyData');
 
 /* INTERNSHIPS*/
 Route::get('/internship', 'InternshipController@index');
+Route::get('/internship/create', 'InternshipController@getInternshipData');
