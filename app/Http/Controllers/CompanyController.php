@@ -6,5 +6,6 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    //
+    //add new internship
+
 }
