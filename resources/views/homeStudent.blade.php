@@ -65,6 +65,7 @@
     <img src="" alt="company profile picture">
     <h3>title</h3>
     <p>description</p>
+    <a href="#">more</a>
 </div>
 
 </body>
