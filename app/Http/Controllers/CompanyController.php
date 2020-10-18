@@ -6,17 +6,29 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    // list all companies --> LISA
-
     public function index(){
 
-        $data['companies'] = \DB::table('companies')->get();
-        return view('company/index', $data);
+        return view('/company/index');
     }
 
-    // add new internship --> LISA
-    // detailspage (view for students) --> LISA
-    // applications(view, label, reply) --> LISA
+    public function register(){
+
+        return view('registerCompany');
+    }
+
+    public function create(){
+        return view('/company/create');
+    }
+
+    public function detail(){
+        return view('/company/detail');
+    }
+
+
+    // list all companies
+    // add new internship
+    // detailspage (view for students)
+    // applications(view, label, reply)
 
     // add new company profile
     // view ratings
