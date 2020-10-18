@@ -8,7 +8,10 @@ class InternshipController extends Controller
 {
     public function index(){
 
-        $data['internships'] = \DB::table('internships')->get();
-        return view('internship/index', $data);
+        return view('internship/index');
+    }
+
+    public function detail(){
+        return view('internship/detail');
     }
 }
