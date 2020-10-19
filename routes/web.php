@@ -17,10 +17,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profile-student', function () {
-    return view('profile-student');
-});
+/* GENERAL*/
 
-Route::get('/profile-company', function () {
-    return view('profile-company');
-});
+Route::get('/index', 'App\Http\Controllers\GeneralController@index');
+Route::get('/login', 'App\Http\Controllers\LoginController@login');
+Route::get('/logout', 'App\Http\Controllers\LogoutController@logout');
+Route::get('/components/header', 'App\Http\Controllers\GeneralController@header');
+Route::get('/components/navigation', 'App\Http\Controllers\GeneralController@navigation');
+Route::get('/components/footer', 'App\Http\Controllers\GeneralController@footer');
+
+
+/* STUDENTS*/
+Route::get('/registerStudent',  'App\Http\Controllers\StudentController@index');
+Route::get('/student', 'App\Http\Controllers\StudentController@index');
+
+
+/* COMPANIES*/
+Route::get('/registerCompany',  'App\Http\Controllers\CompanyController@index');
+Route::get('/company', 'App\Http\Controllers\CompanyController@index');
+Route::get('/company/create', 'App\Http\Controllers\CompanyController@create');
+Route::get('/company/detail', 'App\Http\Controllers\CompanyController@detail');
+
+
+/* INTERNSHIPS*/
+Route::get('/internship', 'App\Http\Controllers\InternshipController@index');
+Route::get('/internship/detail', 'App\Http\Controllers\InternshipController@detail');
