@@ -10,5 +10,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-.vagrant/machines/appli-com/virtualbox/action_set_name
-.vagrant/machines/appli-com/virtualbox/action_set_name
+.vscode/settings.json

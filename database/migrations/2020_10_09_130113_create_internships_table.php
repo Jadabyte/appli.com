@@ -16,6 +16,15 @@ class CreateInternshipsTable extends Migration
         Schema::create('internships', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+<<<<<<< HEAD
+=======
+            $table->string('street');
+            $table->integer('house_number');
+            $table->integer('postal_code');
+            $table->string('city');
+            $table->text('description');
+            $table->integer('category');
+>>>>>>> master
             $table->foreignId('company_id');
             $table->timestamps();
         });
