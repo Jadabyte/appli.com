@@ -16,3 +16,5 @@
     </ul> --}}
 
     <h1>Detail</h1>
+
+    <p>public transport score: {{ $score }}</p>
