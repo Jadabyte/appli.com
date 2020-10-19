@@ -26,3 +26,8 @@
     <p>lastName</p>
     <p>category</p>
 </div>
+
+<!-- temporary list of all companies -->
+@foreach( $companies as $company )
+    <a href="/company/{{ $company->id }}">{{ $company->name }}</a>
+@endforeach
