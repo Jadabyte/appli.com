@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\InternshipController;
+use App\Http\Controllers\CompanyController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,32 +20,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /* GENERAL*/
-
-Route::get('/index', 'App\Http\Controllers\GeneralController@index');
-Route::get('/login', 'App\Http\Controllers\LoginController@login');
-Route::get('/logout', 'App\Http\Controllers\LogoutController@logout');
-Route::get('/components/header', 'App\Http\Controllers\GeneralController@header');
-Route::get('/components/navigation', 'App\Http\Controllers\GeneralController@navigation');
-Route::get('/components/footer', 'App\Http\Controllers\GeneralController@footer');
+Route::get('/', [GeneralController::class, 'index']);
+Route::get('/login', [LoginController::class, 'login']);
+Route::get('/logout', [LogoutController::class, 'logout']);
+Route::get('/components/header', [GeneralController::class, 'header']);
+Route::get('/components/navigation', [GeneralController::class, 'navigation']);
+Route::get('/components/footer', [GeneralController::class, 'footer']);
 
 
 /* STUDENTS*/
-Route::get('/registerStudent',  'App\Http\Controllers\StudentController@index');
-Route::get('/student', 'App\Http\Controllers\StudentController@index');
+Route::get('/registerStudent', [StudentController::class, 'index']);
+Route::get('/student', [StudentController::class, 'index']);
 
 
 /* COMPANIES*/
-Route::get('/registerCompany',  'App\Http\Controllers\CompanyController@index');
-Route::get('/company', 'App\Http\Controllers\CompanyController@index');
-Route::get('/company/create', 'App\Http\Controllers\CompanyController@create');
-Route::get('/company/detail', 'App\Http\Controllers\CompanyController@detail');
+Route::get('/registerCompany', [CompanyController::class, 'index']);
+Route::get('/company', [CompanyController::class, 'index']);
+Route::get('/company/create', [CompanyController::class, 'create']);
+Route::get('/company/{id}', [CompanyController::class, 'detail']);
 
 
 /* INTERNSHIPS*/
-Route::get('/internship', 'App\Http\Controllers\InternshipController@index');
-Route::get('/internship/detail', 'App\Http\Controllers\InternshipController@detail');
+Route::get('/internship', [InternshipController::class, 'index']);
+Route::get('/internship/{id}', [InternshipController::class, 'detail']);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Company;
+
 class CompanyController extends Controller
 {
     public function index(){
@@ -20,8 +22,8 @@ class CompanyController extends Controller
         return view('/company/create');
     }
 
-    public function detail(){
-        return view('/company/detail');
+    public function detail($id){
+        return view('company.detail', ['companies' => Company::findOrFail($id)]);
     }
 
 

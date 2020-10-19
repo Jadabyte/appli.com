@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Internship;
+
 class InternshipController extends Controller
 {
     public function index(){
@@ -11,7 +13,7 @@ class InternshipController extends Controller
         return view('internship/index');
     }
 
-    public function detail(){
-        return view('internship/detail');
+    public function detail($id){
+        return view('internship.detail', ['internships' => Internship::findOrFail($id)]);
     }
 }
