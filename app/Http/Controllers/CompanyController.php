@@ -9,8 +9,8 @@ use App\Models\Company;
 class CompanyController extends Controller
 {
     public function index(){
-
-        return view('/company/index');
+        $data['users'] = \DB::table('users')->get();
+        return view('/company/index', $data);
     }
 
     public function register(){

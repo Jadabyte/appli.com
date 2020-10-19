@@ -32,6 +32,7 @@ Route::get('/components/footer', [GeneralController::class, 'footer']);
 /* STUDENTS*/
 Route::get('/registerStudent', [StudentController::class, 'register']);
 Route::get('/student', [StudentController::class, 'index']);
+Route::get('/student/{id}', [StudentController::class, 'detail']);
 
 
 /* COMPANIES*/

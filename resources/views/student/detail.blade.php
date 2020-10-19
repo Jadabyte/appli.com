@@ -1,6 +1,6 @@
 {{-- LONG DETAILPAGE STUDENT--}}
 
-<!DOCTYPE html>
+{{--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,3 +37,6 @@
     <footer>Copyright Appli</footer>
 </body>
 </html>
+--}}
+
+<h1>Detail student</h1>
