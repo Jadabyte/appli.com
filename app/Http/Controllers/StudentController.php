@@ -8,10 +8,18 @@ class StudentController extends Controller
 {
     public function index(){
 
-        return view('registerStudent');
         return view('student/index');
     }
 
+    public function register(){
 
+        return view('registerStudent');
+       
+    }
+
+    public function login(){
+
+        return view('login');
+    }
 
 }

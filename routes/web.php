@@ -30,12 +30,12 @@ Route::get('/components/footer', [GeneralController::class, 'footer']);
 
 
 /* STUDENTS*/
-Route::get('/registerStudent', [StudentController::class, 'index']);
+Route::get('/registerStudent', [StudentController::class, 'register']);
 Route::get('/student', [StudentController::class, 'index']);
 
 
 /* COMPANIES*/
-Route::get('/registerCompany', [CompanyController::class, 'index']);
+Route::get('/registerCompany', [CompanyController::class, 'register']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
 Route::get('/company/{id}', [CompanyController::class, 'detail']);
