@@ -24,6 +24,7 @@ use App\Http\Controllers\CompanyController;
 Route::get('/', [GeneralController::class, 'index']);
 Route::get('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LogoutController::class, 'logout']);
+Route::get('/layouts/appli', [GeneralController::class, 'appli']);
 Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
@@ -40,8 +41,11 @@ Route::get('/registerCompany', [CompanyController::class, 'register']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
 Route::get('/company/{id}', [CompanyController::class, 'detail']);
+Route::get('/internship/createInternship', [InternshipController::class, 'create']);
+Route::get('/components/showApplicationsFromStudents', [CompanyController::class, 'show']);
 
 
 /* INTERNSHIPS*/
 Route::get('/internship', [InternshipController::class, 'index']);
 Route::get('/internship/{id}', [InternshipController::class, 'detail']);
+
