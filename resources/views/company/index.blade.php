@@ -20,7 +20,7 @@
 </div>
 <a href="#">reset filters</a>
 
-@foreach ($users as $u)
+{{-- @foreach ()
     <div class="card-group">
         <div class="card">
             <img class="card-img-top" src="..." alt="logo company image">
@@ -32,4 +32,4 @@
                 </div>
         </div>
     </div>
-@endforeach
+@endforeach --}}
