@@ -24,6 +24,10 @@ class CompanyController extends Controller
         return view('/company/detail');
     }
 
+    public function show(){
+        return view('/components/showApplicationsFromStudents');
+    }
+
 
     // list all companies
     // add new internship
