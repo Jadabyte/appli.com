@@ -1,5 +1,6 @@
-{{-- LIST OF INTERNSHIPS --}}
+@extends('layouts/appli')
 
-    <h1>Internships</h1>
-
+@section('title')
+    Possible internships
+@endsection
 
