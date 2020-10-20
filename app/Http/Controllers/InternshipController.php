@@ -14,4 +14,8 @@ class InternshipController extends Controller
     public function detail(){
         return view('internship/detail');
     }
+
+    public function create(){
+        return view('internship/createInternship');
+    }
 }
