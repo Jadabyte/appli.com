@@ -14,6 +14,6 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Company::factory()->count(5)->create();
+        \App\Models\Companies::factory()->count(5)->create();
     }
 }
