@@ -15,9 +15,9 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->nullable();
+            //$table->integer('user_id')->unsigned()->nullable();
             $table->string('name');
-            $table->string('logo')->nullable('');
+            $table->string('logo');
             $table->string('category')->default('');
             $table->string('street_and_number')->default('');
             $table->string('pobox')->default('');
