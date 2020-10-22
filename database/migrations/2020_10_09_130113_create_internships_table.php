@@ -14,15 +14,13 @@ class CreateInternshipsTable extends Migration
     public function up()
     {
         Schema::create('internships', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('title');
-            $table->string('street');
-            $table->integer('house_number');
-            $table->integer('postal_code');
-            $table->string('city');
-            $table->text('description');
-            $table->integer('category');
-            $table->foreignId('company_id');
+            $table->text('description', 500)->nullable();
+            $table->string('category')->default('');
+            $table->string('requirements', 100)->default('');
+            $table->integer('company_id');
+            $table->boolean('availablity');
             $table->timestamps();
         });
     }
