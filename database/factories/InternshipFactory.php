@@ -22,8 +22,7 @@ class InternshipFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->jobTitle,
-            'company_id' => $this->faker->randomDigit
+
         ];
     }
 }
