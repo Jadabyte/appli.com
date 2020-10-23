@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Company;
+
 class CompanyController extends Controller
 {
     public function index(){
-
-        return view('/company/index');
+        $data['users'] = \DB::table('users')->get();
+        return view('company/index', $data);
     }
 
     public function register(){
@@ -16,26 +18,20 @@ class CompanyController extends Controller
         return view('registerCompany');
     }
 
-    public function create(){
-        return view('/company/create');
+    public function login(){
+
+        return view('login');
     }
 
-    public function detail(){
-        return view('/company/detail');
+    public function create(){
+        return view('company/create');
+    }
+
+    public function detail($id){
+        return view('company/show', ['companies' => Company::findOrFail($id)]);
     }
 
     public function show(){
-        return view('/components/showApplicationsFromStudents');
+        return view('components/showApplicationsFromStudents');
     }
-
-
-    // list all companies
-    // add new internship
-    // detailspage (view for students)
-    // applications(view, label, reply)
-
-    // add new company profile
-    // view ratings
-    // view internships in company
-    // connect public transport to location company
 }
