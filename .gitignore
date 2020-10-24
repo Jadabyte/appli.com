@@ -10,3 +10,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.vscode/settings.json
+/.vagrant/machines/appli-com/virutalbox/creator_uid
