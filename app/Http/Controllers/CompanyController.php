@@ -18,7 +18,6 @@ class CompanyController extends Controller
         return view('registerCompany');
     }
 
-
     public function create(){
         return view('/company/create');
     }
