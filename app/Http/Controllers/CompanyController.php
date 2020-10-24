@@ -18,10 +18,6 @@ class CompanyController extends Controller
         return view('registerCompany');
     }
 
-    public function login(){
-
-        return view('login');
-    }
 
     public function create(){
         return view('/company/create');

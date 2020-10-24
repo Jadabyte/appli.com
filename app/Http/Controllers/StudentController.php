@@ -18,11 +18,6 @@ class StudentController extends Controller
        
     }
 
-    public function login(){
-
-        return view('login');
-    }
-
     public function detail($id){
         return view('student.detail', ['users' => User::findOrFail($id)]);
     }

@@ -21,4 +21,13 @@ class GeneralController extends Controller
     public function footer(){
         return view('components/footer');
     }
+
+    public function login(){
+
+        return view('login');
+    }
+
+    public function logout(){
+        return view ('logout');
+    }
 }

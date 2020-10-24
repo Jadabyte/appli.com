@@ -22,8 +22,8 @@ use App\Http\Controllers\CompanyController;
 
 /* GENERAL*/
 Route::get('/', [GeneralController::class, 'index']);
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LogoutController::class, 'logout']);
+Route::get('/login', [GeneralController::class, 'login']);
+Route::get('/logout', [GeneralController::class, 'logout']);
 Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
