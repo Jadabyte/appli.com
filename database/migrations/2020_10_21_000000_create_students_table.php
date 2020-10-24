@@ -18,11 +18,12 @@ class CreateStudentsTable extends Migration
             //$table->integer('user_id')->unsigned()->nullable();
             $table->string('firstName')->default('');
             $table->string('lastName')->default('');
+            $table->string('r_number', 8);
             $table->string('address')->nullable();
             $table->string('mobile')->nullable();
             $table->string('LinkedIn')->nullable();
             $table->string('portfolio')->nullable();
-            $table->string('category')->nullable();
+            $table->integer('category')->nullable();
             $table->string('biography', 500)->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

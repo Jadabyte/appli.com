@@ -19,7 +19,9 @@ class CreateInternshipsTable extends Migration
             $table->text('description', 500)->nullable();
             $table->string('category')->default('');
             $table->string('requirements', 100)->default('');
-            $table->integer('company_id');
+            $table->integer('skill');
+            $table->integer('period');
+            $table->foreignId('company_id');
             $table->boolean('availablity');
             $table->timestamps();
         });
