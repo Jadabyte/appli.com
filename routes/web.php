@@ -37,8 +37,8 @@ Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'detail']);
 
 /* LOGIN BOTH */
-Route::get('/login', [StudentController::class, 'login']);
-Route::post('/login', [StudentController::class, 'handleLogin']);
+Route::get('/login', [GeneralController::class, 'login']);
+Route::post('/login', [GeneralController::class, 'handleLogin']);
 
 /* COMPANIES*/
 Route::get('/registerCompany', [CompanyController::class, 'register']);
