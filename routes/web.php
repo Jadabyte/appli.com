@@ -31,12 +31,18 @@ Route::get('/components/footer', [GeneralController::class, 'footer']);
 
 /* STUDENTS*/
 Route::get('/registerStudent', [StudentController::class, 'register']);
+Route::post('/registerStudent', [StudentController::class, 'handleRegister']);
+
 Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'detail']);
 
+/* LOGIN BOTH */
+Route::get('/login', [StudentController::class, 'login']);
+Route::post('/login', [StudentController::class, 'handleLogin']);
 
 /* COMPANIES*/
 Route::get('/registerCompany', [CompanyController::class, 'register']);
+Route::post('/registerCompany', [CompanyController::class, 'handleRegister']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
 Route::get('/company/{id}', [CompanyController::class, 'detail']);
