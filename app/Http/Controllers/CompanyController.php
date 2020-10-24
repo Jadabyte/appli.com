@@ -13,7 +13,8 @@ class CompanyController extends Controller
     public function index(){
 
         $companies = DB::table('companies')->get();
-        return view('company.index', ['companies' => $companies]);
+        $users = DB::table('users')->get();
+        return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
     public function register(){
@@ -34,11 +35,11 @@ class CompanyController extends Controller
         $houseNumber = $company->house_number;
         $postalCode = $company->postal_code;
 
-        $location = Http::withToken('eyJhbGciOiJSUzUxMiIsImN0eSI6IkpXVCIsImlzcyI6IkhFUkUiLCJhaWQiOiJzOW5uNzg3eW1pdUgwR0d5Rm50cSIsImlhdCI6MTYwMzA5MTc4NSwiZXhwIjoxNjAzMTc4MTg1LCJraWQiOiJqMSJ9.ZXlKaGJHY2lPaUprYVhJaUxDSmxibU1pT2lKQk1qVTJRMEpETFVoVE5URXlJbjAuLmxRS1VnWmFTV21ya3dSNEtsV21qTGcudzNseHpPYkVmWWNzZmFzSlRwU0VhRV9PZ0lOc25iZ2NGZHdMTnZ5cy1EOTRldFVCeEE2TU1HYU1uNTlrSVRzZE5KdnJhNUpLSHJqM0xlU2FOT3BfQTBibTRoMW5pcnJ3TkNHSlpEaU1YVC15OW9MY1c2Mk1lR2dSMVJ0YjlXQXBsWTVidDNQVEZVWDR3QUxkM25EUkh3LkhQU2RJbExTb1dGQzJheUEzcjZVZUl0Zm04MGFUOWc3bXRuY2tSaDl5WG8.KBLGheNTDtGxWAiy2diTh5wP3wJI7kz0_Q7SkNy4ug347If2d-L9zOoXkUxes5HH7T4Jnx1f2W0hfkpX4ysEVDmzos1m_aePfC3nwXIp1oGt9x_fidj1lwE0cbepZ5O7msnGOzkc9DejT6mmPnIqGwTrnfyMSZZSmbP0uWdRllSEJ1zdIKsXUZDu3zcLBtDsGYSdxIEP7hjig6PEZcur2N89mOYYY7FTiGKbURA5G6kNW-U2tJ3DmpekpnW8PpAcIOINspg0_n25G4-uiRVnX6wFHq1jVsDdkrFbQqjvVsvqwUogH162a1fQVmXuX28ct09rt35unWGcVlPe1hOzbQ')->get('https://geocode.search.hereapi.com/v1/geocode?q=' . $street . '+' . $houseNumber . '%2C+' . $postalCode . '+' . $city);
+        $location = Http::withToken('eyJhbGciOiJSUzUxMiIsImN0eSI6IkpXVCIsImlzcyI6IkhFUkUiLCJhaWQiOiJzOW5uNzg3eW1pdUgwR0d5Rm50cSIsImlhdCI6MTYwMzU2NTg2MiwiZXhwIjoxNjAzNjUyMjYyLCJraWQiOiJqMSJ9.ZXlKaGJHY2lPaUprYVhJaUxDSmxibU1pT2lKQk1qVTJRMEpETFVoVE5URXlJbjAuLnZHQWl2SHIwd0xla3JDQ0M0RWJEWUEuQUJPYkhNMlZUUmljRkdXOHVka1pnc3ZjU1J2WlhtcHA2N25uYXZHM21zYW9tM0dtaXB0UEx3UExpOFFQRnRIYVRqT2ZLVTFkRG12RTctYzMtNHh3cmg5cWxPWGFhQ1lUc283c0VmRHVpemVxT0xSMFJYdk0yajlvb25Ob0pmNWRic0RlOVlRSHJ6ajBPeXhENENiUHNRLm10VDBCb1RjVkd3ZnVjWWNrMDNFX0Q1NlpvWXhnMC1QTzN6czlTREdXX2c.Q3FrJ409krQxOUmXy3vblQ1QhUVxPWsJOgDBt6FF3jVlr3ahGQqyfY63xHiWZf3cbw4wcdUA9lvq-0eHlpfDJUNc60o2FUND2z0V0Fa70PRKk9ia6HMoOzR2ONCYysal92H4r_UYXduBq8e4EniDGngibJV41jzNWWDtvMemfvVa4mf2wcaKUSOkRMbZaGqoSiVMs4HK0_ip3mGTSafIVBeNDyxR13A7C3KHfaWgvm1kB-yRFX1oJprY_4K_sj0zUqbxd73pJJ6Oey5CToVmqASHMC7-E1NEI3wkw0tKAvTyvDErxYXypotA2ikuE6ftiF08wHLNFNjbFtzt-iAWug')->get('https://geocode.search.hereapi.com/v1/geocode?q=' . $street . '+' . $houseNumber . '%2C+' . $postalCode . '+' . $city);
         $lat = $location->json()['items'][0]['position']['lat'];
         $lng = $location->json()['items'][0]['position']['lng'];
 
-        $stations = Http::withToken('eyJhbGciOiJSUzUxMiIsImN0eSI6IkpXVCIsImlzcyI6IkhFUkUiLCJhaWQiOiJzOW5uNzg3eW1pdUgwR0d5Rm50cSIsImlhdCI6MTYwMzA5MTc4NSwiZXhwIjoxNjAzMTc4MTg1LCJraWQiOiJqMSJ9.ZXlKaGJHY2lPaUprYVhJaUxDSmxibU1pT2lKQk1qVTJRMEpETFVoVE5URXlJbjAuLmxRS1VnWmFTV21ya3dSNEtsV21qTGcudzNseHpPYkVmWWNzZmFzSlRwU0VhRV9PZ0lOc25iZ2NGZHdMTnZ5cy1EOTRldFVCeEE2TU1HYU1uNTlrSVRzZE5KdnJhNUpLSHJqM0xlU2FOT3BfQTBibTRoMW5pcnJ3TkNHSlpEaU1YVC15OW9MY1c2Mk1lR2dSMVJ0YjlXQXBsWTVidDNQVEZVWDR3QUxkM25EUkh3LkhQU2RJbExTb1dGQzJheUEzcjZVZUl0Zm04MGFUOWc3bXRuY2tSaDl5WG8.KBLGheNTDtGxWAiy2diTh5wP3wJI7kz0_Q7SkNy4ug347If2d-L9zOoXkUxes5HH7T4Jnx1f2W0hfkpX4ysEVDmzos1m_aePfC3nwXIp1oGt9x_fidj1lwE0cbepZ5O7msnGOzkc9DejT6mmPnIqGwTrnfyMSZZSmbP0uWdRllSEJ1zdIKsXUZDu3zcLBtDsGYSdxIEP7hjig6PEZcur2N89mOYYY7FTiGKbURA5G6kNW-U2tJ3DmpekpnW8PpAcIOINspg0_n25G4-uiRVnX6wFHq1jVsDdkrFbQqjvVsvqwUogH162a1fQVmXuX28ct09rt35unWGcVlPe1hOzbQ')->get('https://transit.hereapi.com/v8/stations?in=' . $lat. ',' . $lng . ';r=2000&maxPlaces=10');
+        $stations = Http::withToken('eyJhbGciOiJSUzUxMiIsImN0eSI6IkpXVCIsImlzcyI6IkhFUkUiLCJhaWQiOiJzOW5uNzg3eW1pdUgwR0d5Rm50cSIsImlhdCI6MTYwMzU2NTg2MiwiZXhwIjoxNjAzNjUyMjYyLCJraWQiOiJqMSJ9.ZXlKaGJHY2lPaUprYVhJaUxDSmxibU1pT2lKQk1qVTJRMEpETFVoVE5URXlJbjAuLnZHQWl2SHIwd0xla3JDQ0M0RWJEWUEuQUJPYkhNMlZUUmljRkdXOHVka1pnc3ZjU1J2WlhtcHA2N25uYXZHM21zYW9tM0dtaXB0UEx3UExpOFFQRnRIYVRqT2ZLVTFkRG12RTctYzMtNHh3cmg5cWxPWGFhQ1lUc283c0VmRHVpemVxT0xSMFJYdk0yajlvb25Ob0pmNWRic0RlOVlRSHJ6ajBPeXhENENiUHNRLm10VDBCb1RjVkd3ZnVjWWNrMDNFX0Q1NlpvWXhnMC1QTzN6czlTREdXX2c.Q3FrJ409krQxOUmXy3vblQ1QhUVxPWsJOgDBt6FF3jVlr3ahGQqyfY63xHiWZf3cbw4wcdUA9lvq-0eHlpfDJUNc60o2FUND2z0V0Fa70PRKk9ia6HMoOzR2ONCYysal92H4r_UYXduBq8e4EniDGngibJV41jzNWWDtvMemfvVa4mf2wcaKUSOkRMbZaGqoSiVMs4HK0_ip3mGTSafIVBeNDyxR13A7C3KHfaWgvm1kB-yRFX1oJprY_4K_sj0zUqbxd73pJJ6Oey5CToVmqASHMC7-E1NEI3wkw0tKAvTyvDErxYXypotA2ikuE6ftiF08wHLNFNjbFtzt-iAWug')->get('https://transit.hereapi.com/v8/stations?in=' . $lat. ',' . $lng . ';r=2000&maxPlaces=10');
 
         $score = count($stations->json()['stations']);
 

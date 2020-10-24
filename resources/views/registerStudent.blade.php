@@ -1,22 +1,10 @@
 <form action="" method="post">
+    @csrf
     <h1>Create Student account</h1>
-    <?php if (isset($error)): ?>
-        <div role="alert">
-            <?php echo $error ?>
-        </div>
-    <?php endif; ?>
-    <?php if (isset($success)): ?>
-        <div role="alert">
-            <?php echo $success ?>
-            <p>You can now log in!</p>
-            <a href="login">Go to log In</a>
-        </div>
-    <?php endif; ?>
+
     <div>
         <label for="email">Email address</label>
-        <input type="email" name="email" placeholder="Email address" id="email" aria-describedby="emailHelp">
-        <small id="emailHelp">Email must end in @student.thomasmore.be</small>
-        <span id="available"></span>
+        <input type="email" name="email" placeholder="Email address" id="email">
     </div>
     <div>
         <label for="firstName">First name</label>
@@ -29,7 +17,6 @@
     <div>
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="Password" id="password">
-        <small id="passwordHelp">Password must include at least 1 uppercase, 1 lowercase and a number.</small>
     </div>
     <button type="submit">Submit</button>
     <div>

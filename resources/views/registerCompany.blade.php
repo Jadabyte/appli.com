@@ -1,19 +1,8 @@
 {{-- REGISTERPAGE STUDENTS AND COMPANIES --}}
 
 <form action="" method="post">
+    @csrf
     <h1>Create Company account</h1>
-    <?php if (isset($error)): ?>
-        <div role="alert">
-            <?php echo $error ?>
-        </div>
-    <?php endif; ?>
-    <?php if (isset($success)): ?>
-        <div role="alert">
-            <?php echo $success ?>
-            <p>You can now log in!</p>
-            <a href="login">Go to log In</a>
-        </div>
-    <?php endif; ?>
     <div>
         <label for="email">Email address</label>
         <input type="email" name="email" placeholder="Email address" id="email" aria-describedby="emailHelp">

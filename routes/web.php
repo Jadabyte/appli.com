@@ -22,20 +22,27 @@ use App\Http\Controllers\CompanyController;
 
 /* GENERAL*/
 Route::get('/', [GeneralController::class, 'index']);
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LogoutController::class, 'logout']);
+Route::get('/login', [GeneralController::class, 'login']);
+Route::get('/logout', [GeneralController::class, 'logout']);
 Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
 
 
 /* STUDENTS*/
-Route::get('/registerStudent', [StudentController::class, 'index']);
-Route::get('/student', [StudentController::class, 'index']);
+Route::get('/registerStudent', [StudentController::class, 'register']);
+Route::post('/registerStudent', [StudentController::class, 'handleRegister']);
 
+Route::get('/student', [StudentController::class, 'index']);
+Route::get('/student/{id}', [StudentController::class, 'detail']);
+
+/* LOGIN BOTH */
+Route::get('/login', [GeneralController::class, 'login']);
+Route::post('/login', [GeneralController::class, 'handleLogin']);
 
 /* COMPANIES*/
-Route::get('/registerCompany', [CompanyController::class, 'index']);
+Route::get('/registerCompany', [CompanyController::class, 'register']);
+Route::post('/registerCompany', [CompanyController::class, 'handleRegister']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
 Route::get('/company/{id}', [CompanyController::class, 'detail']);

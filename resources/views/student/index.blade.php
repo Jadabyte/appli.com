@@ -38,9 +38,16 @@
 </div>
 <a href="#">Reset filters</a>
 
-<div>
-    <img src="" alt="company profile picture">
-    <h3>title</h3>
-    <p>description</p>
-    <a href="#">more</a>
-</div>
+@foreach ($internships as $i)
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="..." alt="logo company image">
+                <div class="card-body">
+                    <h3 class="card-title">{{$i->title}}</h3>
+                    <h4 class="card-title">{{$i->company_id}}, {{$i->postal_code}} {{$i->city}}</h4>
+                    <p class="card-text">{{$i->description}}</p>
+                    <a href="/internship/{{$i->id}}">More</a>
+                </div>
+        </div>
+    </div>
+@endforeach

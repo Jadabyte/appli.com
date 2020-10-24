@@ -1,6 +1,7 @@
 {{-- LOGINPAGE --}}
 
 <form action="" method="post">
+    @csrf
     <div>
         <label for="email">Email</label>
         <input type="email" placeholder="Enter email" name="email" id="email">
