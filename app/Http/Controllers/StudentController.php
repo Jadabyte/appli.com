@@ -14,8 +14,18 @@ class StudentController extends Controller
 
     public function register(){
 
+        $data['students'] = \DB::table('students')->get();
+        return view('student/index', $data);
+    }
+
+    public function show($student){
+        $data['students'] = \DB::table('students')->get();
+        return view('student/show', $data);
+    }
+
+    public function register(){
+
         return view('registerStudent');
-       
     }
 
     public function handleRegister(Request $request){
@@ -28,7 +38,7 @@ class StudentController extends Controller
         //dd($user);
         return redirect('student');
     }
-    
+
 
     public function detail($id){
         return view('student.detail', ['users' => User::findOrFail($id)]);

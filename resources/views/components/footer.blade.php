@@ -2,11 +2,12 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <p>Copyright Appli</p>
+                <p style="color:#011C3A">Copyright Appli</p>
             </div>
             <div class="modal-footer">
-                2020
+                <p style="color:#011C3A">2020</p>
             </div>
         </div>
     </div>
 </div>
+

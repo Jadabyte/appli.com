@@ -1,11 +1,10 @@
 <?php
-use \Illuminate\Support\Facades\DB;
+
 namespace Database\Seeders;
 
-use Carbon\Traits\Timestamp;
 use Illuminate\Database\Seeder;
 
-class CompanySeeder extends Seeder
+class StudentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Companies::factory()->count(20)->create();
+        \App\Models\Students::factory()->count(20)->create();
     }
 }
