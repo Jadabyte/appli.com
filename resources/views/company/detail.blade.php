@@ -1,17 +1,20 @@
-{{-- LONG DETAILPAGE STUDENT--}}
+{{-- LONG DETAILPAGE COMPANY + OUTSTANDING INTERNSHIPS--}}
 
-@extends('layouts/appli')
+{{--     <h1>{{$name}}</h1>
 
-@section('title')
-    Company :name
-@endsection
-@section('content')
-        <div class="card-group">
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h3 class="card-title">Company :name</h3>
-                    </div>
-            </div>
-@endsection
+    <img src="#" alt="">Image company
 
+    <h2>{{$location}}</h2>
+
+    <p>{{$description}}</p>
+
+    <ul>
+        @foreach ($internships as $internship)
+        <li>{{$internship}} <a href ="#">More</a></li>
+        @endforeach
+
+    </ul> --}}
+
+    <h1>Detail</h1>
+
+    <p>public transport score: {{ $score }}</p>

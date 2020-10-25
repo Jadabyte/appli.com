@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts/appli')
 
 @section('title')
@@ -40,3 +41,10 @@
 </div>
 @endsection
 
+=======
+{{-- LIST OF INTERNSHIPS --}}
+
+    <h1>Internships</h1>
+
+
+>>>>>>> master

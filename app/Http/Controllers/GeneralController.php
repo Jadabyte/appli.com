@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 
 class GeneralController extends Controller
 {
-    public function appli(){
-        return view('layouts/appli');
-    }
-
     public function header(){
         return view('components/header');
     }
@@ -24,5 +20,14 @@ class GeneralController extends Controller
 
     public function footer(){
         return view('components/footer');
+    }
+
+    public function login(){
+
+        return view('login');
+    }
+
+    public function logout(){
+        return view ('logout');
     }
 }

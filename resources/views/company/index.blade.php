@@ -20,16 +20,21 @@
 </div>
 <a href="#">reset filters</a>
 
-{{-- @foreach ()
+@foreach ($users as $u)
     <div class="card-group">
         <div class="card">
             <img class="card-img-top" src="..." alt="logo company image">
                 <div class="card-body">
-                    <h3 class="card-title">{{$u->name}}</h3>
+                    <h3 class="card-title">{{$u->firstName}}</h3>
                     <h4 class="card-title">{{$u->category}}</h4>
                     <a href="{{$u->portfolio}}">Porfolio</a>
                     <a href="/student/{{$u->id}}">More</a>
                 </div>
         </div>
     </div>
-@endforeach --}}
+@endforeach
+
+<!-- temporary list of all companies -->
+@foreach( $companies as $company )
+    <a href="/company/{{ $company->id }}">{{ $company->name }}</a>
+@endforeach

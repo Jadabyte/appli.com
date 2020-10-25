@@ -17,18 +17,15 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             //$table->integer('user_id')->unsigned()->nullable();
             $table->string('name');
+            $table->string('street');
+            $table->integer('house_number');
+            $table->integer('postal_code');
+            $table->string('city');
+            $table->integer('category');
+            $table->string('mail');
+            $table->string('phone');
             $table->string('logo');
-            $table->string('category')->default('');
-            $table->string('street_and_number')->default('');
-            $table->string('pobox')->default('');
-            $table->string('postal_code')->default('');
-            $table->string('city')->default('');
-            $table->string('mail')->default('');
-            $table->string('telephone')->nullable();
-            $table->text('description', 300)->nullable();
-            $table->timestamp('mail_verified_at')->nullable();
-            $table->string('LinkedIn')->nullable();
-            $table->string('website')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }
