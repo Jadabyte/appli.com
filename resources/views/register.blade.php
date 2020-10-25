@@ -15,11 +15,11 @@
                 <h2 class="text-center"><strong>Register</strong></h2>
                 <div class="form-group">
                     <label for="firstName">First name</label>
-                    <input class="form-control" type="password" name="firstName" placeholder="Firstname">
+                    <input class="form-control" type="text" name="firstName" placeholder="Firstname">
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last name</label>
-                    <input class="form-control" type="password" name="lastName" placeholder="Lastname">
+                    <input class="form-control" type="text" name="lastName" placeholder="Lastname">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>

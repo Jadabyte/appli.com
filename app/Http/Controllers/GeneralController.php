@@ -38,21 +38,38 @@ class GeneralController extends Controller
         $user->lastName = $request->input('lastName');
         $user->email = $request->input('email');
         $user->password = \Hash::make($request->input('password'));
-        $user->isStudent = $request->input('isStudent');
-        $user->save();
-        //dd($user);
-        if($user->isStudent){
-            return redirect('student');
-        }
-        if(!$user->isStudent){
-            return redirect('company');
-        }
+        //$user->isStudent = $request->input('isStudent');
         
+        //dd($user);
+        $data = $request->input('isStudent');
+        if (empty($request->input('isStudent'))) {
+            $user->isStudent = 0;
+            $user->save();
+            return redirect('company');
+        }else{
+            $user->isStudent = 1;
+            $user->save();
+            return redirect('student');
+        }        
     }
 
     public function login(){
 
         return view('login');
+    }
+    
+    public function handleLogin(Request $request, $user){
+        $credentials = $request->only(['email', 'password']);
+        if( \Auth::attempt($credentials) ){
+            if ($user->isStudent === 0) {
+                return redirect('company');
+            }else{
+                return redirect('student');
+            }  
+        } //foutmelding genereren
+
+        //dd($result);
+        return view('users/login');
     }
 
     public function logout(){
