@@ -28,25 +28,20 @@ Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
 
-
-/* STUDENTS*/
-Route::get('/registerStudent', [StudentController::class, 'register']);
-Route::post('/registerStudent', [StudentController::class, 'handleRegister']);
-
-Route::get('/student', [StudentController::class, 'index']);
-Route::get('/student/{id}', [StudentController::class, 'detail']);
-
-/* LOGIN BOTH */
+/* USERS */
+Route::get('/register', [GeneralController::class, 'register']);
+Route::post('/register', [GeneralController::class, 'handleRegister']);
 Route::get('/login', [GeneralController::class, 'login']);
 Route::post('/login', [GeneralController::class, 'handleLogin']);
 
+/* STUDENTS*/
+Route::get('/student', [StudentController::class, 'index']);
+Route::get('/student/{id}', [StudentController::class, 'detail']);
+
 /* COMPANIES*/
-Route::get('/registerCompany', [CompanyController::class, 'register']);
-Route::post('/registerCompany', [CompanyController::class, 'handleRegister']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
 Route::get('/company/{id}', [CompanyController::class, 'detail']);
-
 
 /* INTERNSHIPS*/
 Route::get('/internship', [InternshipController::class, 'index']);
