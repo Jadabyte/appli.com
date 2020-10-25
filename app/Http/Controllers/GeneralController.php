@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class GeneralController extends Controller
 {
+    public function appli(){
+        return view('layouts/appli');
+    }
+
     public function header(){
         return view('components/header');
     }

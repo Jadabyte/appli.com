@@ -23,7 +23,8 @@ class ReviewFactory extends Factory
     {
         return [
             'title' => $this->faker->realText(50),
-            'user_id' => $this->faker->randomDigit
+            'user_id' => $this->faker->randomDigit,
+            'content' => $this->faker->text($maxNbChars = 200)
         ];
     }
 }

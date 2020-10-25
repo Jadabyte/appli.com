@@ -17,6 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->string('title');
             $table->foreignId('user_id');
+            $table->text('content');
             $table->timestamps();
         });
     }
