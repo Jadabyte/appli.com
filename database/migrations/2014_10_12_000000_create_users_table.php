@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('isStudent');
-            $table->string('city')->default('');
             $table->timestamp('mail_verified_at');
             $table->rememberToken();
             $table->timestamps();
