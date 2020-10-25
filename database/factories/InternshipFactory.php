@@ -23,7 +23,11 @@ class InternshipFactory extends Factory
     {
         return [
             'title' => $this->faker->jobTitle,
-            'company_id' => $this->faker->randomDigit
+            'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
+            'category' =>$this->faker->jobTitle,
+            'requirements' =>$this->faker->realText($maxNbChars = 100),
+            'company_id' => $this->faker->randomDigit,
+            'availability' =>$this->faker->numberBetween($min = 0, $max = 1)
         ];
     }
 }

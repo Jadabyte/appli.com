@@ -22,7 +22,18 @@ class CompanyFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->company
+            'name' => $this->faker->company,
+            'logo' => $this->faker->image,
+            'category' =>$this->faker->jobTitle,
+            'street_and_number' => $this->faker->streetAddress,
+            'pobox' => $this->faker->buildingNumber,
+            'postal_code' => $this->faker->postcode,
+            'city' => $this->faker->city,
+            'mail' => $this->faker->companyEmail,
+            'telephone' => $this->faker->phoneNumber,
+            'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
+            'LinkedIn' => $this->faker->url,
+            'website' => $this->faker->url
         ];
     }
 }

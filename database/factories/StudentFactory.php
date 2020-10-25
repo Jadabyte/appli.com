@@ -25,12 +25,12 @@ class StudentsFactory extends Factory
             'firstName' => $this->faker->firstName,
             'lastName' => $this->faker->lastName,
             'address' => $this->faker->address,
-            'telephone' => $this->faker->phoneNumber,
+            'mobile' => $this->faker->phoneNumber,
             'LinkedIn' => $this->faker->url,
             'portfolio' => $this->faker->url,
             'category' =>$this->faker->jobTitle,
             'biography' => $this->faker->realText($maxNbChars = 500, $indexSize = 2),
-            'mail' => $this->faker->email,
+            'email' => $this->faker->email,
             'password' =>$this->faker->password
         ];
     }
