@@ -14,8 +14,22 @@ class StudentController extends Controller
 
     public function register(){
 
-        return view('registerStudent');
+        $data['students'] = \DB::table('students')->get();
+        return view('student/index', $data);
+    }
 
+    public function show($student){
+        $data['students'] = \DB::table('students')->get();
+        return view('student/show', $data);
+    }
+
+    public function register(){
+
+        return view('registerStudent');
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
     }
 
     public function handleRegister(Request $request){

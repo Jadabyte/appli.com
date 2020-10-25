@@ -25,8 +25,8 @@ class CompanyController extends Controller
         return view('registerCompany');
     }
 
-    public function create(){
-        return view('/company/create');
+    public function login(){
+
     }
 
     public function detail($id){
@@ -49,14 +49,15 @@ class CompanyController extends Controller
         return view('company.detail', ['companies' => Company::findOrFail($id), 'score' => $score]);
     }
 
+    public function create(){
+        return view('company/create');
+    }
 
-    // list all companies
-    // add new internship
-    // detailspage (view for students)
-    // applications(view, label, reply)
+    public function detail($id){
+        return view('company/show', ['companies' => Company::findOrFail($id)]);
+    }
 
-    // add new company profile
-    // view ratings
-    // view internships in company
-    // connect public transport to location company
+    public function show(){
+        return view('components/showApplicationsFromStudents');
+    }
 }

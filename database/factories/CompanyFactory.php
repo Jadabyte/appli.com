@@ -22,19 +22,20 @@ class CompanyFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => $this->faker->randomDigit,
             'name' => $this->faker->company,
-            'street' => $this->faker->streetName,
+            'logo' => $this->faker->image,
             'category' =>$this->faker->jobTitle,
-            'house',
+            'street' => $this->faker->streetName,
+            'houseNumber' => $this->faker->buildingNumber,
             'pobox' => $this->faker->buildingNumber,
-            'postal_code' => $this->faker->postcode,
+            'postalCode' => $this->faker->postcode,
             'city' => $this->faker->city,
             'mail' => $this->faker->companyEmail,
             'telephone' => $this->faker->phoneNumber,
+            'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
             'LinkedIn' => $this->faker->url,
-            'website' => $this->faker->url,
-            'logo' => $this->faker->image,
-            'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2)
+            'website' => $this->faker->url
         ];
     }
 }

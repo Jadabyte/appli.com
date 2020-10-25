@@ -25,15 +25,10 @@ class UserFactory extends Factory
         return [
             'firstName' => $this->faker->firstName,
             'lastName' => $this->faker->lastName,
-            'address' => $this->faker->address,
-            'mobile' => $this->faker->phoneNumber,
-            'LinkedIn' => $this->faker->url,
-            'portfolio' => $this->faker->url,
-            'category' =>$this->faker->jobTitle,
-            'biography' => $this->faker->realText($maxNbChars = 500, $indexSize = 2),
             'email' => $this->faker->unique()->safeEmail,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10)
+            'isStudent' => $this->faker->numberBetween($min = 0, $max = 1),
+            'mail_verified_at' => $this->faker->dateTime()
         ];
     }
 }

@@ -24,8 +24,9 @@ class InternshipFactory extends Factory
         return [
             'title' => $this->faker->jobTitle,
             'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
-            'category' =>$this->faker->jobTitle,
-            'requirements' =>$this->faker->realText($maxNbChars = 100),
+            'category' => $this->faker->jobTitle,
+            'requirements' => $this->faker->realText($maxNbChars = 100),
+            'internshipPeriod_id' => $this->faker->randomDigit,
             'company_id' => $this->faker->randomDigit,
             'availability' =>$this->faker->numberBetween($min = 0, $max = 1)
         ];

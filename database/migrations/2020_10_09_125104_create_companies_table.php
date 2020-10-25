@@ -15,17 +15,20 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
-            //$table->integer('user_id')->unsigned()->nullable();
+            $table->foreignId('user_id');
             $table->string('name');
-            $table->string('street');
-            $table->integer('house_number');
-            $table->integer('postal_code');
-            $table->string('city');
-            $table->integer('category');
-            $table->string('mail');
-            $table->string('phone');
             $table->string('logo');
-            $table->text('description');
+            $table->string('category')->default('');
+            $table->string('street')->default('');
+            $table->string('houseNumber')->default('');
+            $table->string('pobox')->default('');
+            $table->string('postalCode')->default('');
+            $table->string('city')->default('');
+            $table->string('mail')->default('');
+            $table->string('telephone')->nullable();
+            $table->text('description', 300)->nullable();
+            $table->string('LinkedIn')->nullable();
+            $table->string('website')->nullable();
             $table->timestamps();
         });
     }

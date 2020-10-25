@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Review;
+use App\Models\internshipsSkill;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ReviewFactory extends Factory
+class internshipsSkillFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Review::class;
+    protected $model = internshipsSkill::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,8 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->realText(50),
-            'user_id' => $this->faker->randomDigit,
-            'content' => $this->faker->text($maxNbChars = 200)
+            'internship_id' => $this->faker->randomDigit,
+            'skill_id' => $this->faker->randomDigit
         ];
     }
 }

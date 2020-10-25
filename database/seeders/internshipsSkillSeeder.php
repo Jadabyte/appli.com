@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class StudentSeeder extends Seeder
+class internshipsSkillSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Student::factory()->count(20)->create();
+        \App\Models\internshipsSkill::factory()->count(20)->create();
     }
 }
