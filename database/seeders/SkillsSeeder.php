@@ -16,12 +16,17 @@ class SkillsSeeder extends Seeder
         \DB::table('skills')->insert(
         [
             'title' => "Laravel"
-        ],
+        ]);
+
+        \DB::table('skills')->insert(
         [
             'title' => "Javascript"
-        ],
+        ]);
+
+        \DB::table('skills')->insert(
         [
             'title' => "Adobe XD"
         ]);
+
     }
 }

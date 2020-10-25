@@ -26,34 +26,35 @@ class InternshipSeeder extends Seeder
                     - Interested in creative tools, social media, and entrepreneurship
                     - Comfortable with Javascript, React, and python
                     - Proactive: Identifies problems and solutions",
-                'internshipPeriod_id' => 5,
+                'internshipPeriod_id' => 0,
                 'company_id' => 4,
                 'availability' => 1
             ]);
 
-        /*$internship2 = new \App\Models\Internship();
-        $internship2 ->id = '2';
-        $internship2 ->title = 'UX/ UI Designer';
-        $internship2 ->description = 'Copart is looking for UX/ UI Intern, we are seeking a passionate, opinionated and creative individual who can design web applications from the ground up. The successful candidate will be a designer who understands web strengths and constraints, and builds pixel perfect solutions.';
-        $internship2 ->category='Design';
-        $internship2 ->requirements='- Develop well-structured web applications using modern, cutting edge JavaScript libraries/frameworks like ReactJS, ReactNative, Node.js etc.
-        - Work with UX designers and other developers to build modular, reusable components and compelling web applications.
-        - Passion for creating experiences that users will rave about.
-        - Learn quickly and be productive in a highly collaborative, lightning-fast environment.
-        - Follow and promote best practices';
-        $internship2 ->company_id= '7';
-        $internship2 ->availability='1';
-        $internship2 ->save();
+        \DB::table('internships')->insert(
+            [
+                'title' => "UX/ UI Designer",
+                'description' => "Copart is looking for UX/ UI Intern, we are seeking a passionate, opinionated and creative individual who can design web applications from the ground up. The successful candidate will be a designer who understands web strengths and constraints, and builds pixel perfect solutions.",
+                'category' => "Design",
+                'requirements' =>
+                    "- Develop well-structured web applications using modern, cutting edge JavaScript libraries/frameworks like ReactJS, ReactNative, Node.js etc.
+                    - Work with UX designers and other developers to build modular, reusable components and compelling web applications.",
+                'internshipPeriod_id' => 2,
+                'company_id' => 4,
+                'availability' => 1
+            ]);
 
-        $internship3 = new \App\Models\Internship();
-        $internship3 ->id = '3';
-        $internship3 ->title = 'Hybrid';
-        $internship3 ->description = 'Front-End Development/Designer';
-        $internship3 ->category='Hybrid';
-        $internship3 ->requirements='- CSS3, Html, JavaScript, NodeJS
-        - Sketch, Adobe Illustrator, Procreate';
-        $internship3 ->company_id= '4';
-        $internship3 ->availability='0';
-        $internship3 ->save();*/
+        \DB::table('internships')->insert(
+            [
+                'title' => "Hybrid",
+                'description' => "Front-End Development/Designer",
+                'category' => "Hybrid",
+                'requirements' =>
+                    "- CSS3, Html, JavaScript, NodeJS
+                    - Sketch, Adobe Illustrator, Procreate",
+                'internshipPeriod_id' => 1,
+                'company_id' => 12,
+                'availability' => 0
+            ]);
     }
 }

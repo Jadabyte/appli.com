@@ -17,12 +17,16 @@ class InternshipPeriodSeeder extends Seeder
         \DB::table('internshipPeriods')->insert(
         [
             'title' => "1st Semester"
-        ],
+        ]);
+
+        \DB::table('internshipPeriods')->insert(
         [
             'title' => "2nd Semester"
-        ],
+        ]);
+
+        \DB::table('internshipPeriods')->insert(
         [
-            'title' => "Whole Year"
+            'title' => "Entire Year"
         ]);
     }
 }
