@@ -17,7 +17,12 @@
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="Password" id="password">
     </div>
-    <button type="submit">Submit</button>
+    <div>
+        <p>Check if you are a student:</p>
+        <input type="checkbox" id="isStudent" name="isStudent" value="isStudent">
+        <label for="isStudent">I am a student</label><br>
+    </div>
+    <button type="submit">Register</button>
     <div>
         <p class="acc">Already have an account?</p>
         <div>
