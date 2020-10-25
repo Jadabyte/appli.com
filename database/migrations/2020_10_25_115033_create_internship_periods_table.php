@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReviewsTable extends Migration
+class CreateInternshipPeriodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('internshipPeriods', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->foreignId('user_id');
-            $table->text('content');
+            $table->string('title', 100);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('internshipPeriods');
     }
 }
