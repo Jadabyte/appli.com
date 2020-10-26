@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\GeneralController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\CompanyController;
@@ -41,9 +39,6 @@ Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
 
 /* COMPANIES*/
-Route::get('/company', [CompanyController::class, 'index']);
-Route::get('/company/create', [CompanyController::class, 'create']);
-Route::get('/company/{id}', [CompanyController::class, 'detail']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/{id}', [CompanyController::class, 'show']);
 Route::get('/company/create', [CompanyController::class, 'create']);
