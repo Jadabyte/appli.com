@@ -30,7 +30,7 @@ class CompanyController extends Controller
 
         $location = Http::get('https://geocode.search.hereapi.com/v1/geocode?q=' . $street . '+' . $houseNumber . '%2C+' . $postalCode . '+' . $city . '&apiKey=' . $key);
 
-        if (!($location->ok() && $location->offsetExists('0'))) {
+        if (!($location->ok() && isset($location->json()['items'][0]))) {
 
             return view('company.show', ['companies' => Company::findOrFail($id), 'score' => 'Not found']);
         }
@@ -40,7 +40,7 @@ class CompanyController extends Controller
 
         $stations = Http::get('https://transit.hereapi.com/v8/stations?in=' . $lat. ',' . $lng . ';r=2000&maxPlaces=10' . '&apiKey=' . $key);
 
-        if (!($stations->ok() && $stations->offsetExists('stations'))) {
+        if (!($stations->ok() && isset($stations->json()['stations']))) {
 
             return view('company.show', ['companies' => Company::findOrFail($id), 'score' => 'Not found']);
         }
