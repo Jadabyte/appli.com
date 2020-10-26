@@ -13,11 +13,26 @@
     <form method="post" style="height: 550;">
     @csrf
         <h2 class="sr-only">Login Form</h2>
+        @if( $flash = session('message') )
+            <div class="alert alert-success">{{ $flash }}</div>
+        @endif
+
+        @if( $flash = session('error') )
+            <div class="alert alert-danger">{{ $flash }}</div>
+        @endif
+
+        @if( $errors->any())
+            <ul class="alert alert-danger">
+            @foreach($errors->all() as $e)
+                <li>{{ $e }}</li>
+            @endforeach
+            </ul>
+        @endif
         <div class="illustration">
             <i class="icon ion-ios-locked-outline"></i>
         </div>
         <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email">
+            <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
         </div>
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="Password">

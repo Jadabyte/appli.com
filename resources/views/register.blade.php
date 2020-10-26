@@ -1,10 +1,13 @@
 @extends('layouts/appli')
 
 @section('title')
-    Login
+    Register
 @endsection
 
+
+
 @section('content')
+
     <!-- Start: Registration Form with Photo -->
     <div class="register-photo">
         <img id="logoregisterpage" class="image-fluid logo" src="/applibranding/logoAppli.svg?h=60d8998b2af02b7c83c7ce77b565694b">
@@ -13,17 +16,32 @@
             <form method="post" action="">
                 @csrf
                 <h2 class="text-center"><strong>Register</strong></h2>
+                @if( $flash = session('message') )
+                    <div class="alert alert-success">{{ $flash }}</div>
+                @endif
+
+                @if( $flash = session('error') )
+                    <div class="alert alert-danger">{{ $flash }}</div>
+                @endif
+
+                @if( $errors->any())
+                    <ul class="alert alert-danger">
+                    @foreach($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                    @endforeach
+                    </ul>
+                @endif
                 <div class="form-group">
                     <label for="firstName">First name</label>
-                    <input class="form-control" type="text" name="firstName" placeholder="Firstname">
+                    <input class="form-control" type="text" name="firstName" placeholder="Firstname" value="{{ old('firstName') }}">
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last name</label>
-                    <input class="form-control" type="text" name="lastName" placeholder="Lastname">
+                    <input class="form-control" type="text" name="lastName" placeholder="Lastname" value="{{ old('lastName') }}">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" aria-describedby="emailHelp">
+                    <input class="form-control" type="email" name="email" placeholder="Email" aria-describedby="emailHelp" value="{{ old('email') }}">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -45,4 +63,3 @@
     </div>
     <!-- End: Registration Form with Photo -->
 @endsection
-

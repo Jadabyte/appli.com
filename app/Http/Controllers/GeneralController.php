@@ -33,15 +33,23 @@ class GeneralController extends Controller
     }
 
     public function handleRegister(Request $request){
+
+        $validation = $request->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $request->flash();
+
         $user = new \App\Models\User();
         $user->firstName = $request->input('firstName');
         $user->lastName = $request->input('lastName');
         $user->email = $request->input('email');
         $user->password = \Hash::make($request->input('password'));
-        //$user->isStudent = $request->input('isStudent');
-        
+           
         //dd($user);
-        $data = $request->input('isStudent');
         if (empty($request->input('isStudent'))) {
             $user->isStudent = 0;
             $user->save();
@@ -50,7 +58,10 @@ class GeneralController extends Controller
             $user->isStudent = 1;
             $user->save();
             return redirect('student');
-        }        
+        }
+
+        $request->session()->flash('error', 'Something went wrong 🤔');
+        return redirect('register');
     }
 
     public function login(){
@@ -60,7 +71,8 @@ class GeneralController extends Controller
     
     public function handleLogin(Request $request){
         $credentials = $request->only(['email', 'password']);
-        
+        $request->flash();
+
         if( \Auth::attempt($credentials) ){
             //dd(\Auth::user()->isStudent);
             if (\Auth::user()->isStudent) {
@@ -69,8 +81,8 @@ class GeneralController extends Controller
                 return redirect('company');
             }  
         } //foutmelding genereren
-
-        return view('users/login');
+        $request->session()->flash('error', 'Something went wrong 🤔');
+        return view('login');
     }
 
     public function logout(){

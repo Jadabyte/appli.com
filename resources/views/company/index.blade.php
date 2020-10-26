@@ -21,15 +21,17 @@
 <a href="#">reset filters</a>
 
 @foreach ($users as $u)
-    <div class="card-group">
-        <div class="card">
-            <img class="card-img-top" src="..." alt="logo company image">
-                <div class="card-body">
-                    <h3 class="card-title">{{$u->firstName}} {{$u->lastName}}</h3>
-                    <a href="/student/{{$u->id}}">More</a>
-                </div>
+    @if ($u->isStudent)
+        <div class="card-group">
+            <div class="card">
+                <img class="card-img-top" src="..." alt="logo company image">
+                    <div class="card-body">
+                        <h3 class="card-title">{{$u->firstName}} {{$u->lastName}}</h3>
+                        <a href="/student/{{$u->id}}">More</a>
+                    </div>
+            </div>
         </div>
-    </div>
+    @endif
 @endforeach
 
 <!-- temporary list of all companies -->
