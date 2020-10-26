@@ -58,17 +58,18 @@ class GeneralController extends Controller
         return view('login');
     }
     
-    public function handleLogin(Request $request, $user){
+    public function handleLogin(Request $request){
         $credentials = $request->only(['email', 'password']);
+        
         if( \Auth::attempt($credentials) ){
-            if ($user->isStudent === 0) {
-                return redirect('company');
-            }else{
+            //dd(\Auth::user()->isStudent);
+            if (\Auth::user()->isStudent) {
                 return redirect('student');
+            }else{
+                return redirect('company');
             }  
         } //foutmelding genereren
 
-        //dd($result);
         return view('users/login');
     }
 
