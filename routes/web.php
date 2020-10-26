@@ -36,17 +36,14 @@ Route::post('/login', [GeneralController::class, 'handleLogin']);
 
 /* STUDENTS*/
 Route::get('/student', [StudentController::class, 'index']);
-Route::get('/student/{id}', [StudentController::class, 'detail']);
-Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
+Route::get('/student/update/{id}', [StudentController::class, 'update']);
+//Route::post('/student/update/{id}', [StudentController::class, 'handleUpdate']);
 
 /* COMPANIES*/
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
-Route::get('/company/{id}', [CompanyController::class, 'detail']);
-Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/{id}', [CompanyController::class, 'show']);
-Route::get('/company/create', [CompanyController::class, 'create']);
 Route::get('/components/showApplicationsFromStudents', [CompanyController::class, 'show']);
 
 /* INTERNSHIPS*/
