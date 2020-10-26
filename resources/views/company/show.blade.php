@@ -10,9 +10,8 @@
             <div class="card">
                 <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">
-                        <h3 class="card-title">Company :name</h3>
+                        <h3 class="card-title">{{ $company->name }}</h3>
+                        <p>public transport score: {{ $score }}</p>
                     </div>
             </div>
 @endsection
-
-    <p>public transport score: {{ $score }}</p>

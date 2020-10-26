@@ -33,8 +33,3 @@
         </div>
     @endif
 @endforeach
-
-<!-- temporary list of all companies -->
-@foreach( $companies as $company )
-    <a href="/company/{{ $company->id }}">{{ $company->name }}</a>
-@endforeach

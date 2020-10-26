@@ -32,7 +32,7 @@ class CompanyController extends Controller
 
         if (!($location->ok() && isset($location->json()['items'][0]))) {
 
-            return view('company.show', ['companies' => Company::findOrFail($id), 'score' => 'Not found']);
+            return view('company.show', ['company' => Company::findOrFail($id), 'score' => 'Not found']);
         }
 
         $lat = $location->json()['items'][0]['position']['lat'];
@@ -42,11 +42,11 @@ class CompanyController extends Controller
 
         if (!($stations->ok() && isset($stations->json()['stations']))) {
 
-            return view('company.show', ['companies' => Company::findOrFail($id), 'score' => 'Not found']);
+            return view('company.show', ['company' => Company::findOrFail($id), 'score' => 'Not found']);
         }
 
         $score = count($stations->json()['stations']);
-        return view('company.show', ['companies' => Company::findOrFail($id), 'score' => $score]);
+        return view('company.show', ['company' => Company::findOrFail($id), 'score' => $score]);
     }
 
     public function create(){
