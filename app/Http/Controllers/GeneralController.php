@@ -37,8 +37,8 @@ class GeneralController extends Controller
         $validation = $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => 'required|email',
-            'password' => 'required'
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8'
         ]);
 
         $request->flash();
@@ -48,20 +48,23 @@ class GeneralController extends Controller
         $user->lastName = $request->input('lastName');
         $user->email = $request->input('email');
         $user->password = \Hash::make($request->input('password'));
-           
+        
         //dd($user);
         if (empty($request->input('isStudent'))) {
             $user->isStudent = 0;
             $user->save();
             return redirect('company');
-        }else{
+        }
+
+        if($request->input('isStudent')){
             $user->isStudent = 1;
             $user->save();
             return redirect('student');
         }
-
-        $request->session()->flash('error', 'Something went wrong 🤔');
-        return redirect('register');
+        
+        $request->session()->flash('error', 'Something went wrong 🤔'); 
+        return view('register');
+        
     }
 
     public function login(){
