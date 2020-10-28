@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" id="navigation">
-    <div class="container" id="mobileNav"><a class="navbar-brand" id="brandnameNav" href="#"><img id="logoNav" src="/public/applibranding/logoAppli.svg"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" id="toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container" id="mobileNav"><a class="navbar-brand" id="brandnameNav" href="#"><img id="logoNav" src="/applibranding/logoAppli.svg"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" id="toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
             class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav" id="mobileNav">

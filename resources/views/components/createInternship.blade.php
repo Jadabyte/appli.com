@@ -1,4 +1,4 @@
-@extends('layouts/appli')
+<section>
 <form id="createForm" method="POST" action="">
     @csrf
     @if( $flash = session('message') )
@@ -18,7 +18,7 @@
     @endif
     <div class="form-group" id="createFormGroup">
         <label for="title">Internship title</label>
-        <input class="form-control item" type="text" id="title" placeholder="Title internship" value="{{old('title')}}">
+        <input class="form-control item" type="text" id="title" placeholder=" Title internship" value="{{old('title')}}">
     </div>
 
     <div class="form-group" id="createFormGroup">
@@ -27,7 +27,6 @@
     </div>
 
     <div class="form-group dropdown" id="createFormGroup">
-        <form class="form-inline">
             <div class="form-group">
             <label for="category">Category</label>
             <select class="form-control descInput" placeholder="Category" value="{{old('category')}}">
@@ -37,10 +36,9 @@
                 <option>Hybrid</option>
             </select>
             </div>
-        </form>
     </div>
+
     <div class="form-group dropdown" id="createFormGroup">
-        <form class="form-inline">
             <div class="form-group">
             <label for="internshipPeriod_id">Timeperiod</label>
             <select class="form-control descInput" placeholder="Timeperiod" value="{{old('internshipPeriod_id')}}">
@@ -50,10 +48,9 @@
                 <option>One year</option>
             </select>
             </div>
-        </form>
     </div>
+
     <div class="form-group dropdown" id="createFormGroup">
-        <form class="form-inline">
             <div class="form-group">
             <label for="skills">Required skills for internship</label>
             <select multiple class="form-control descInput" id="multipleDrop" placeholder="Skills" value="{{old('requirements')}}">
@@ -99,11 +96,9 @@
                 <option>Trello</option>
             </select>
             </div>
-        </form>
     </div>
 
     <div class="form-group dropdown" id="createFormGroup">
-        <form class="form-inline">
             <div class="form-group">
             <label for="availability">Internship is available</label>
             <select  class="form-control descInput" placeholder="Availability" value="{{old('availability')}}">
@@ -111,8 +106,6 @@
                 <option value="unavailable">Unavailable</option>
             </select>
             </div>
-        </form>
     <button class="btn btn-primary btn-block" id="buttonCreate" type="submit" style="margin-left:10%">Add internship</button></div>
 </form>
-
-<script src="js/script.min.js"></script>
+</section>

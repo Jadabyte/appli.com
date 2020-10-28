@@ -1,0 +1,84 @@
+.card-group {
+  margin-top: 7.5%;
+}
+
+.nameStudent {
+  color: #EDBD16;
+  margin-top: %;
+  text-align: center;
+  /*margin-top: 0%;*/
+  padding-top: 5%;
+}
+
+#navigation {
+  background-color: #011C3A;
+  /*color: #EDBD16;*/
+  height: 10px;
+  margin-top: 5px;
+  padding-top: 0;
+  z-index: 1;
+  /*width: 100%;*/
+}
+
+#toggler {
+  border-color: #EDBD16;
+  color: #EDBD16;
+}
+
+#logoNav {
+  background-image: url("../../assets/img/logoAppli.svg");
+  margin-top: 30%;
+  margin-bottom: 0;
+  height: 70px;
+}
+
+#sectionDetail {
+  margin-top: 25%;
+  background-color: #EDEFF0;
+}
+
+#footerpad {
+  height: initial;
+  background-color: #011C3A;
+}
+
+#containerFooter {
+  /*padding-top: -5%;*/
+  margin-top: -12.5%;
+}
+
+#navLink {
+  color: #EDBD16;
+}
+
+#navcol-1 {
+  z-index: 1;
+}
+
+#searchField {
+  border-color: #EDBD16;
+  background-color: #EDBD16;
+}
+
+#search-field {
+  border-color: #EDBD16;
+}
+
+#searchIcon {
+  color: #EDBD16;
+}
+
+#navSearch {
+  margin-left: 5%;
+}
+
+#navButton {
+  background-color: #00CF8D;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.navbar-toggler-icon {
+  border-color: #BDED16;
+}
+

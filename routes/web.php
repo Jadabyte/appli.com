@@ -53,7 +53,7 @@ Route::get('/components/showApplicationsFromStudents', [CompanyController::class
 /* INTERNSHIPS*/
 Route::get('/internship', [InternshipController::class, 'index']);
 Route::get('/internship/create', [InternshipController::class, 'create']);
-Route::post('/internship/create', [GeneralController::class, 'handleCreate']);
+Route::post('/internship/create', [InternshipController::class, 'handleCreate']);
 Route::get('/internship/{id}', [InternshipController::class, 'show']);
 
 //nog toe te voegen: apply for internship
