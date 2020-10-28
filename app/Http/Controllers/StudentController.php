@@ -26,10 +26,6 @@ class StudentController extends Controller
     public function register(){
 
         return view('registerStudent');
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     }
 
     public function handleRegister(Request $request){
@@ -48,8 +44,4 @@ class StudentController extends Controller
         return view('student.detail', ['users' => User::findOrFail($id)]);
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 }

@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
->>>>>>> master
 
 use App\Models\Company;
 
