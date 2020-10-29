@@ -17,15 +17,6 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
-    public function register(){
-
-        return view('registerCompany');
-    }
-
-    public function login(){
-
-    }
-
     public function detail($id){
 
         $company = DB::table('companies')->where('id', $id)->first();
@@ -48,10 +39,6 @@ class CompanyController extends Controller
 
     public function create(){
         return view('company/create');
-    }
-
-    public function detail($id){
-        return view('company/show', ['companies' => Company::findOrFail($id)]);
     }
 
     public function show(){

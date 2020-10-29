@@ -28,4 +28,8 @@ class InternshipController extends Controller
 
         return view('internship/createInternship');
     }
+
+    public function apply(){
+        return view('internship/apply');
+    }
 }

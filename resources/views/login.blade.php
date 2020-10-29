@@ -11,12 +11,28 @@
     <img class="img-fluid logo" src="/applibranding/logoAppli.svg?h=60d8998b2af02b7c83c7ce77b565694b" loading="lazy">
 
     <form method="post" style="height: 550;">
+    @csrf
         <h2 class="sr-only">Login Form</h2>
+        @if( $flash = session('message') )
+            <div class="alert alert-success">{{ $flash }}</div>
+        @endif
+
+        @if( $flash = session('error') )
+            <div class="alert alert-danger">{{ $flash }}</div>
+        @endif
+
+        @if( $errors->any())
+            <ul class="alert alert-danger">
+            @foreach($errors->all() as $e)
+                <li>{{ $e }}</li>
+            @endforeach
+            </ul>
+        @endif
         <div class="illustration">
             <i class="icon ion-ios-locked-outline"></i>
         </div>
         <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email">
+            <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
         </div>
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="Password">
@@ -27,8 +43,7 @@
 
         <a class="forgot" href="#">Forgot your email or password?</a>
 
-        <a class="forgot studentreg" href="registerStudent">New student? Go to register for students</a>
-        <a class="forgot" href="registerCompany" style="width: 251px;text-align: center;">New company? Go to register for companies</a>
+        <a class="forgot studentreg" href="register">New here? Go to register page.</a>
     </form>
 </div>
 <!-- End: Login Form Dark -->

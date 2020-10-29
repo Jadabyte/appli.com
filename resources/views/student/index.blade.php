@@ -44,7 +44,7 @@
             <img class="card-img-top" src="..." alt="logo company image">
                 <div class="card-body">
                     <h3 class="card-title">{{$i->title}}</h3>
-                    <h4 class="card-title">{{$i->company_id}}, {{$i->postal_code}} {{$i->city}}</h4>
+                    <h4 class="card-title">company id:{{$i->company_id}} (eigenlijk moet hier naam van bedrijf komen)</h4>
                     <p class="card-text">{{$i->description}}</p>
                     <a href="/internship/{{$i->id}}">More</a>
                 </div>

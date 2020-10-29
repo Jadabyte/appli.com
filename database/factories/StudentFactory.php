@@ -27,7 +27,7 @@ class StudentFactory extends Factory
             'LinkedIn' => $this->faker->url,
             'portfolio' => $this->faker->url,
             //'category' =>$this->faker->jobTitle,
-            'category' =>$this->faker->randomDigit,
+            'category_id' =>$this->faker->randomDigit,
             'biography' => $this->faker->realText($maxNbChars = 500, $indexSize = 2),
         ];
     }

@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('mobile')->nullable();
             $table->string('LinkedIn')->nullable();
             $table->string('portfolio')->nullable();
-            $table->integer('category')->nullable();
+            $table->foreignId('category_id');
             $table->string('biography', 500)->nullable();
             $table->rememberToken();
             $table->timestamps();
