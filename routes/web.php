@@ -43,7 +43,7 @@ Route::get('/student/{id}', [StudentController::class, 'show']);
 /* COMPANIES*/
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/{id}', [CompanyController::class, 'show']);
-Route::get('/company/create', [CompanyController::class, 'create']);
+Route::post('/company/create', [CompanyController::class, 'create']);
 
 //nog toe te voegen: company update (Wannes)
 
@@ -53,7 +53,7 @@ Route::get('/components/showApplicationsFromStudents', [CompanyController::class
 /* INTERNSHIPS*/
 Route::get('/internship', [InternshipController::class, 'index']);
 Route::get('/internship/create', [InternshipController::class, 'create']);
-Route::post('/internship/create', [InternshipController::class, 'handleCreate']);
+Route::post('/internship/create', [InternshipController::class, 'store']);
 Route::get('/internship/{id}', [InternshipController::class, 'show']);
 
 //nog toe te voegen: apply for internship

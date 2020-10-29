@@ -5,11 +5,16 @@
 @endsection
 
 @section('content')
-<h2>Here you can find all the internships you can image. </h2>
-<h5>Use the filters to find your perfect match! </h5>
-@component('components/filterStudent')@endcomponent
+<h2 style="font-size: 24px; color:#ffffff;">Here you can find all the internships you can image. </h2>
+{{-- <h5>Use the filters to find your perfect match! </h5>
+@component('components/filterStudent')@endcomponent --}}
 
-<div class="container" style="margin-top:2.5%;">
+@foreach ($internships as $internship)
+<h3><a href="/internship/{{$internship->id}}">{{$internship->title}}</a></h3>
+
+@endforeach
+
+{{-- <div class="container" style="margin-top:2.5%;">
     <div class="row">
       <div class="col-sm card" style="width: 18rem;">
         <div class="card-body">
@@ -35,5 +40,5 @@
             <a href="#" class="card-link">Explore</a>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
