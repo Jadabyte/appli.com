@@ -1,21 +1,40 @@
 <section>
-<form id="createForm" method="POST" action="/internship">
+<form id="createForm" method="POST" action="/internship/create">
     @csrf
+    @if( $flash = session('message') )
+            <div class="alert alert-success">{{ $flash }}</div>
+        @endif
 
+        @if( $flash = session('error') )
+            <div class="alert alert-danger">{{ $flash }}</div>
+        @endif
+
+        @if( $errors->any())
+            <ul class="alert alert-danger">
+            @foreach($errors->all() as $e)
+                <li>{{ $e }}</li>
+            @endforeach
+            </ul>
+        @endif
     <div class="form-group" id="createFormGroup">
         <label for="title">Internship title</label>
-        <input class="form-control item" type="text" id="title" placeholder=" Title internship">
+        <input class="form-control item" type="text" id="title" placeholder=" Title internship" name="title">
     </div>
 
     <div class="form-group" id="createFormGroup">
         <label for="description">Description of internship</label>
-        <textarea class="form-control descInput" rows="10" placeholder="Description of internship" id="description"></textarea>
+        <textarea class="form-control descInput" rows="10" placeholder="Description of internship" id="description" name="description"></textarea>
+    </div>
+
+    <div class="form-group" id="createFormGroup">
+        <label for="description">zefzef</label>
+        <textarea class="form-control descInput" rows="10" placeholder="Description of internship" id="description" name="company_id"></textarea>
     </div>
 
     <div class="form-group dropdown" id="createFormGroup">
             <div class="form-group">
             <label for="category">Category</label>
-            <select class="form-control descInput" placeholder="Category" id="category">
+            <select class="form-control descInput" placeholder="Category" id="category" name="category_id">
                 <option>Choose</option>
                 <option value="1">Design</option>
                 <option value="2">Development</option>
@@ -27,7 +46,7 @@
     <div class="form-group dropdown" id="createFormGroup">
             <div class="form-group">
             <label for="internshipPeriod_id">Timeperiod</label>
-            <select class="form-control descInput" placeholder="Timeperiod" id="internshipPeriod">
+            <select class="form-control descInput" placeholder="Timeperiod" id="internshipPeriod" name="internshipPeriod_id">
                 <option>Choose</option>
                 <option value="1">First trimester</option>
                 <option value="2">Second trimester</option>
@@ -39,7 +58,7 @@
     <div class="form-group dropdown" id="createFormGroup">
             <div class="form-group">
             <label for="skills">Required skills for internship</label>
-            <select multiple class="form-control descInput" id="multipleDrop" placeholder="Skills" id="skills">
+            <select multiple class="form-control descInput" id="multipleDrop" placeholder="Skills" id="skills" name="skills_id">
                 <option value="1">Laravel</option>
                 <option value="2">Linux</option>
                 <option value="3">PHP</option>
@@ -88,7 +107,7 @@
     <div class="form-group dropdown" id="createFormGroup">
             <div class="form-group">
             <label for="availability">Internship is available</label>
-            <select  class="form-control descInput" placeholder="Availability" id="availability">
+            <select  class="form-control descInput" placeholder="Availability" id="availability" name="availability">
                 <option value="available" selected>Available</option>
                 <option value="unavailable">Unavailable</option>
             </select>
