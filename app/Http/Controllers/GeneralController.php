@@ -10,6 +10,10 @@ class GeneralController extends Controller
         return view('layouts/appli');
     }
 
+    public function detailpage(){
+        return view('layouts/detailpage');
+    }
+
     public function header(){
         return view('components/header');
     }
@@ -29,7 +33,7 @@ class GeneralController extends Controller
      public function register(){
 
         return view('register');
-       
+
     }
 
     public function handleRegister(Request $request){
@@ -48,7 +52,7 @@ class GeneralController extends Controller
         $user->lastName = $request->input('lastName');
         $user->email = $request->input('email');
         $user->password = \Hash::make($request->input('password'));
-        
+
         //dd($user);
         if (empty($request->input('isStudent'))) {
             $user->isStudent = 0;
@@ -61,17 +65,17 @@ class GeneralController extends Controller
             $user->save();
             return redirect('student');
         }
-        
-        $request->session()->flash('error', 'Something went wrong 🤔'); 
+
+        $request->session()->flash('error', 'Something went wrong 🤔');
         return view('register');
-        
+
     }
 
     public function login(){
 
         return view('login');
     }
-    
+
     public function handleLogin(Request $request){
         $credentials = $request->only(['email', 'password']);
         $request->flash();
@@ -82,7 +86,7 @@ class GeneralController extends Controller
                 return redirect('student');
             }else{
                 return redirect('company');
-            }  
+            }
         } //foutmelding genereren
         $request->session()->flash('error', 'Something went wrong 🤔');
         return view('login');
