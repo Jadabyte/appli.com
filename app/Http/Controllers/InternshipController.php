@@ -36,9 +36,10 @@ class InternshipController extends Controller
         //return view('internship/create');
     }
 
-    public function show(){
-        $data['internships'] = \DB::table('internships')->first();
-        $data['companies'] = \DB::table('companies')->first();
+    public function show($internship){
+        $data['internships'] = \DB::table('internships')->where('id', $internship)->first();
+        //$data['companies'] = \DB::table('companies')->where('id', $company)->first();
+
         return view('internship/show', $data);
     }
 
