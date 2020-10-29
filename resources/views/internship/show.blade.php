@@ -38,8 +38,11 @@
                     <p><a href="/internship/{{$internships->id}}">{{$internships->internshipPeriod_id}}</a></p>
             </div>
         </div>
+        <div>
+            <button class="btn btn-primary" id="buttonCreate" type="submit">Apply</button>
+        </div>
 
-<div class="card">
+{{-- <div class="card">
         <div class="card-body" id="contactContainer">
             <div class="media">
                 <div class="media-body">
@@ -70,7 +73,7 @@
                         </li>
                 </div>
             </div>
-        </div>
+        </div> --}}
 </div>
 
 </section>
