@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->foreignId('user_id');
             $table->string('name');
             $table->string('logo');
-            $table->string('category')->default('');
+            $table->foreignId('category_id');
             $table->string('street')->default('');
             $table->string('houseNumber')->default('');
             $table->string('pobox')->default('');

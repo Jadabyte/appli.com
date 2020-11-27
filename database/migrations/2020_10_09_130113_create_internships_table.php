@@ -15,10 +15,10 @@ class CreateInternshipsTable extends Migration
     {
         Schema::create('internships', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->text('description', 500)->nullable();
-            $table->string('category')->default('');
-            $table->string('requirements', 500)->default('');
+            $table->foreignId('category_id');
+            $table->foreignId('skills_id');
             $table->foreignId('internshipPeriod_id');
             $table->foreignId('company_id');
             $table->boolean('availability');

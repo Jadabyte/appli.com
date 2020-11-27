@@ -17,6 +17,11 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
+    public function show($company){
+        $data['companies'] = \DB::table('companies')->get();
+        return view('company/show', $data);
+    }
+
     public function detail($id){
 
         $company = DB::table('companies')->where('id', $id)->first();
@@ -41,7 +46,7 @@ class CompanyController extends Controller
         return view('company/create');
     }
 
-    public function show(){
+    /* public function show(){
         return view('components/showApplicationsFromStudents');
-    }
+    } */
 }

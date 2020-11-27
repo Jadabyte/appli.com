@@ -18,7 +18,7 @@ class StudentController extends Controller
     }
 
     public function detail($id){
-        return view('student.detail', ['users' => User::findOrFail($id)]);
+        return view('student.show', ['users' => User::findOrFail($id)]);
     }
 
     public function update($id){
