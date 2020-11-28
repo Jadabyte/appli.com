@@ -4,8 +4,9 @@
     cd production/appli.com
     php artisan down
     git checkout master
-    git pull
-    composer install --no-dev --no-interaction --no-plugins --no-scripts --no-progress --optimize-autoloader
+    git fetch --all
+    git reset --hard origin/master
+    composer update
     php artisan migrate --force
     php artisan cache:clear
     php artisan config:cache
