@@ -12,3 +12,16 @@
     php artisan config:cache
     php artisan up
 @endtask
+
+@task('staging', ['on' => 'web'])
+    cd staging/appli.com
+    php artisan down
+    git checkout {{ $branch }}
+    git fetch --all
+    git reset --hard origin/{{ $branch }}
+    composer update
+    php artisan migrate:fresh --seed
+    php artisan cache:clear
+    php artisan config:cache
+    php artisan up
+@endtask
