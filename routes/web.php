@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\GeneralController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\CompanyController;
@@ -37,17 +35,16 @@ Route::get('/logout', [GeneralController::class, 'logout']);
 /* STUDENTS*/
 Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
-//nog toe te voegen: student update (Wannes)
+
+//nog toe te voegen: student profile (Wannes)
 
 
 /* COMPANIES*/
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/{id}', [CompanyController::class, 'show']);
-Route::post('/company/create', [CompanyController::class, 'create']);
+//Route::post('/company/create', [CompanyController::class, 'create']);
 
-//nog toe te voegen: company update (Wannes)
-
-Route::get('/components/showApplicationsFromStudents', [CompanyController::class, 'show']);
+//nog toe te voegen: company profile (Wannes)
 
 
 /* INTERNSHIPS*/
@@ -55,6 +52,7 @@ Route::get('/internship', [InternshipController::class, 'index']);
 Route::get('/internship/create', [InternshipController::class, 'create']);
 Route::post('/internship/create', [InternshipController::class, 'store']);
 Route::get('/internship/{id}', [InternshipController::class, 'show']);
+
 
 //nog toe te voegen: apply for internship
 //nog toe te voegen: remove apply
@@ -75,3 +73,6 @@ Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
 Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
+Route::get('/components/label', [GeneralController::class,'label']);
+Route::get('/components/pagination', [GeneralController::class,'pages']);
+Route::get('/components/filterCompany', [GeneralController::class,'filterCompany']);
