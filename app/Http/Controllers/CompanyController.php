@@ -41,12 +41,4 @@ class CompanyController extends Controller
 
         return view('company.detail', ['companies' => Company::findOrFail($id), 'score' => $score]);
     }
-
-    public function create(){
-        return view('company/create');
-    }
-
-    /* public function show(){
-        return view('components/showApplicationsFromStudents');
-    } */
 }
