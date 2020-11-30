@@ -1,5 +1,20 @@
+<body>
+    <div class="filter">
+        <form>
+            <select class="filterSelection" style="display: inline-block;">
+                 <option class="filterSelection" value="">Category</option>
+            </select>
+            <select class="filterSelection" style="display: inline-block;">
+                 <option class="filterSelection" value="">Location</option>
+            </select>
+            <select class="filterSelection" style="display: inline-block;">
+                 <option class="filterSelection" value="">Transportation</option>
+            </select>
+            <select class="filterSelection" style="display: inline-block;">
+                 <option class="filterSelection" value="">Requirements</option>
+            </select>
+            <a class="resetFilter" href="#">Reset filters</a>
+        </form>
+    </div>
+</body>
 
-
-    <div style="margin-right:2.5%; margin-top:3%;"><a href="#" style="color:#EDBD16;">Reset filters</a></div>
-
-</div>
