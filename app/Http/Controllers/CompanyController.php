@@ -17,13 +17,7 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
-    public function show($company)
-    {
-        $data['companies'] = \DB::table('companies')->get();
-        return view('company/show', $data);
-    }
-
-    public function detail($id)
+    public function show($id)
     {
         $company = DB::table('companies')->where('id', $id)->first();
 
