@@ -1,34 +1,13 @@
-<div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <p style="color:#011C3A">Copyright Appli</p>
-            </div>
-            <div class="modal-footer">
-                <p style="color:#011C3A">2020</p>
-=======
-                <p>Copyright Appli</p>
-            </div>
-            <div class="modal-footer">
-                2020
->>>>>>> master
-=======
-                <p style="color:#011C3A">Copyright Appli</p>
-            </div>
-            <div class="modal-footer">
-                <p style="color:#011C3A">2020</p>
->>>>>>> master
-            </div>
+<footer id="footerpad" class="footerCreate">
+    <div class="container" id="containerFooter">
+        <div class="row">
+            <div class="col-md-6 col-lg-8 mx-auto">
+                <ul class="list-inline text-center">
+                    <li id="social-icons-1" class="list-inline-item"><a href="#"><span class="fa-stack fa-lg" id="facebook"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li id="social-icons-2" class="list-inline-item"><a href="#"><span class="fa-stack fa-lg" id="twitter"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li id="social-icons-3" class="list-inline-item"><a href="#"><span class="fa-stack fa-lg" id="instagram"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li id="social-icons-4" class="list-inline-item"><a href="#"><span class="fa-stack fa-lg" id="pinterest"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pinterest fa-stack-1x fa-inverse"></i></span></a></li>
+                </ul><p class="copyright text-muted text-center" id="copyright">Copyright &copy; Appli 2020</p></div>
         </div>
     </div>
-</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> master
-=======
-
->>>>>>> master
+</footer>

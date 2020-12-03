@@ -16,12 +16,12 @@ class InternshipPeriodSeeder extends Seeder
         // \App\Models\internshipPeriod::factory()->count(3)->create();
         \DB::table('internshipPeriods')->insert(
         [
-            'title' => "1st Semester"
+            'title' => "First Semester"
         ]);
 
         \DB::table('internshipPeriods')->insert(
         [
-            'title' => "2nd Semester"
+            'title' => "Second Semester"
         ]);
 
         \DB::table('internshipPeriods')->insert(

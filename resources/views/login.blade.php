@@ -10,7 +10,9 @@
 <div class="login-dark">
     <img class="img-fluid logo" src="/applibranding/logoAppli.svg?h=60d8998b2af02b7c83c7ce77b565694b" loading="lazy">
 
-    <form method="post" style="height: 550;">
+    <h2 class="headerTwo" style="margin-left:45%; margin-top:5%;">Login here</h2>
+
+    <form method="post">
     @csrf
         <h2 class="sr-only">Login Form</h2>
         @if( $flash = session('message') )
@@ -41,9 +43,7 @@
             <button class="btn btn-primary btn-block btn" id="button" type="submit">Log In</button>
         </div>
 
-        <a class="forgot" href="#">Forgot your email or password?</a>
-
-        <a class="forgot studentreg" href="register">New here? Go to register page.</a>
+        <a class="forgot" href="register">New here? Go to register page.</a>
     </form>
 </div>
 <!-- End: Login Form Dark -->

@@ -13,6 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->count(5)->create();
+        \App\Models\User::factory()->count(20)->create();
     }
 }
