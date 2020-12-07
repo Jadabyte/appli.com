@@ -25,4 +25,7 @@ class StudentController extends Controller
         return view('student.update', ['users' => User::findOrFail($id)]);
     }
 
+    public function profile(){
+        return view('student.profile');
+    }
 }

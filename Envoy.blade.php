@@ -6,7 +6,7 @@
     git checkout master
     git fetch --all
     git reset --hard origin/master
-    composer update
+    composer install --no-dev
     php artisan migrate --force
     php artisan cache:clear
     php artisan config:cache
@@ -19,7 +19,7 @@
     git checkout {{ $branch }}
     git fetch --all
     git reset --hard origin/{{ $branch }}
-    composer update
+    composer install
     php artisan migrate:fresh --seed
     php artisan cache:clear
     php artisan config:cache

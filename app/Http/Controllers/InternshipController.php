@@ -32,8 +32,6 @@ class InternshipController extends Controller
         $internship->availability = 1;
         $internship->save();
         return redirect('/internship');
-
-        //return view('internship/create');
     }
 
     public function show($internship){

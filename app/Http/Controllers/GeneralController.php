@@ -36,6 +36,19 @@ class GeneralController extends Controller
 
     }
 
+    public function label(){
+        return view('components/label');
+    }
+
+    public function pages(){
+        return view('components/pagination');
+    }
+
+    public function filter(){
+        return view('components/filterCompany');
+    }
+
+
     public function handleRegister(Request $request){
 
         $validation = $request->validate([

@@ -1,16 +1,17 @@
-
-<nav class="navbar navbar-light navbar-expand-md navigation-clean-search" id="navigation">
-    <div class="container" id="mobileNav"><a class="navbar-brand" id="brandnameNav" href="#"><img id="logoNav" src="/applibranding/logoAppli.svg"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" id="toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div
-            class="collapse navbar-collapse" id="navcol-1">
-            <ul class="nav navbar-nav" id="mobileNav">
-                <li class="nav-item"><a class="nav-link active" id="navLink" href="#">Home</a></li>
-                <li class="nav-item" id="navLink"><a class="nav-link active" id="navLink" href="#">About</a></li>
-                <li class="nav-item" id="navLink"><a class="nav-link active" id="navLink" href="#">Premium</a></li>
-                <li class="nav-item" id="navLink"><a class="nav-link" id="navLink" href="#">Contact</a></li>
-            </ul>
-            <form class="form-inline mr-auto" target="_self">
-                <div class="form-group" id="navSearch"><label for="search-field"><i class="fa fa-search" id="searchIcon"></i></label><input class="form-control search-field" type="search" id="search-field" name="search"></div>
-            </form><a class="btn btn-light action-button" role="button" id="navButton" href="#">Account</a></div>
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button">
+            <div class="container-fluid"><a class="navbar-brand" href="#"><img src="/applibranding/logoAppli.svg"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link active" style="color:#EDBD16;" href="#">&nbsp;Home</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="#">&nbsp;About</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="#">&nbsp;Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="#"><i class="fa fa-sign-in"></i>&nbsp; Log out</a></li>
+                    </ul>
+            </div>
     </div>
-</nav>
+    </nav>
+    </div>
+</body>

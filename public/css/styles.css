@@ -1,320 +1,75 @@
 body {
     background-color: #011C3A;
+    font-family: Nunito, sans-serif;
   }
 
-ul {
-    list-style-type: none;
-  }
-
-
-/* NAVIGATION */
-
-  #navigation {
-    background-color: #011C3A;
-    height: 10px;
-    z-index: 1;
-  }
-
-  #toggler {
-    border-color: #EDBD16;
+  .headerOne {
+    text-align: center;
     color: #EDBD16;
+    margin-top: 3%;
+    margin-bottom: 2.5%;
   }
 
-  #logoNav {
-    margin-bottom: 0;
-    height: 70px;
+  #headerFour{
+    margin-bottom: 5%;
+    font-size: 1.5rem;
+    font-weight:500;
   }
 
-  #mobileNav {
-    background-color: #011C3A;
-    margin-top: -4.5%;
+  .indexContainer {
+    margin-top: 8%;
   }
 
-  #navLink {
-    color: #EDBD16;
-  }
-
-  #navcol-1 {
-    z-index: 1;
-  }
-
-  #searchField {
+  .indexLogin {
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
     border-color: #EDBD16;
     background-color: #EDBD16;
+    width: 300px;
+    height: 50px;
+    margin-left: 25%;
   }
 
-  #search-field {
+  .indexRegister {
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
     border-color: #EDBD16;
+    background-color: #EDBD16;
+    width: 300px;
+    height: 50px;
+    margin-left: 20%;
   }
 
-  #searchIcon {
-    color: #EDBD16;
-  }
-
-  #navSearch {
-    margin-left: 5%;
-  }
-
-  #navButton {
-    background-color: #00CF8D;
-    margin-left: 5%;
-    margin-bottom: 5%;
-  }
-
-  .navbar-toggler-icon {
-    border-color: #EDBD16;
-  }
-
-
-
-
-/* CREATEFORM */
-
-  #create {
-    margin-top: 28%;
-    background-color: #EDEFF0;
-  }
-
-  #createExplain {
-    margin-left: 8%;
-    margin-bottom: 8%;
-  }
-
-  #createExplain p {
+  .indexLoginLinkP {
     color: #011C3A;
     text-align: center;
-    font-size: 1em;
+    margin-top: 3.5%;
   }
 
-  #createForm {
-    color: #EDEFF0;
-    height: auto;
-    margin-left: 8%;
-    padding-bottom: 8%;
-  }
-
-  #createFormGroup {
-    color: #EDEFF0;
-  }
-
-  #createFormGroup label {
-    font-size: 16px;
+  .indexRegisterLinkP {
     color: #011C3A;
-    margin-bottom: 2%;
-    padding: 0;
-    font-weight: 600;
+    text-align: center;
+    margin-top: 3.5%;
   }
 
-  .dropCreate {
-    width: 100%;
-    height: 100%;
-    margin-top: 20%;
+  .indexImage {
+    margin-top: 5%;
+    height: 80px;
   }
 
-  #multipleDrop {
-    height: 70px;
-  }
-
-  #multipleDrop option {
-    margin-bottom: 1%;
-    margin-top: 0;
-  }
-
-
-
-
-/* COMPONENTS */
-
-  #title {
-    border-color: #EDBD16;
-    background-color: #EDEFF0;
-    border: solid 1px #EDBD16;
-    border-radius: 8px;
-  }
-
-  .descInput {
-    border-color: #EDBD16;
-    background-color: #EDEFF0;
-    border: solid 1px #EDBD16;
-    border-radius: 8px;
-  }
+  /* login */
 
   .logo {
     width: 10em;
     height: auto;
-    margin-top: 38%;
-    margin-left: 27.5%;
+    margin-top: 4%;
+    margin-left: 47.5%;
   }
 
-  #logoregisterpage {
-    margin-top: -2.1%;
-    margin-bottom: 20%;
-  }
-
-/*   .container, .container-lg, .container-md, .container-sm, .container-xl {
-    margin: 5%;
-    width: 300px;
-  } */
-
-  #resetFilter {
-    grid-row: 6;
-    margin-right: 73%;
-  }
-
-  .resetFilter {
-    color: #EDBD16;
-  }
-
-
-
-
-/* BUTTONS */
-  .btn:not(:disabled):not(.disabled) {
-    color: #00CF8D;
-  }
-
-  .btn {
-    background-color: #00CF8D;
-    color: #00CF8D;
-  }
-
-  #form-button-group button {
-    background-color: #00CF8D;
-  }
-
-  #buttonCreate {
-    color: #edeff0;
-    width: 80%;
-    border-radius: 8px;
-    margin-left: 30%;
-    border-style: none;
-    margin-bottom:10%;
-      }
-
-      #registerbutton {
-        background-color: #00CF8D;
-      }
-
-
-
-
-/* FORM */
   .form-group {
     color: #011C3A;
-  }
-
-  .icon.ion-ios-locked-outline {
-    color: #00CF8D;
-  }
-
-  #sectionDetail {
-    margin-top: 25%;
-    background-color: #EDEFF0;
-  }
-
-  .card-group {
-    margin-top: 7.5%;
-  }
-
-  .row {
-    margin-left: 5%;
-    margin-top: 15%;
-    margin-top: 15%;
-    width: 90%;
-  }
-
-  .nameStudent {
-    color: #EDBD16;
-    text-align: center;
-    padding-top: 5%;
-  }
-
-  #dropdown {
-    margin: 2%;
-    background-color: #EDEFF0;
-    border-color: #00CF8D;
-    border-width: 2px;
-    border-radius: 8px;
-    border-style: solid;
-  }
-
-  #filterLabel {
-    margin: 10%;
-    color: black;
-  }
-
-  #filters {
-    margin: 12.5%;
-  }
-
-  #filterName {
-    color: #011C3A;
-    background-color: #EDEFF0;
-    border: none;
-    text-align: center;
-    margin-left: 18%;
-    margin-right: 25%;
-    font-size: 1.2em;
-  }
-
-  #catFilter {
-    grid-row: 1;
-  }
-
-  #locFilter {
-    grid-row: 2;
-  }
-
-  #tagsFilter {
-    grid-row: 3;
-  }
-
-  #hourFilter {
-    grid-row: 4;
-  }
-
-  #sizeFilter {
-    grid-row: 5;
-  }
-
-  #customCheckInline {
-    border-color: #EDBD16;
-    border-radius: 8px;
-    border-style: solid;
-    border-width: 2px;
-    z-index: 1;
-    background-color: #EDBD16;
-  }
-
-  #labelCheck {
-    margin-left: -12.5%;
-  }
-
-  #checkbox {
-    border-color: #EDBD16;
-    border-radius: 8px;
-    border-style: solid;
-    border-width: 2px;
-    z-index: 1;
-    background-color: #EDBD16;
-  }
-
-
-
-
-/* LOGIN/REGISTER */
-  #already {
-    color: #011C3A;
-  }
-
-  .forgot {
-    text-align: center;
-    margin: 5px;
-    color: #818C8F;
-  }
-
-  .forgot.studentreg {
-    margin-top: 7.5%;
   }
 
   .login-dark form {
@@ -325,15 +80,8 @@ ul {
     border-radius: 4px;
     transform: translate(-50%, -50%);
     position: absolute;
-    top: 60%;
-    left: 50%;
-  }
-
-  .login-dark .illustration {
-    text-align: center;
-    padding: 15px 0 20px;
-    font-size: 100px;
-    color: #00cf8d;
+    top: 50%;
+    left: 52.5%;
   }
 
   .login-dark form .form-control {
@@ -345,123 +93,404 @@ ul {
     outline: none;
   }
 
-  .login-dark {
-    margin-top: -30%;
+  .login-dark .illustration {
+    text-align: center;
+    padding: 15px 0 20px;
+    font-size: 100px;
+    color: #2980ef;
   }
 
-  .login-dark form .btn-primary:active {
-    transform: translateY(1px);
+  .img-fluid.loginLogo {
+    width: 10%;
+    margin-top: 4%;
+    margin-left: 46.5%;
   }
 
-  .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
-    background: #011c3a;
-    outline: none;
+  .icon.ion-ios-locked-outline {
+    color: #00CF8D;
   }
 
-  .login-dark form .btn-primary {
-    background: #011c3a;
+  .btn {
+    background-color: #00CF8D;
+  }
+
+  .forgot {
+    text-align: center;
+    margin: 5px;
+    color: #011C3A;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+
+  /* REGISTER */
+
+  .formRegister {
+    margin-top: 10%;
+  }
+
+  .headerTwo {
+    color: #EDBD16;
+    margin-bottom: 10%;
+  }
+
+  .form-control {
+    background-color: #EDEFF0;
+  }
+
+  .form-check-label {
+    color: #EDBD16;
+    margin-bottom: 10%;
+    margin-top: 2.5%;
+  }
+
+  #isStudent {
+    border-color: #EDBD16;
+  }
+
+  #registerbutton {
+    background-color: #00CF8D;
+    width: 100px;
+    margin-left: 35%;
+    margin-bottom: 10%;
+  }
+
+  #already {
+    text-align: center;
+    margin-left: 10%;
+    color: #011C3A;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+
+  /* NAVIGATION */
+
+  .navbar.navbar-light.navbar-expand-md.sticky-top.navigation-clean-button {
+    background-color: #0E0E2C;
+    color: #eaeaea;
+    height: 80px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  /* CREATE COMPANY */
+
+  #createExplain p {
+    color: #EDEFF0;
+    text-align: center;
+    font-size: 1em;
+  }
+
+  .form-group {
+    color: #011C3A;
+  }
+
+  #createFormGroup label {
+    font-size: 18px;
+    color: #EDBD16;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 0;
+    font-weight: 500;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+  }
+
+  #title {
+    border-color: #EDBD16;
+    background-color: #EDEFF0;
+    border: solid 1px #EDBD16;
+    border-radius: 8px;
+  }
+
+  .form-control.descInput {
+    border-color: #EDBD16;
+    background-color: #EDEFF0;
+    border: solid 1px #EDBD16;
+    border-radius: 8px;
+  }
+
+  .createLabel {
+    margin-right: 3%;
+  }
+
+  #createBtn {
+    width: 20%;
+    margin-top: 2.5%;
+    margin-left: 40%;
+    border-radius: 8px;
+  }
+
+  .createGrid {
+    display: grid;
+    margin-top: 2%;
+  }
+
+  .grid {
+    display: inline-flex;
+    margin-left: 8%;
+    margin-top: 2%;
+  }
+
+  #createCategory{
+    margin-top:9%;
+}
+
+#createTime{
+    margin-top:2%;
+    margin-left: 20%;
+}
+
+#createAvailable{
+    margin-top:1%;
+    margin-left:-6%;
+}
+
+  /* SHOW INTERNSHIP */
+
+#internshipCard{
+    position: relative;
+    display: inline-flex;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+  }
+
+  .internGroup{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin-left:5%;
+    margin-right:5%;
+  }
+
+  /* SHOW COMPANY */
+
+.card-group{
+    width:85%;
+    margin-left:10%;
+}
+
+#cardCompany{
+    height:auto;
+    margin-right:5%;
+}
+
+  #card-body {
+    background-color: #EAEAEA;
+    text-align: center;
+  }
+
+  #cardTextCompany{
+      color:#000000;
+  }
+
+  #cardContactCompany{
+      margin-left:40%;
+      margin-right:40%;
+      background-color: #EAEAEA;
+      margin-top:3%;
+  }
+
+  #contactinfo{
+      text-decoration: none;
+      color:#000000;
+  }
+
+  /* SHOW STUDENTS */
+  .explainP{
+        text-align: center;
+        margin-top:2%;
+        font-size: 1.5rem;
+  }
+
+
+  /* FILTERS */
+
+  .filter {
+    margin-bottom: 2%;
+    text-align: center;
+    margin-top: 1%;
+  }
+
+  .resetFilter {
+    color: #EDBD16;
+    margin-left: 2%;
+    text-decoration: underline;
+  }
+
+  .filterSelection {
+    width: 170px;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1.5px solid #EDBD16;
+    box-shadow: 0 0 2px #aaa;
+    margin: 10px;
+    background: #EAEAEA;
+}
+
+.filter input {
+    margin: 30px;
+    width: 60%;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border: none;
-    border-radius: 4px;
-    padding: 11px;
-    box-shadow: none;
-    margin-top: 26px;
-    text-shadow: none;
+    border-radius: 5px;
+    background: #eee;
+  }
+
+  * {
     outline: none;
   }
 
-  .register-photo {
-    background: #011C3A;
-    padding: 80px 0;
+  /* INDEX STUDENT */
+
+  .text-center.headerOne {
+    margin-top: -0.5%;
   }
 
-  .register-photo .form-container {
-    display: table;
-    max-width: 400px;
-    width: 90%;
-    margin: 0 auto;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-    color: #011C3E;
+  .border.rounded.shadow {
+    border-radius: 8px;
   }
 
-  .register-photo form {
-    display: table-cell;
-    max-width: 400px;
-    background-color: #edeff0;
-    padding: 40px 60px;
-    color: #505e6c;
-    width: 90%;
+  .pagination {
+    margin-left: 40%;
+    background-color: transparent;
+    border: transparent;
+    width: 400px;
   }
 
-  @media (max-width:991px) {
-    .register-photo form {
-      padding: 50px;
-      background-color: #EDEFF0;
-      margin-top: 15%;
-    }
+  .pagination.listing{
+      background-color: none;
+      border: none;
+    margin-left:22.5%;
   }
 
-  .register-photo form h2 {
-    font-size: 24px;
-    line-height: 1.5;
-    margin-bottom: 30px;
+  .page-link {
+    background-color: #0E0E2C;
+    border-color: #0E0E2C;
     color: #EDBD16;
   }
 
-  .register-photo form .form-control {
-    border: none;
-    border-bottom: 1px solid #EDBD16;
-    border-radius: 0;
-    box-shadow: none;
-    outline: none;
-    color: #011C3E;
-    text-indent: 6px;
-    height: 40px;
+  /* LABEL */
+
+  p {
+    color: #eaeaea;
   }
 
-  .register-photo form .form-check {
-    font-size: 18px;
-    line-height: 20px;
+  td {
+    width: 9%;
+    height: 50px;
   }
 
-  .register-photo form .btn-primary {
-    background: #f4476b;
-    border: none;
-    border-radius: 4px;
-    padding: 11px;
-    box-shadow: none;
-    margin-top: 35px;
-    text-shadow: none;
-    outline: none !important;
+  .table-responsive {
+    background-color: #EAEAEA;
+    /*border-color: #EDBD16;*/
+    border-radius: 8px;
+    border-width: 1px;
   }
 
-  .register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
-    background: #eb3b60;
+  .btn.btn-primary.btnDeclined {
+    background-color: darkred;
+    border-radius: 8px;
   }
 
-  .register-photo form .btn-primary:active {
-    transform: translateY(1px);
+  .btn.btn-primary.btnApproved {
+    margin-left: 5%;
+    border-radius: 8px;
   }
 
-  .register-photo form .already {
-    display: block;
+  .pagination{
+      background-color: none;
+  }
+
+
+/*   PROFILE COMPANY */
+
+div.container.profile {
+    padding: 10px 20px;
+  }
+
+  .center {
     text-align: center;
-    font-size: 12px;
-    color: #011C3A;
-    opacity: 0.9;
-    text-decoration: none;
   }
 
+  .relative {
+    position: relative;
+  }
+
+  .absolue {
+    position: absolute;
+  }
+
+  div.profile-row {
+    margin-top: 55px;
+  }
+
+  .absolue.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  div.alert {
+    width: 40%;
+  }
+
+  .alert-col > .alert {
+    padding: 10px;
+    border-radius: 0;
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+
+  hr {
+    height: 2px;
+  }
+
+  .content-right > * {
+    float: right;
+  }
+
+  .form-btn {
+    min-width: 100px;
+    margin: 0 5px;
+    max-width: 200px;
+  }
+
+  div.avatar-bg {
+    background: url(https://www.gravatar.com/avatar/1234566?size=200&d=mm);
+    background-position: 50% 50%;
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: calc(50% - 100px);
+  }
 
 
 
   /* FOOTER */
 
   #footerpad {
-      margin-top:10%;
+    margin-top: 5%;
     padding-top: 20px;
     padding-bottom: 20px;
     height: initial;
-    background-color: #011C3A;
+    background-color: #0E0E2C;
+  }
+
+  .list-inline.text-center {
+    margin-left: 3%;
   }
 
   a:focus, a:hover {
@@ -476,10 +505,6 @@ ul {
     color: #EDBD16;
   }
 
-  #twitter {
-    color: #EDBD16;
-  }
-
   #instagram {
     color: #EDBD16;
   }
@@ -487,22 +512,3 @@ ul {
   #pinterest {
     color: #EDBD16;
   }
-
-  #card-body {
-    background-color: #FEFEFE;
-    text-align: center;
-  }
-
-  #card-title {
-    color: #011C3A;
-  }
-
-  #contactinfo {
-    color: #011C3A;
-  }
-
-  #contactContainer {
-    margin-left: 15%;
-    margin-top: 5%;
-  }
-
