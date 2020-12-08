@@ -57,6 +57,9 @@ class CompanyController extends Controller
     }
 
     public function search(Request $request){
+        $validation = $request->validate([
+            'name' => 'required'
+        ]);
         $name = $request->input('name');
 
         $key = 'lAnDiA8K464qMD8g13YsDef_fNPIyUQjcS6SlCLZum4';
@@ -68,6 +71,21 @@ class CompanyController extends Controller
     }
 
     public function store (Request $request){
+        $validation = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'website' => 'required',
+            'linkedin' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'street' => 'required',
+            'streetNum' => 'required',
+            'city' => 'required',
+            'postCode' => 'required',
+            'poBox' => 'required'
+        ]);
+
         $company = new \App\Models\Company();
 
         $company->name = $request->input('name');
