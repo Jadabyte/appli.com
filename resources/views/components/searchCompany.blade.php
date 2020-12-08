@@ -1,6 +1,6 @@
 {{-- Search for a company using the API --}}
 <section>
-    <form id="createCompany" method="Post" action="/company/search">
+    <form id="createCompany" method="POST" action="/company/match">
         @csrf
         @if ($flash = session('message'))
             <div class="alert alert-success">{{ $flash }}</div>

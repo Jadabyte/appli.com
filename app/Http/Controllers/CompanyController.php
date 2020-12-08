@@ -22,6 +22,10 @@ class CompanyController extends Controller
         return view('company/create');
     }
 
+    public function match(){
+        return view('company/match');
+    }
+
     public function show($id)
     {
         $company = DB::table('companies')->where('id', $id)->first();
@@ -55,11 +59,12 @@ class CompanyController extends Controller
     public function search(Request $request){
         $name = $request->input('name');
 
-        $key = 'ep5OXA-SxjdH7qSS1tFjtlQ4g51Zj3Ee_wZFPhokWV0';
+        $key = 'lAnDiA8K464qMD8g13YsDef_fNPIyUQjcS6SlCLZum4';
         $url = 'https://discover.search.hereapi.com/v1/discover?at=42.36346,-71.05444&q=' . $name . '&in=countryCode:BEL&apiKey=' . $key;
 
         $company = Http::get($url)->json();
-        return view('company.filled', ['company' => $company]);
+
+        return view('company.create', ['company' => $company]);
     }
 
     public function store (Request $request){

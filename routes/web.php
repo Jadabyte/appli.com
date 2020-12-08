@@ -43,7 +43,8 @@ Route::get('/student/{id}', [StudentController::class, 'show']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
 Route::post('/company/create', [CompanyController::class, 'store']);
-Route::post('/company/create', [CompanyController::class, 'search']);
+Route::get('/company/match', [CompanyController::class, 'match']);
+Route::post('/company/match', [CompanyController::class, 'search']);
 Route::get('/company/{id}', [CompanyController::class, 'show']);
 
 //nog toe te voegen: company profile (Wannes)
