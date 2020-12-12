@@ -45,7 +45,9 @@
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" id="isStudent" name="isStudent" value="isStudent">I am a student.</label>
+                        <input class="form-check-input" type="checkbox" id="isStudent" name="isStudent" value="isStudent" />
+                        <span>I am a student.</span>
+                    </label>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" id="registerbutton" type="submit">Register</button>
