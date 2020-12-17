@@ -7,28 +7,27 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 use App\Models\Company;
+use App\Models\User;
 
 class CompanyController extends Controller
 {
     public function index()
     {
-        $companies = DB::table('companies')->get();
-        $users = DB::table('users')->get();
+        $companies = Company::all();
+        $users = User::all();
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
     public function show($id)
     {
-        $company = DB::table('companies')->where('id', $id)->first();
+        $company = Company::where('id', $id)->first();
 
         $street = $company->street;
         $city = $company->city;
         $houseNumber = $company->houseNumber;
         $postalCode = $company->postalCode;
 
-        $key = 'Aa6XPt7SzdZddf6M10R84qaH2VQDn2iIvDlFZQniJqs';
-
-        $location = Http::get('https://geocode.search.hereapi.com/v1/geocode?q=' . $street . '+' . $houseNumber . '%2C+' . $postalCode . '+' . $city . '&apiKey=' . $key);
+        $location = Http::get('https://geocode.search.hereapi.com/v1/geocode?q=' . $street . '+' . $houseNumber . '%2C+' . $postalCode . '+' . $city . '&apiKey=' . env('HERE_API'));
 
         if (!($location->ok() && isset($location->json()['items'][0]))) {
             return view('company.show', ['company' => Company::findOrFail($id), 'score' => 'Not found']);
@@ -37,7 +36,7 @@ class CompanyController extends Controller
         $lat = $location->json()['items'][0]['position']['lat'];
         $lng = $location->json()['items'][0]['position']['lng'];
 
-        $stations = Http::get('https://transit.hereapi.com/v8/stations?in=' . $lat. ',' . $lng . ';r=2000&maxPlaces=10' . '&apiKey=' . $key);
+        $stations = Http::get('https://transit.hereapi.com/v8/stations?in=' . $lat. ',' . $lng . ';r=2000&maxPlaces=10' . '&apiKey=' . env('HERE_API'));
 
         if (!($stations->ok() && isset($stations->json()['stations']))) {
             return view('company.show', ['company' => Company::findOrFail($id), 'score' => 'Not found']);
