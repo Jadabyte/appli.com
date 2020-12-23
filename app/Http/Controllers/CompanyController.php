@@ -17,6 +17,11 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
+    public function profile(){
+        $data['applications'] = DB::table('applications')->get();
+        return view('company.profile', $data);
+    }
+
     public function show($id)
     {
         $company = DB::table('companies')->where('id', $id)->first();
@@ -46,4 +51,6 @@ class CompanyController extends Controller
         $score = count($stations->json()['stations']);
         return view('company.show', ['company' => Company::findOrFail($id), 'score' => $score]);
     }
+
+ 
 }

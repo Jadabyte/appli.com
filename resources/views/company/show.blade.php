@@ -39,5 +39,7 @@
             </div>
         </div>
     </section>
+
+   <a href="/company/application.blade.php">Show applications overview</a>
     @component('components/footer')@endcomponent
 @endsection

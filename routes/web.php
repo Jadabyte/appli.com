@@ -42,6 +42,7 @@ Route::get('/student/update/{id}', [StudentController::class, 'update']);
 /* COMPANIES*/
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/{id}', [CompanyController::class, 'show']);
+Route::get('/company/profile/{id}', [CompanyController::class, 'profile']);
 //Route::post('/company/create', [CompanyController::class, 'create']);
 
 //nog toe te voegen: company profile (Wannes)
@@ -73,6 +74,6 @@ Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
 Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
-Route::get('/components/label', [GeneralController::class,'label']);
 Route::get('/components/pagination', [GeneralController::class,'pages']);
 Route::get('/components/filterCompany', [GeneralController::class,'filterCompany']);
+
