@@ -20,7 +20,6 @@
                     <p class="card-text"><a href="/internship/{{$internship->id}}">{{$internship->description}}</a></p>
             </div>
         </div>
-        <!--
         <div class="card" id="internshipCard">
             <div class="card-body" id="card-body">
                 <h4 class="card-title" id="card-title">Category</h4>
@@ -38,7 +37,7 @@
                 <h4 class="card-title" id="card-title">Timeperiod</h4>
                     <p class="card-text"><a href="/internship/{{$internship->id}}">{{$internship->internshipPeriod_id}}</a></p>
             </div>
-        </div>-->
+        </div>
 
         <div class="card" id="internshipCard">
             <div class="card-body" id="contactContainer">
