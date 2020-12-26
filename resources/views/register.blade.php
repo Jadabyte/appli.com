@@ -43,7 +43,7 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="isStudent" value="isStudent">
+                    <input class="form-check-input" type="checkbox" name="isStudent" value="1">
                     <span>I am a student.</span>
                 </label>
             </div>

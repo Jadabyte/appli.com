@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Gate;
 
 use App\Models\Company;
 use App\Models\User;
@@ -13,6 +14,10 @@ class CompanyController extends Controller
 {
     public function index()
     {
+        if (Gate::allows('isStudent')) {
+            return redirect('student');
+        }
+
         $companies = Company::all();
         $users = User::all();
         return view('company.index', ['companies' => $companies, 'users' => $users]);
@@ -20,6 +25,10 @@ class CompanyController extends Controller
 
     public function show($id)
     {
+        if (Gate::allows('isStudent')) {
+            return redirect('student');
+        }
+
         $company = Company::where('id', $id)->first();
 
         $street = $company->street;
@@ -44,5 +53,14 @@ class CompanyController extends Controller
 
         $score = count($stations->json()['stations']);
         return view('company.show', ['company' => Company::findOrFail($id), 'score' => $score]);
+    }
+
+    public function profile()
+    {
+        if (Gate::allows('isStudent')) {
+            return redirect('student');
+        }
+
+        return view('company.profile');
     }
 }
