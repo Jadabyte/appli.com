@@ -9,7 +9,7 @@
     composer install --no-dev
     php artisan migrate --force
     php artisan cache:clear
-    php artisan config:cache
+    php artisan config:clear
     php artisan up
 @endtask
 
@@ -22,6 +22,6 @@
     composer install
     php artisan migrate:fresh --seed
     php artisan cache:clear
-    php artisan config:cache
+    php artisan config:clear
     php artisan up
 @endtask
