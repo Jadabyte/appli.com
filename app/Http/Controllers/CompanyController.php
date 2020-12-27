@@ -17,8 +17,14 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
-    public function profile(){
-        $data['applications'] = DB::table('applications')->get();
+    public function profile($id){
+        $data['applications'] = DB::table('applications')
+                                    ->join('internships', 'applications.internship_id', '=', 'internships.id')
+                                    ->join('companies', 'internships.company_id', '=', 'companies.id')
+                                    ->join('students', 'applications.student_id', '=', 'students.id')
+                                    ->join('users', 'students.user_id', '=', 'users.id')
+                                    ->where('companies.id', $id)
+                                    ->get();
         return view('company.profile', $data);
     }
 

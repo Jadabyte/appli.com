@@ -58,7 +58,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Student</th>
                     <th>Internship</th>
                     <th>Label</th>
@@ -68,9 +67,8 @@
             <tbody>
             @foreach ($applications as $a)
                 <tr>
-                    <td>{{$a->id}}</td>
-                    <td>{{$a->student_id}}</td>
-                    <td>{{$a->internship_id}}</td>
+                    <td>{{$a->firstName}}</td>
+                    <td>{{$a->title}}</td>
                     <td>{{$a->label}}</td>
                     <td>
                         <form class="form-inline">
@@ -81,8 +79,10 @@
                                     <option>Declined</option>
                                 </select>
                             </div>
+                            <button class="btn btn-primary btnSave" id="labelButton" type="submit">Save</button>
                         </form>
                     </td>
+                    <td><a class="btnDetails" href="#">Details</a></td>
                 </tr>
             @endforeach
             </tbody>
