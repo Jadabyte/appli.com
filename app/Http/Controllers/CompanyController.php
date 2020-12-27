@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Company;
 use App\Models\User;
@@ -17,6 +18,9 @@ class CompanyController extends Controller
         if (Gate::allows('isStudent')) {
             return redirect('student');
         }
+
+        //$user= $this->user();
+        //dd($user);
 
         $companies = Company::all();
         $users = User::all();
@@ -58,5 +62,13 @@ class CompanyController extends Controller
         }
 
         return view('company.profile');
+    }
+
+    public function user()
+    {
+        if (Gate::allows('isStudent')) {
+            return User::where('id', Auth::user()->id)->with('student')->first();
+        }
+        return User::where('id', Auth::user()->id)->with('company')->first();
     }
 }

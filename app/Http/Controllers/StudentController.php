@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -13,6 +14,9 @@ class StudentController extends Controller
         if (Gate::denies('isStudent')) {
             return redirect('company');
         }
+
+        //$user= $this->user();
+        //dd($user);
 
         $data['internships'] = \DB::table('internships')->get();
         return view('student/index', $data);
@@ -30,5 +34,13 @@ class StudentController extends Controller
         }
 
         return view('student.profile');
+    }
+
+    public function user()
+    {
+        if (Gate::allows('isStudent')) {
+            return User::where('id', Auth::user()->id)->with('student')->first();
+        }
+        return User::where('id', Auth::user()->id)->with('company')->first();
     }
 }
