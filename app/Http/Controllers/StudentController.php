@@ -18,23 +18,9 @@ class StudentController extends Controller
         return view('student/index', $data);
     }
 
-    public function show($student)
+    public function show($id)
     {
-        if (Gate::denies('isStudent')) {
-            return redirect('company');
-        }
-
-        $data['students'] = \DB::table('students')->get();
-        return view('student/show', $data);
-    }
-
-    public function detail($id)
-    {
-        if (Gate::denies('isStudent')) {
-            return redirect('company');
-        }
-
-        return view('student.show', ['users' => User::findOrFail($id)]);
+        return view('student.show', ['student' => User::findOrFail($id)]);
     }
 
     public function profile()

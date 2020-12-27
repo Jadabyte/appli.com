@@ -25,10 +25,6 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        if (Gate::allows('isStudent')) {
-            return redirect('student');
-        }
-
         $company = Company::where('id', $id)->first();
 
         $street = $company->street;
