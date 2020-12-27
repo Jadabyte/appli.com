@@ -18,13 +18,14 @@ class CompanyController extends Controller
     }
 
     public function profile($id){
-        $data['applications'] = DB::table('applications')
-                                    ->join('internships', 'applications.internship_id', '=', 'internships.id')
-                                    ->join('companies', 'internships.company_id', '=', 'companies.id')
+        $data['applications'] = DB::table('internships')
+                                    ->join('applications', 'applications.internship_id', '=', 'internships.id')
                                     ->join('students', 'applications.student_id', '=', 'students.id')
                                     ->join('users', 'students.user_id', '=', 'users.id')
-                                    ->where('companies.id', $id)
+                                    ->where('internships.company_id', $id)
+                                    ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label')
                                     ->get();
+        //dd($data);
         return view('company.profile', $data);
     }
 
@@ -58,5 +59,22 @@ class CompanyController extends Controller
         return view('company.show', ['company' => Company::findOrFail($id), 'score' => $score]);
     }
 
+    public function handleLabel(Request $request, $id) {
+       
+        $data['applications'] = DB::table('internships')
+                                    ->join('applications', 'applications.internship_id', '=', 'internships.id')
+                                    ->join('students', 'applications.student_id', '=', 'students.id')
+                                    ->join('users', 'students.user_id', '=', 'users.id')
+                                    ->where('internships.company_id', $id)
+                                    ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label')
+                                    ->get();
+
+        $application = \App\Models\Application::where('id', 2)
+                                        ->first();
+        $application->label = $request->input('label');
+        $application->save();
+       //dd($application);
+        return view('company.profile', $data);
+    }
  
 }

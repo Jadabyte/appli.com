@@ -58,6 +58,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>id?</th>
                     <th>Student</th>
                     <th>Internship</th>
                     <th>Label</th>
@@ -66,17 +67,19 @@
             </thead>
             <tbody>
             @foreach ($applications as $a)
-                <tr>
+                <tr data-applicationId="{{$a->id}}">
+                    <td>{{$a->id}}</td>
                     <td>{{$a->firstName}}</td>
                     <td>{{$a->title}}</td>
                     <td>{{$a->label}}</td>
                     <td>
-                        <form class="form-inline">
+                        <form class="form-inline" method="POST">
+                        @csrf
                             <div class="form-group">
-                                <select  class="form-control" >
-                                    <option>Starred</option>
-                                    <option>Approved</option>
-                                    <option>Declined</option>
+                                <select  name="label" class="form-control" >
+                                    <option value="Starred">Starred</option>
+                                    <option value="Approved">Approved</option>
+                                    <option value="Declined">Declined</option>
                                 </select>
                             </div>
                             <button class="btn btn-primary btnSave" id="labelButton" type="submit">Save</button>

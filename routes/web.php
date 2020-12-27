@@ -43,6 +43,7 @@ Route::get('/student/update/{id}', [StudentController::class, 'update']);
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/{id}', [CompanyController::class, 'show']);
 Route::get('/company/profile/{id}', [CompanyController::class, 'profile']);
+Route::post('/company/profile/{id}', [CompanyController::class, 'handleLabel']);
 //Route::post('/company/create', [CompanyController::class, 'create']);
 
 //nog toe te voegen: company profile (Wannes)
