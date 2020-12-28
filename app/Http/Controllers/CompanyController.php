@@ -19,6 +19,9 @@ class CompanyController extends Controller
         if (Gate::allows('isStudent')) {
             return redirect('student');
         }
+        if (Gate::allows('hasCompany')) {
+            return redirect('company/profile');
+        }
 
         //$user= $this->user();
         //dd($user);
@@ -28,16 +31,22 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('company/create');
     }
 
-    public function match(){
+    public function match()
+    {
         return view('company/match');
     }
 
     public function show($id)
     {
+        if (Gate::allows('hasCompany')) {
+            return redirect('company/profile');
+        }
+
         $company = Company::where('id', $id)->first();
 
         $street = $company->street;
@@ -64,7 +73,8 @@ class CompanyController extends Controller
         return view('company.create', ['company' => Company::findOrFail($id), 'score' => $score]);
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $validation = $request->validate([
             'name' => 'required'
         ]);
@@ -78,7 +88,8 @@ class CompanyController extends Controller
         return view('company.create', ['company' => $company]);
     }
 
-    public function store (Request $request){
+    public function store(Request $request)
+    {
         $validation = $request->validate([
             'name' => 'required',
             'description' => 'required',

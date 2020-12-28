@@ -6,6 +6,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Company;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +30,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('isStudent', function ($user) {
             return $user->isStudent === 1;
+        });
+
+        Gate::define('hasCompany', function ($user) {
+            return Company::where('id', $user->id);
         });
     }
 }

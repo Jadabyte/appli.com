@@ -3,54 +3,116 @@
 @section('title')
     Profile
 @endsection
+
 @section('content')
 
     @component('components/navigation')@endcomponent
 
     <div class="container profile profile-view" id="profile">
-        <div class="row">
-            <div class="col-md-12 alert-col relative">
-                <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
-            </div>
-        </div>
-        <form>
-            <div class="form-row profile-row">
-                <div class="col-md-4 relative">
-                    <div class="avatar">
-                        <div class="avatar-bg center"></div>
-                    </div><input type="file" class="form-control" name="avatar-file"></div>
-                <div class="col-md-8">
-                    <h1 class="headerOne">Profile </h1>
-                    <hr>
-                    <div class="form-row">
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label class="headerTwo">Companyname&nbsp;</label><input class="form-control" type="text" name="firstname" style="margin-top:-8%"></div>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label class="headerTwo">Email </label><input class="form-control" type="email" autocomplete="off" required="" name="email" style="margin-top:-8%"></div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label class="headerTwo">Password </label><input class="form-control" type="password" name="password" autocomplete="off" required="" style="margin-top:-8%"></div>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label class="headerTwo">Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" required="" style="margin-top:-8%"></div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group"><label class="headerTwo">Company description&nbsp;</label><input class="form-control" type="text" style="height:400px; margin-top:-8%;"></div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-row">
-                        <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button><button class="btn btn-danger form-btn btnDeclined" type="reset" style="background-color:darkred;">CANCEL </button></div>
-                    </div>
+        <h1 class="headerOne">Profile</h1>
+        <h2 class="headerTwo">User</h2>
+        <form method="post" action="">
+            <div class="form-row">
+                <div class="col">
+                    <label for="firstName">First name</label>
+                    <input class="form-control" type="text" name="firstName" placeholder="First name" value="{{ old('firstName') }}">
+                </div>
+                <div class="col">
+                    <label for="lastName">Last name</label>
+                    <input class="form-control" type="text" name="lastName" placeholder="Last name" value="{{ old('lastName') }}">
                 </div>
             </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="col">
+                    <label for="confirmPass">Confirm password</label>
+                    <input class="form-control" type="password" name="confirmPass" placeholder="Confirm password">
+                </div>
+            </div>
+            <h2 class="headerTwo">Company</h2>
+            <div class="form-row">
+                <div class="col">
+                    <label for="logo">Logo</label>
+                    <input class="form-control" type="file" name="logo" value="{{ old('logo') }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="companyName">Company name</label>
+                    <input class="form-control" type="text" name="companyName" placeholder="Company name" value="{{ old('companyName') }}">
+                    <small class="form-text text-muted">Please enter the name of your company and we will automically try to determine the rest of your information.</small>
+                    <small class="form-text text-muted">Please fill in any information that was not automatically found.</small>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="companyEmail">Company email</label>
+                    <input class="form-control" type="email" name="companyEmail" placeholder="Company email" value="{{ old('companyEmail') }}">
+                </div>
+                <div class="col">
+                    <label for="telephone">Company telephone</label>
+                    <input class="form-control" type="tel" name="telephone" placeholder="Company telephone" value="{{ old('telephone') }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="description" placeholder="Description" value="{{ old('description') }}"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="website">Website</label>
+                    <input class="form-control" type="url" name="website" placeholder="Website" value="{{ old('website') }}">
+                </div>
+                <div class="col">
+                    <label for="linkedin">LinkedIn</label>
+                    <input class="form-control" type="url" name="linkedin" placeholder="LinkedIn" value="{{ old('linkedin') }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="category">Category</label>
+                    <input class="form-control" type="text" name="category" placeholder="Category" value="{{ old('category') }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="street">Street</label>
+                    <input class="form-control" type="text" name="street" placeholder="Street" value="{{ old('street') }}">
+                </div>
+                <div class="col">
+                    <label for="houseNumber">House number</label>
+                    <input class="form-control" type="number" name="houseNumber" placeholder="House number" value="{{ old('houseNumber') }}">
+                </div>
+                <div class="col">
+                    <label for="pobox">P.O. box</label>
+                    <input class="form-control" type="number" name="pobox" placeholder="P.O. box" value="{{ old('pobox') }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="postalCode">Postal code</label>
+                    <input class="form-control" type="number" name="postalCode" placeholder="Postal code" value="{{ old('postalCode') }}">
+                </div>
+                <div class="col">
+                    <label for="city">City</label>
+                    <input class="form-control" type="text" name="city" placeholder="City" value="{{ old('city') }}">
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Save</button>
         </form>
     </div>
+
     <div class="container">
         <h1 class="headerOne">All applications made by students</h1>
         <p>You can label the applications.</p>
