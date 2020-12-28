@@ -76,7 +76,7 @@
                         <form class="form-inline" method="POST">
                         @csrf
                             <div class="form-group">
-                                <select  name="label" class="form-control" >
+                                <select id="label" name="label" class="form-control" >
                                     <option value="Starred">Starred</option>
                                     <option value="Approved">Approved</option>
                                     <option value="Declined">Declined</option>
@@ -94,3 +94,4 @@
 </div>
     @component('components/footer')@endcomponent
     @endsection
+   
