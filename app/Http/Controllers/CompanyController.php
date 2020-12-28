@@ -61,14 +61,6 @@ class CompanyController extends Controller
 
     public function handleLabel(Request $request, $id) {
        
-        // $data['applications'] = DB::table('internships')
-        //                             ->join('applications', 'applications.internship_id', '=', 'internships.id')
-        //                             ->join('students', 'applications.student_id', '=', 'students.id')
-        //                             ->join('users', 'students.user_id', '=', 'users.id')
-        //                             ->where('internships.company_id', $id)
-        //                             ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label', 'internships.company_id')
-        //                             ->get();
-
         $application = \App\Models\Application::where('id', $id)
                                         ->first();
         $application->label = $request->input('label');
