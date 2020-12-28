@@ -69,7 +69,7 @@ class CompanyController extends Controller
         //                             ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label', 'internships.company_id')
         //                             ->get();
 
-        $application = \App\Models\Application::where('id', 2)
+        $application = \App\Models\Application::where('id', $id)
                                         ->first();
         $application->label = $request->input('label');
         $application->save();
