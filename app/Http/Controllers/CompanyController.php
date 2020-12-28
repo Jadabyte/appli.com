@@ -79,14 +79,18 @@ class CompanyController extends Controller
     
     public function application($id, $application) {
 
-        $data['applications'] = DB::table('internships')
+        $data['info'] = DB::table('internships')
                                     ->join('applications', 'applications.internship_id', '=', 'internships.id')
                                     ->join('students', 'applications.student_id', '=', 'students.id')
                                     ->join('users', 'students.user_id', '=', 'users.id')
+                                    ->join('categories', 'internships.category_id', '=', 'categories.id')
+                                    ->join('internshipperiods', 'internships.internshipPeriod_id', '=', 'internshipperiods.id')
                                     ->where('internships.company_id', $id)
-                                    ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label', "internships.company_id")
+                                    ->where('applications.id', $application)
+                                    ->select('internships.title as internshipTitle', 'internships.description', 'users.firstName', 'users.lastName', 'students.mobile', 'students.LinkedIn', 'students.portfolio', 'students.biography', 'applications.motivation', 'applications.label', 'applications.id as applicationId', 'categories.title as categoryTitle', 'internshipperiods.title as internshipPeriodTitle')
                                     ->get();
-                                    
+        //dd($data);                            
         return view('company.application', $data);
     }
+    
 }
