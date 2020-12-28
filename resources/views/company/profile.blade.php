@@ -85,7 +85,7 @@
                             <button class="btn btn-primary btnSave" id="labelButton" type="submit">Save</button>
                         </form>
                     </td>
-                    <td><a class="btnDetails" href="#">Details</a></td>
+                    <td><a class="btnDetails" href="/company/profile/{{$a->company_id}}/application/{{$a->id}}">Details</a></td>
                 </tr>
             @endforeach
             </tbody>

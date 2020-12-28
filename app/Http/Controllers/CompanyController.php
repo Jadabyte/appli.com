@@ -23,7 +23,7 @@ class CompanyController extends Controller
                                     ->join('students', 'applications.student_id', '=', 'students.id')
                                     ->join('users', 'students.user_id', '=', 'users.id')
                                     ->where('internships.company_id', $id)
-                                    ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label')
+                                    ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label', 'internships.company_id')
                                     ->get();
         //dd($data);
         return view('company.profile', $data);
@@ -66,7 +66,7 @@ class CompanyController extends Controller
         //                             ->join('students', 'applications.student_id', '=', 'students.id')
         //                             ->join('users', 'students.user_id', '=', 'users.id')
         //                             ->where('internships.company_id', $id)
-        //                             ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label')
+        //                             ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label', 'internships.company_id')
         //                             ->get();
 
         $application = \App\Models\Application::where('id', 2)
@@ -76,5 +76,17 @@ class CompanyController extends Controller
        //dd($application);
         return back();
     }
- 
+    
+    public function application($id, $application) {
+
+        $data['applications'] = DB::table('internships')
+                                    ->join('applications', 'applications.internship_id', '=', 'internships.id')
+                                    ->join('students', 'applications.student_id', '=', 'students.id')
+                                    ->join('users', 'students.user_id', '=', 'users.id')
+                                    ->where('internships.company_id', $id)
+                                    ->select('applications.id', 'users.firstName', 'internships.title', 'applications.label', "internships.company_id")
+                                    ->get();
+                                    
+        return view('company.application', $data);
+    }
 }

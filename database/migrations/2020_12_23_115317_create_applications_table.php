@@ -18,6 +18,7 @@ class CreateApplicationsTable extends Migration
             $table->foreignId('student_id');
             $table->foreignId('internship_id');
             $table->string('label')->default('New');
+            $table->text('motivation');
             $table->timestamps();
         });
     }
