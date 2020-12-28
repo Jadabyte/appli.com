@@ -25,11 +25,10 @@ Route::get('/', [GeneralController::class, 'index']);
 /* USERS */
 Route::get('/login', [GeneralController::class, 'login'])->name('login');
 Route::post('/login', [GeneralController::class, 'handleLogin']);
-
 Route::get('/register', [GeneralController::class, 'register']);
 Route::post('/register', [GeneralController::class, 'handleRegister']);
-
 Route::get('/logout', [GeneralController::class, 'logout']);
+Route::post('/company/profile', [GeneralController::class, 'handleProfile'])->middleware('auth');
 
 
 /* STUDENTS*/

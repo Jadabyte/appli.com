@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 use App\Models\User;
 
@@ -123,5 +125,39 @@ class GeneralController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function handleProfile(Request $request)
+    {
+        $user = $this->user();
+
+        $validation = $request->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => ['required','email','regex:/(.*)student\.thomasmore\.be$/i', Rule::unique('users')->ignore($user)],
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        $request->flash();
+
+        $user->firstName = $request->input('firstName');
+        $user->lastName = $request->input('lastName');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        if ($user->isStudent) {
+            return redirect('student');
+        }
+
+        return redirect('company');
+    }
+
+    public function user()
+    {
+        if (Gate::allows('isStudent')) {
+            return User::where('id', Auth::user()->id)->with('student')->first();
+        }
+        return User::where('id', Auth::user()->id)->with('company')->first();
     }
 }

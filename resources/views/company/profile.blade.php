@@ -10,35 +10,25 @@
 
     <div class="container profile profile-view" id="profile">
         <h1 class="headerOne">Profile</h1>
-        <h2 class="headerTwo">User</h2>
-        <form method="post" action="">
-            <div class="form-row">
-                <div class="col">
-                    <label for="firstName">First name</label>
-                    <input class="form-control" type="text" name="firstName" placeholder="First name" value="{{ old('firstName') }}">
-                </div>
-                <div class="col">
-                    <label for="lastName">Last name</label>
-                    <input class="form-control" type="text" name="lastName" placeholder="Last name" value="{{ old('lastName') }}">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <label for="password">Password</label>
-                    <input class="form-control" type="password" name="password" placeholder="Password">
-                </div>
-                <div class="col">
-                    <label for="confirmPass">Confirm password</label>
-                    <input class="form-control" type="password" name="confirmPass" placeholder="Confirm password">
-                </div>
-            </div>
-            <h2 class="headerTwo">Company</h2>
+        <h2 class="headerTwo">Company</h2>
+        <form method="post" action="/company/create">
+            @csrf
+            @if( $flash = session('message') )
+                <div class="alert alert-success">{{ $flash }}</div>
+            @endif
+
+            @if( $flash = session('error') )
+                <div class="alert alert-danger">{{ $flash }}</div>
+            @endif
+
+            @if( $errors->any())
+                <ul class="alert alert-danger">
+                @foreach($errors->all() as $e)
+                    <li>{{ $e }}</li>
+                @endforeach
+                </ul>
+            @endif
+
             <div class="form-row">
                 <div class="col">
                     <label for="logo">Logo</label>
@@ -107,6 +97,38 @@
                 <div class="col">
                     <label for="city">City</label>
                     <input class="form-control" type="text" name="city" placeholder="City" value="{{ old('city') }}">
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+        <h2 class="headerTwo">User</h2>
+        <form method="post" action="">
+            @csrf
+
+            <div class="form-row">
+                <div class="col">
+                    <label for="firstName">First name</label>
+                    <input class="form-control" type="text" name="firstName" placeholder="First name" value="{{ $user->firstName }}">
+                </div>
+                <div class="col">
+                    <label for="lastName">Last name</label>
+                    <input class="form-control" type="text" name="lastName" placeholder="Last name" value="{{ $user->lastName }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" placeholder="Email" value="{{ $user->email }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="col">
+                    <label for="password_confirmation">Confirm password</label>
+                    <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm password">
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Save</button>

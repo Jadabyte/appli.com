@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 use App\Models\Company;
 use App\Models\User;
@@ -22,9 +24,6 @@ class CompanyController extends Controller
         if (Gate::allows('hasCompany')) {
             return redirect('company/profile');
         }
-
-        //$user= $this->user();
-        //dd($user);
 
         $companies = Company::all();
         $users = User::all();
@@ -137,7 +136,9 @@ class CompanyController extends Controller
             return redirect('student');
         }
 
-        return view('company.profile');
+        $user = $this->user();
+
+        return view('company.profile', ['user'=> $user]);
     }
 
     public function user()
