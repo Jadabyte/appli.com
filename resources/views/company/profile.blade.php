@@ -40,14 +40,14 @@
             <div class="form-row">
                 <div class="col">
                     <label for="logo">Logo</label>
-                    <input class="form-control" type="file" name="logo" aria-describedby="fileHelp" value="{{ old('logo') }}">
+                    <input class="form-control" type="file" name="logo" aria-describedby="fileHelp">
                     <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <label for="companyName">Company name</label>
-                    <input class="form-control" type="text" name="companyName" placeholder="Company name" value="{{ old('companyName') }}">
+                    <input class="form-control" type="text" name="companyName" placeholder="Company name" value="@isset($user->company->name){{ $user->company->name }}@else{{ old('companyName') }}@endisset">
                     <small class="form-text text-muted">Please enter the name of your company and we will automically try to determine the rest of your information.</small>
                     <small class="form-text text-muted">Please fill in any information that was not automatically found.</small>
                 </div>
@@ -55,57 +55,61 @@
             <div class="form-row">
                 <div class="col">
                     <label for="companyEmail">Company email</label>
-                    <input class="form-control" type="email" name="companyEmail" placeholder="Company email" value="{{ old('companyEmail') }}">
+                    <input class="form-control" type="email" name="companyEmail" placeholder="Company email" value="@isset($user->company->mail){{ $user->company->mail }}@else{{ old('companyEmail') }}@endisset">
                 </div>
                 <div class="col">
                     <label for="phone">Company telephone</label>
-                    <input class="form-control" type="tel" name="phone" placeholder="Company telephone" value="{{ old('phone') }}">
+                    <input class="form-control" type="tel" name="phone" placeholder="Company telephone" value="@isset($user->company->telephone){{ $user->company->telephone }}@else{{ old('phone') }}@endisset">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <label for="description">Description</label>
-                    <textarea class="form-control" name="description" placeholder="Description" value="{{ old('description') }}"></textarea>
+                    <textarea class="form-control" name="description" placeholder="Description">@isset($user->company->description){{ $user->company->description }}@else{{ old('description') }}@endisset</textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <label for="website">Website</label>
-                    <input class="form-control" type="url" name="website" placeholder="Website" value="{{ old('website') }}">
+                    <input class="form-control" type="url" name="website" placeholder="Website" value="@isset($user->company->website){{ $user->company->website }}@else{{ old('website') }}@endisset">
                 </div>
                 <div class="col">
                     <label for="linkedin">LinkedIn</label>
-                    <input class="form-control" type="url" name="linkedin" placeholder="LinkedIn" value="{{ old('linkedin') }}">
+                    <input class="form-control" type="url" name="linkedin" placeholder="LinkedIn" value="@isset($user->company->LinkedIn){{ $user->company->LinkedIn }}@else{{ old('linkedin') }}@endisset">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <label for="category">Category</label>
-                    <input class="form-control" type="text" name="category" placeholder="Category" value="{{ old('category') }}">
+                    <select class="form-control" name="category">
+                    @foreach ($categories as $category)
+                            <option @if(!empty($user->company->category_id) && $category->id === $user->company->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                    </select>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <label for="street">Street</label>
-                    <input class="form-control" type="text" name="street" placeholder="Street" value="{{ old('street') }}">
+                    <input class="form-control" type="text" name="street" placeholder="Street" value="@isset($user->company->street){{ $user->company->street }}@else{{ old('street') }}@endisset">
                 </div>
                 <div class="col">
                     <label for="houseNumber">House number</label>
-                    <input class="form-control" type="number" name="houseNumber" placeholder="House number" value="{{ old('houseNumber') }}">
+                    <input class="form-control" type="number" name="houseNumber" placeholder="House number" value="@isset($user->company->houseNumber){{ $user->company->houseNumber }}@else{{ old('houseNumber') }}@endisset">
                 </div>
                 <div class="col">
                     <label for="pobox">P.O. box</label>
-                    <input class="form-control" type="number" name="pobox" placeholder="P.O. box" value="{{ old('pobox') }}">
+                    <input class="form-control" type="number" name="pobox" placeholder="P.O. box" value="@isset($user->company->pobox){{ $user->company->pobox }}@else{{ old('pobox') }}@endisset">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <label for="postalCode">Postal code</label>
-                    <input class="form-control" type="number" name="postalCode" placeholder="Postal code" value="{{ old('postalCode') }}">
+                    <input class="form-control" type="number" name="postalCode" placeholder="Postal code" value="@isset($user->company->postalCode){{ $user->company->postalCode }}@else{{ old('postalCode') }}@endisset">
                 </div>
                 <div class="col">
                     <label for="city">City</label>
-                    <input class="form-control" type="text" name="city" placeholder="City" value="{{ old('city') }}">
+                    <input class="form-control" type="text" name="city" placeholder="City" value="@isset($user->company->city){{ $user->company->city }}@else{{ old('city') }}@endisset">
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Save</button>

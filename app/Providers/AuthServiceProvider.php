@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('hasCompany', function ($user) {
-            return Company::where('id', $user->id);
+            return Company::where('user_id', $user->id)->first();
         });
     }
 }

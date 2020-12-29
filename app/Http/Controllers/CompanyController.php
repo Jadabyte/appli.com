@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\Company;
 use App\Models\User;
+use App\Models\Category;
 
 class CompanyController extends Controller
 {
@@ -22,7 +23,7 @@ class CompanyController extends Controller
         if (Gate::allows('isStudent')) {
             return redirect('student');
         }
-        if (Gate::allows('hasCompany')) {
+        if (Gate::denies('hasCompany')) {
             return redirect('company/profile');
         }
 
@@ -43,7 +44,7 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        if (Gate::allows('hasCompany')) {
+        if (Gate::denies('hasCompany')) {
             return redirect('company/profile');
         }
 
@@ -92,6 +93,18 @@ class CompanyController extends Controller
     {
         $validation = $request->validate([
             'logo' => 'required|image|max:2048',
+            'companyName' => 'required|string',
+            'companyEmail' => 'required|email',
+            'phone' => 'required|numeric',
+            'description' => 'required',
+            'website' => 'required|url',
+            'linkedin' => 'required|url|regex:/http(?:s):\/\/(?:www\.)linkedin\.com\/.+/i',
+            'category' => 'required',
+            'street' => 'required|string|alpha',
+            'houseNumber' => 'required|numeric',
+            'city' => 'required|string',
+            'postalCode' => 'required|numeric',
+            'pobox' => 'nullable|numeric',
         ]);
 
         $user = $this->user();
@@ -120,52 +133,12 @@ class CompanyController extends Controller
         $user->company->houseNumber = $request->input('houseNumber');
         $user->company->city = $request->input('city');
         $user->company->postalCode = $request->input('postalCode');
-        $user->company->pobox = $request->input('pobox');
+        $user->company->pobox = $request->input('pobox') ? $request->input('pobox') : 0;
 
         $user->company->save();
 
+        $request->session()->flash('message', 'Your company information has been added successfully!');
         return redirect('company/profile');
-
-        //return back()->with('success', 'You have successfully upload image.');
-        /*
-        $validation = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'category' => 'required',
-            'website' => 'required',
-            'linkedin' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'street' => 'required',
-            'streetNum' => 'required',
-            'city' => 'required',
-            'postCode' => 'required',
-            'poBox' => 'required'
-        ]);
-
-        $company = new \App\Models\Company();
-
-        $company->name = $request->input('name');
-        $company->description = $request->input('description');
-        $company->category = $request->input('category');
-
-        $company->website = $request->input('website');
-        $company->LinkedIn = $request->input('linkedin');
-        $company->mail = $request->input('email');
-        $company->telephone = $request->input('phone');
-
-        $company->street = $request->input('street');
-        $company->houseNumber = $request->input('streetNum');
-        $company->city = $request->input('city');
-        $company->postalCode = $request->input('postCode');
-        $company->pobox = $request->input('poBox');
-
-        $company->user_id = rand(1, 50);
-        $company->logo = ('insert image link here');
-
-        $company->save();
-        return redirect('/company');
-        */
     }
 
     public function profile()
@@ -176,7 +149,9 @@ class CompanyController extends Controller
 
         $user = $this->user();
 
-        return view('company.profile', ['user'=> $user]);
+        $categories = Category::All();
+
+        return view('company.profile', ['user'=> $user, 'categories' => $categories]);
     }
 
     public function user()

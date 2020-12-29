@@ -146,6 +146,8 @@ class GeneralController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
+        $request->session()->flash('message', 'Your information has been successfully updated!');
+
         if ($user->isStudent) {
             return redirect('student');
         }
