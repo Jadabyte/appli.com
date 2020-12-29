@@ -33,11 +33,6 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
-    public function match()
-    {
-        return view('company/match');
-    }
-
     public function show($id)
     {
         if (Gate::denies('hasCompany')) {
@@ -71,7 +66,7 @@ class CompanyController extends Controller
         return view('company.create', ['company' => Company::findOrFail($id), 'score' => $score]);
     }
 
-    public function search(Request $request)
+    public function match(Request $request)
     {
         $validation = $request->validate([
             'companyName' => 'required|string',
