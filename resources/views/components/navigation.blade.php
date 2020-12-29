@@ -7,7 +7,7 @@
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link active" style="color:#EDBD16;" href="#">&nbsp;Home</a></li>
                         <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="#">&nbsp;About</a></li>
-                        <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="profile">&nbsp;Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="/@if(Gate::allows('isStudent')){{ 'student' }}@else{{ 'company' }}@endif/profile">&nbsp;Profile</a></li>
                         <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="/logout"><i class="fa fa-sign-in"></i>&nbsp; Log out</a></li>
                     </ul>
             </div>
