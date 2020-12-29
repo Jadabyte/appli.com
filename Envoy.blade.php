@@ -10,6 +10,7 @@
     php artisan migrate --force
     php artisan cache:clear
     php artisan config:clear
+    php artisan storage:link
     php artisan up
 @endtask
 
@@ -23,5 +24,6 @@
     php artisan migrate:fresh --seed
     php artisan cache:clear
     php artisan config:clear
+    php artisan storage:link
     php artisan up
 @endtask

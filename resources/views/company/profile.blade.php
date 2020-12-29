@@ -11,7 +11,7 @@
     <div class="container profile profile-view" id="profile">
         <h1 class="headerOne">Profile</h1>
         <h2 class="headerTwo">Company</h2>
-        <form method="post" action="/company/create">
+        <form method="post" action="/company/create" enctype="multipart/form-data">
             @csrf
             @if( $flash = session('message') )
                 <div class="alert alert-success">{{ $flash }}</div>
@@ -29,10 +29,17 @@
                 </ul>
             @endif
 
+            <div class="profile-header-container">
+                <div class="profile-header-img">
+                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/companylogos/' . $user->company->logo) }}" />
+                </div>
+            </div>
+
             <div class="form-row">
                 <div class="col">
                     <label for="logo">Logo</label>
-                    <input class="form-control" type="file" name="logo" value="{{ old('logo') }}">
+                    <input class="form-control" type="file" name="logo" aria-describedby="fileHelp" value="{{ old('logo') }}">
+                    <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
                 </div>
             </div>
             <div class="form-row">
@@ -49,8 +56,8 @@
                     <input class="form-control" type="email" name="companyEmail" placeholder="Company email" value="{{ old('companyEmail') }}">
                 </div>
                 <div class="col">
-                    <label for="telephone">Company telephone</label>
-                    <input class="form-control" type="tel" name="telephone" placeholder="Company telephone" value="{{ old('telephone') }}">
+                    <label for="phone">Company telephone</label>
+                    <input class="form-control" type="tel" name="phone" placeholder="Company telephone" value="{{ old('phone') }}">
                 </div>
             </div>
             <div class="form-row">

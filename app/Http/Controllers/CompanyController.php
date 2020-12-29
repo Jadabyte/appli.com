@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Company;
 use App\Models\User;
@@ -30,10 +31,10 @@ class CompanyController extends Controller
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
 
-    public function create()
+    /*public function create()
     {
         return view('company/create');
-    }
+    }*/
 
     public function match()
     {
@@ -90,6 +91,44 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
+            'logo' => 'required|image|max:2048',
+        ]);
+
+        $user = $this->user();
+
+        if (!$user->company) {
+            $user->company = new Company;
+            $user->company->user_id = $user->id;
+        }
+
+        $logoName = $user->company->user_id.'_logo'.time().'.'.request()->logo->getClientOriginalExtension();
+
+        Storage::putFileAs('companylogos', $request->file('logo'), $logoName);
+
+        $user->company->logo = $logoName;
+
+        $user->company->name = $request->input('companyName');
+        $user->company->description = $request->input('description');
+        $user->company->category_id = $request->input('category');
+
+        $user->company->website = $request->input('website');
+        $user->company->LinkedIn = $request->input('linkedin');
+        $user->company->mail = $request->input('companyEmail');
+        $user->company->telephone = $request->input('phone');
+
+        $user->company->street = $request->input('street');
+        $user->company->houseNumber = $request->input('houseNumber');
+        $user->company->city = $request->input('city');
+        $user->company->postalCode = $request->input('postalCode');
+        $user->company->pobox = $request->input('pobox');
+
+        $user->company->save();
+
+        return redirect('company/profile');
+
+        //return back()->with('success', 'You have successfully upload image.');
+        /*
+        $validation = $request->validate([
             'name' => 'required',
             'description' => 'required',
             'category' => 'required',
@@ -121,13 +160,12 @@ class CompanyController extends Controller
         $company->postalCode = $request->input('postCode');
         $company->pobox = $request->input('poBox');
 
-        /* these are just for testing, change for production */
         $company->user_id = rand(1, 50);
         $company->logo = ('insert image link here');
-        /*---------------------------------------------------*/
 
         $company->save();
         return redirect('/company');
+        */
     }
 
     public function profile()

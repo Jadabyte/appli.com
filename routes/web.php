@@ -40,7 +40,7 @@ Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('aut
 /* COMPANIES*/
 Route::get('/company/profile', [CompanyController::class, 'profile'])->middleware('auth');
 Route::get('/company', [CompanyController::class, 'index'])->middleware('auth');
-Route::get('/company/create', [CompanyController::class, 'create'])->middleware('auth');
+//Route::get('/company/create', [CompanyController::class, 'create'])->middleware('auth');
 Route::post('/company/create', [CompanyController::class, 'store'])->middleware('auth');
 Route::get('/company/match', [CompanyController::class, 'match'])->middleware('auth');
 Route::post('/company/match', [CompanyController::class, 'search'])->middleware('auth');
