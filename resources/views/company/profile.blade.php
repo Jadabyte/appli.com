@@ -48,6 +48,7 @@
                 <div class="col">
                     <label for="companyName">Company name</label>
                     <input class="form-control" type="text" name="companyName" placeholder="Company name" value="@isset($user->company->name){{ $user->company->name }}@else{{ old('companyName') }}@endisset">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/company/match">Search</button>
                     <small class="form-text text-muted">Please enter the name of your company and we will automically try to determine the rest of your information.</small>
                     <small class="form-text text-muted">Please fill in any information that was not automatically found.</small>
                 </div>

@@ -74,16 +74,22 @@ class CompanyController extends Controller
     public function search(Request $request)
     {
         $validation = $request->validate([
-            'name' => 'required'
+            'companyName' => 'required|string',
         ]);
-        $name = $request->input('name');
+        $name = $request->input('companyName');
 
-        $key = 'lAnDiA8K464qMD8g13YsDef_fNPIyUQjcS6SlCLZum4';
-        $url = 'https://discover.search.hereapi.com/v1/discover?at=42.36346,-71.05444&q=' . $name . '&in=countryCode:BEL&apiKey=' . $key;
+        $url = 'https://discover.search.hereapi.com/v1/discover?at=42.36346,-71.05444&q=' . $name . '&in=countryCode:BEL&apiKey=' . env('HERE_API');
 
-        $company = Http::get($url)->json();
+        $companies = Http::get($url);
 
-        return view('company.create', ['company' => $company]);
+        if (!($companies->ok() && isset($companies->json()['items'][0]))) {
+            $request->session()->flash('error', 'Company not found...');
+            return back();
+        }
+
+        $company = $companies['items'][0];
+
+        return redirect('company/profile')->with(['company' => $company]);
     }
 
     public function create(Request $request)
@@ -97,7 +103,7 @@ class CompanyController extends Controller
             'website' => 'required|url',
             'linkedin' => 'required|url|regex:/http(?:s):\/\/(?:www\.)linkedin\.com\/.+/i',
             'category' => 'required',
-            'street' => 'required|string|alpha',
+            'street' => 'required|string',
             'houseNumber' => 'required|numeric',
             'city' => 'required|string',
             'postalCode' => 'required|numeric',
@@ -147,6 +153,34 @@ class CompanyController extends Controller
         $user = $this->user();
 
         $categories = Category::All();
+
+        if (session()->has('company')) {
+            $user->company = new Company;
+            if (isset(session('company')['title'])) {
+                $user->company->name = session('company')['title'];
+            }
+            if (isset(session('company')['address']['postalCode'])) {
+                $user->company->postalCode = session('company')['address']['postalCode'];
+            }
+            if (isset(session('company')['address']['houseNumber'])) {
+                $user->company->houseNumber = session('company')['address']['houseNumber'];
+            }
+            if (isset(session('company')['address']['street'])) {
+                $user->company->street = session('company')['address']['street'];
+            }
+            if (isset(session('company')['address']['city'])) {
+                $user->company->city = session('company')['address']['city'];
+            }
+            if (isset(session('company')['contacts'][0]['email'][0]['value'])) {
+                $user->company->mail = session('company')['contacts'][0]['email'][0]['value'];
+            }
+            if (isset(session('company')['contacts'][0]['phone'][0]['value'])) {
+                $user->company->telephone = session('company')['contacts'][0]['phone'][0]['value'];
+            }
+            if (isset(session('company')['contacts'][0]['www'][0]['value'])) {
+                $user->company->website = session('company')['contacts'][0]['www'][0]['value'];
+            }
+        }
 
         return view('company.profile', ['user'=> $user, 'categories' => $categories]);
     }

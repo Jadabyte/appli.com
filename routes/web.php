@@ -41,8 +41,8 @@ Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('aut
 Route::get('/company/profile', [CompanyController::class, 'profile'])->middleware('auth');
 Route::get('/company', [CompanyController::class, 'index'])->middleware('auth');
 Route::post('/company/create', [CompanyController::class, 'create'])->middleware('auth');
-Route::get('/company/match', [CompanyController::class, 'match'])->middleware('auth');
-Route::post('/company/match', [CompanyController::class, 'search'])->middleware('auth');
+//Route::get('/company/match', [CompanyController::class, 'match'])->middleware('auth');
+Route::post('/company/match', [CompanyController::class, 'search'])->middleware('auth')->name('companyProfile');
 Route::get('/company/{id}', [CompanyController::class, 'show'])->middleware('auth');
 
 
