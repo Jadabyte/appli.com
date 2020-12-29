@@ -29,11 +29,13 @@
                 </ul>
             @endif
 
+            @isset($user->company->logo)
             <div class="profile-header-container">
                 <div class="profile-header-img">
                     <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/companylogos/' . $user->company->logo) }}" />
                 </div>
             </div>
+            @endisset
 
             <div class="form-row">
                 <div class="col">
