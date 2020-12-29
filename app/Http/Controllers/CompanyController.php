@@ -24,6 +24,7 @@ class CompanyController extends Controller
             return redirect('student');
         }
         if (Gate::denies('hasCompany')) {
+            session()->flash('error', 'First add your company details.');
             return redirect('company/profile');
         }
 
@@ -31,11 +32,6 @@ class CompanyController extends Controller
         $users = User::all();
         return view('company.index', ['companies' => $companies, 'users' => $users]);
     }
-
-    /*public function create()
-    {
-        return view('company/create');
-    }*/
 
     public function match()
     {
@@ -45,6 +41,7 @@ class CompanyController extends Controller
     public function show($id)
     {
         if (Gate::denies('hasCompany')) {
+            session()->flash('error', 'First add your company details.');
             return redirect('company/profile');
         }
 
@@ -89,7 +86,7 @@ class CompanyController extends Controller
         return view('company.create', ['company' => $company]);
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $validation = $request->validate([
             'logo' => 'required|image|max:2048',
