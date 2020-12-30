@@ -18,6 +18,7 @@
 @task('staging', ['on' => 'web'])
     cd staging/appli.com
     php artisan down
+    git fetch
     git checkout {{ $branch }}
     git fetch --all
     git reset --hard origin/{{ $branch }}
