@@ -36,6 +36,11 @@ class StudentController extends Controller
         return view('student.profile');
     }
 
+    public function update($id)
+    {
+        return view('student.profile', ['users' => User::findOrFail($id)]);
+    }
+
     public function user()
     {
         if (Gate::allows('isStudent')) {

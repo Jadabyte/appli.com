@@ -34,12 +34,19 @@ Route::post('/company/profile', [GeneralController::class, 'handleProfile'])->mi
 /* STUDENTS*/
 Route::get('/student/profile', [StudentController::class, 'profile'])->middleware('auth');
 Route::get('/student', [StudentController::class, 'index'])->middleware('auth');
+//nog toe te voegen: student update (Amber)
+Route::get('/student/update/{id}', [StudentController::class, 'update'])->middleware('auth');
+//Route::post('/student/update/{id}', [StudentController::class, 'handleUpdate']);
 Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('auth');
 
 
 /* COMPANIES*/
 Route::get('/company/profile', [CompanyController::class, 'profile'])->middleware('auth');
 Route::get('/company', [CompanyController::class, 'index'])->middleware('auth');
+Route::get('/company/profile/{id}', [CompanyController::class, 'profile'])->middleware('auth');
+Route::post('/company/profile/{id}', [CompanyController::class, 'handleLabel'])->middleware('auth');
+Route::get('/company/profile/{id}/application/{application_id}', [CompanyController::class, 'application'])->middleware('auth');
+Route::post('/company/profile/{id}/application/{application_id}', [CompanyController::class, 'handleLabel'])->middleware('auth');
 Route::post('/company/create', [CompanyController::class, 'create'])->middleware('auth');
 Route::post('/company/match', [CompanyController::class, 'match'])->middleware('auth');
 Route::get('/company/{id}', [CompanyController::class, 'show'])->middleware('auth');
@@ -71,6 +78,5 @@ Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
 Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
-Route::get('/components/label', [GeneralController::class,'label']);
 Route::get('/components/pagination', [GeneralController::class,'pages']);
 Route::get('/components/filterCompany', [GeneralController::class,'filterCompany']);

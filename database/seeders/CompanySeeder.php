@@ -34,40 +34,40 @@ class CompanySeeder extends Seeder
                 'website'=>"https://www.capgemini.com/be-en/"
             ]);
 
-            \DB::table('companies')->insert(
-                [
-                    'user_id'=> 3,
-                    'name' => "Intracto",
-                    'logo' => "",
-                    'category_id' => 3,
-                    'street' => "Zavelheide",
-                    'houseNumber' => 15,
-                    'pobox' => 0,
-                    'postalCode' => 2200,
-                    'city'=> "Herentals",
-                    'mail'=> "xrice@example.com",
-                    'telephone'=>"0800 90 200",
-                    'description'=>"As a digital agency, Intracto is shaping tomorrow's businesses in the areas of marketing, strategy, communication and technology. Our campuses in Belgium and the Netherlands are bursting with talent to take challenging projects to the next level.",
-                    'LinkedIn'=>"https://be.linkedin.com/company/intracto-group",
-                    'website'=>"https://www.intracto.com/en-be"
-                ]);
+        \DB::table('companies')->insert(
+            [
+                'user_id'=> 3,
+                'name' => "Intracto",
+                'logo' => "",
+                'category_id' => 3,
+                'street' => "Zavelheide",
+                'houseNumber' => 15,
+                'pobox' => 0,
+                'postalCode' => 2200,
+                'city'=> "Herentals",
+                'mail'=> "xrice@example.com",
+                'telephone'=>"0800 90 200",
+                'description'=>"As a digital agency, Intracto is shaping tomorrow's businesses in the areas of marketing, strategy, communication and technology. Our campuses in Belgium and the Netherlands are bursting with talent to take challenging projects to the next level.",
+                'LinkedIn'=>"https://be.linkedin.com/company/intracto-group",
+                'website'=>"https://www.intracto.com/en-be"
+            ]);
 
-                \DB::table('companies')->insert(
-                    [
-                        'user_id'=> 7,
-                        'name' => "Anvil",
-                        'logo' => "",
-                        'category_id' => 2,
-                        'street' => "Veldkant",
-                        'houseNumber' => 35,
-                        'pobox' => 0,
-                        'postalCode' => 2550,
-                        'city'=> "Kontich",
-                        'mail'=> "hello@anvil.be",
-                        'telephone'=>"+32 477 38 51 42",
-                        'description'=>"Anvil specializes in website development using the best Content Management Systems (CMS) and frameworks. In a CMS we build your website in which all texts and images are adaptable or translatable by the administrators. We use a framework to build a customized solution on a secure, powerful underlying platform that is 100% tailored to your needs.",
-                        'LinkedIn'=>"https://www.linkedin.com/company/anvil-be/",
-                        'website'=>"https://anvil.be/en"
-                    ]);
+        \DB::table('companies')->insert(
+            [
+                'user_id'=> 7,
+                'name' => "Anvil",
+                'logo' => "",
+                'category_id' => 2,
+                'street' => "Veldkant",
+                'houseNumber' => 35,
+                'pobox' => 0,
+                'postalCode' => 2550,
+                'city'=> "Kontich",
+                'mail'=> "hello@anvil.be",
+                'telephone'=>"+32 477 38 51 42",
+                'description'=>"Anvil specializes in website development using the best Content Management Systems (CMS) and frameworks. In a CMS we build your website in which all texts and images are adaptable or translatable by the administrators. We use a framework to build a customized solution on a secure, powerful underlying platform that is 100% tailored to your needs.",
+                'LinkedIn'=>"https://www.linkedin.com/company/anvil-be/",
+                'website'=>"https://anvil.be/en"
+            ]);
     }
 }
