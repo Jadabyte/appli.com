@@ -122,7 +122,9 @@
                     <div class="card-body p-2 p-sm-3">
                         <div class="media forum-item">
                             <div class="media-body">
+                                @isset($comment->user)
                                 <h6>{{$comment->user->firstName . ' ' . $comment->user->lastName}}</h6>
+                                @endisset
                                 <p class="text-secondary">{{ $comment->text }}</p>
                             </div>
                         </div>
