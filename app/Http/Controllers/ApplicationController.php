@@ -12,7 +12,7 @@ use App\Models\User;
 
 /*
 /application
-    1) als je geen account hebt ga je naar profile
+    1) als je geen account hebt ga je naar profile ✔
     2) companies hebben daar een overzicht van al hun apllication en kunnen aproven, ze kunnen ook naar detail
     3) students hebben daar een overicht van al hun application met status en ze kunnen deleten, ze kunnen ook naar detail
     4) application toevoegen aan de nav
@@ -32,6 +32,16 @@ class ApplicationController extends Controller
 {
     public function index()
     {
+        if (Gate::denies('isStudent') && Gate::denies('hasCompany')) {
+            session()->flash('error', 'First add your company details.');
+            return redirect('company/profile');
+        }
+
+        if (Gate::allows('isStudent') && Gate::denies('hasStudent')) {
+            session()->flash('error', 'First add your student details.');
+            return redirect('student/profile');
+        }
+
         $user = $this->user();
 
         $applications = DB::table('internships')
