@@ -117,22 +117,28 @@
         <div class="container">
             <h2 class="headerTwo">Comments</h2>
             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
+            @foreach ($comments as $comment)
                 <div class="card mb-2">
                     <div class="card-body p-2 p-sm-3">
                         <div class="media forum-item">
                             <div class="media-body">
-                                <h6>Firstname lastname</h6>
-                                <p class="text-secondary">Comment</p>
+                                <h6>{{$comment->user->firstName . ' ' . $comment->user->lastName}}</h6>
+                                <p class="text-secondary">{{ $comment->text }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            <p>You can only send messages if the application is starred.</p>
-            <form action="">
+            @if($info->label === 'Starred')
+            <form action="comment/{{ $info->id }}" method="post">
+                @csrf
                 <input class="form-control" type="text" name="comment" placeholder="Comment" value="{{ old('comment') }}">
                 <button class="btn btn-primary btnSave" id="labelButton" type="submit">Send</button>
             </form>
+            @else
+            <p>You can only send messages if the application is starred.</p>
+            @endif
         </div>
     </section>
     @component('components/footer')@endcomponent

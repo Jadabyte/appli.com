@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Application;
 use App\Models\User;
+use App\Models\Comment;
 
 /*
 /application/{id}
@@ -90,7 +91,7 @@ class ApplicationController extends Controller
                                     ->join('internshipPeriods', 'internships.internshipPeriod_id', '=', 'internshipPeriods.id')
                                     ->where('internships.company_id', $user->company->id)
                                     ->where('applications.id', $id)
-                                    ->select('internships.title as internshipTitle', 'internships.description', 'users.firstName', 'users.lastName', 'students.mobile', 'students.LinkedIn', 'students.portfolio', 'students.biography', 'applications.motivation', 'applications.label', 'applications.id as applicationId', 'categories.title as categoryTitle', 'internshipPeriods.title as internshipPeriodTitle', 'students.id as studentsId', 'internships.id as internshipsId')
+                                    ->select('applications.id', 'internships.title as internshipTitle', 'internships.description', 'users.firstName', 'users.lastName', 'students.mobile', 'students.LinkedIn', 'students.portfolio', 'students.biography', 'applications.motivation', 'applications.label', 'applications.id as applicationId', 'categories.title as categoryTitle', 'internshipPeriods.title as internshipPeriodTitle', 'students.id as studentsId', 'internships.id as internshipsId')
                                     ->first();
         }
 
@@ -102,7 +103,14 @@ class ApplicationController extends Controller
             return back();
         }
 
-        return view('application.show', ['info' => $info, 'user' => $user]);
+        $comments = Comment::where('application_id', $id)->with('user')->get();
+
+        return view('application.show', ['info' => $info, 'user' => $user, 'comments' => $comments]);
+    }
+
+    public function comment()
+    {
+        exit('hello');
     }
 
     public function user()
