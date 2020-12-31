@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Application;
 use App\Models\InternshipPeriod;
+use App\Models\Category;
+use App\Models\InternshipsSkill;
 
 class Internship extends Model
 {
@@ -25,5 +27,15 @@ class Internship extends Model
     public function internshipPeriod()
     {
         return $this->hasOne(InternshipPeriod::class, 'id', 'internshipPeriod_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function internshipsSkill()
+    {
+        return $this->hasOne(InternshipsSkill::class, 'id', 'skills_id');
     }
 }

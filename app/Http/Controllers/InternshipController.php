@@ -36,9 +36,9 @@ class InternshipController extends Controller
         return redirect('/internship');
     }
 
-    public function show($internship)
+    public function show($id)
     {
-        $internship = Internship::where('id', $internship)->with('company')->first();
+        $internship = Internship::where('id', $id)->with('company', 'category', 'internshipPeriod', 'internshipsSkill')->first();
         return view('internship.show', ['internship' => $internship]);
     }
 
