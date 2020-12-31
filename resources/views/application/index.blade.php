@@ -1,7 +1,7 @@
 @extends('layouts/appli')
 
 @section('title')
-    Profile
+    Application
 @endsection
 
 @section('content')

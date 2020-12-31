@@ -1,7 +1,7 @@
 @extends('layouts/appli')
 
 @section('title')
-    Company :name
+     Application detail
 @endsection
 @section('content')
 
@@ -113,5 +113,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <h2 class="headerTwo">Comments</h2>
+            <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
+                <div class="card mb-2">
+                    <div class="card-body p-2 p-sm-3">
+                        <div class="media forum-item">
+                            <div class="media-body">
+                                <h6>Firstname lastname</h6>
+                                <p class="text-secondary">Comment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>You can only send messages if the application is starred.</p>
+            <form action="">
+                <input class="form-control" type="text" name="comment" placeholder="Comment" value="{{ old('comment') }}">
+                <button class="btn btn-primary btnSave" id="labelButton" type="submit">Send</button>
+            </form>
+        </div>
+    </section>
     @component('components/footer')@endcomponent
 @endsection
