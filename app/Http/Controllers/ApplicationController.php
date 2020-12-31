@@ -15,7 +15,7 @@ use App\Models\User;
     1) als je geen account hebt ga je naar profile ✔
     2) als de application niet van of voor jouw is kan je het niet zien ✔
     3) een overzicht van de application, je kan doorklikken naar de internship ✔
-    4) als student kan je doorklikken naar de company, als company kan je doorklikken naar de stunent
+    4) als student kan je doorklikken naar de company, als company kan je doorklikken naar de stunent ✔
     5) als company kan je approven, als student kan je deleten en status zien
     6) Als status starred is, kunnnen student en bedrijf commenten onder de application
 

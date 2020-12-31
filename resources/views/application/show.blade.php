@@ -46,6 +46,7 @@
             </div>
             <div class="card" id="cardCompany">
                 <div class="card-body" id="card-body">
+                    @isset($user->company)
                     <h4 class="card-title" id="headerFour">Student Info</h4>
                     <p class="card-text" id="cardTextCompany">{{$info->firstName}} {{$info->lastName}}</p>
                     <p class="card-text" id="cardTextCompany"><strong>Mobile:</strong> {{$info->mobile}}</p>
@@ -53,6 +54,17 @@
                     <p class="card-text" id="cardTextCompany"><strong>Portfolio:</strong> {{$info->portfolio}}</p>
                     <p class="card-text" id="cardTextCompany"><strong>BIO:</strong> {{$info->biography}}</p>
                     <a class="btn btn-primary" href="/student/{{$info->studentsId}}">More info</a>
+                    @endisset
+
+                    @isset($user->student)
+                    <h4 class="card-title" id="headerFour">Company Info</h4>
+                    <p class="card-text" id="cardTextCompany">{{$info->internship->company->name}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>Mobile:</strong> {{$info->internship->company->telephone}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>LinkedIn:</strong> {{$info->internship->company->LinkedIn}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>Website:</strong> {{$info->internship->company->website}}</p>
+                    <p class="card-text" id="cardTextCompany">{{$info->internship->company->description}}</p>
+                    <a class="btn btn-primary" href="/company/{{$info->internship->company->id}}">More info</a>
+                    @endisset
                 </div>
             </div>
             <div class="card" id="cardCompany">
