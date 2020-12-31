@@ -12,8 +12,8 @@ use App\Models\User;
 
 /*
 /application/{id}
-    1) als je geen account hebt ga je naar profile
-    2) als de application niet van of voor jouw is kan je het niet zien
+    1) als je geen account hebt ga je naar profile ✔
+    2) als de application niet van of voor jouw is kan je het niet zien ✔
     3) een overzicht van de application, je kan doorklikken naar de internship
     4) als student kan je doorklikken naar de company, als company kan je doorklikken naar de stunent
     5) als company kan je approven, als student kan je deleten en status zien
@@ -86,7 +86,7 @@ class ApplicationController extends Controller
         $user = $this->user();
 
         if (Gate::denies('isStudent')) {
-            $data['info'] = DB::table('internships')
+            $info = DB::table('internships')
                                     ->join('applications', 'applications.internship_id', '=', 'internships.id')
                                     ->join('students', 'applications.student_id', '=', 'students.id')
                                     ->join('users', 'students.user_id', '=', 'users.id')
@@ -95,14 +95,18 @@ class ApplicationController extends Controller
                                     ->where('internships.company_id', $user->company->id)
                                     ->where('applications.id', $id)
                                     ->select('internships.title as internshipTitle', 'internships.description', 'users.firstName', 'users.lastName', 'students.mobile', 'students.LinkedIn', 'students.portfolio', 'students.biography', 'applications.motivation', 'applications.label', 'applications.id as applicationId', 'categories.title as categoryTitle', 'internshipPeriods.title as internshipPeriodTitle', 'students.id as studentsId', 'internships.id as internshipsId')
-                                    ->get();
+                                    ->first();
         }
 
         if (Gate::allows('isStudent')) {
-            $data = 0;
+            $info = 0;
         }
 
-        return view('application.show', $data);
+        if (!$info) {
+            return back();
+        }
+
+        return view('application.show', ['info' => $info]);
     }
 
     public function user()
