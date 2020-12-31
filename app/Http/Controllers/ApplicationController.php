@@ -11,12 +11,6 @@ use App\Models\Application;
 use App\Models\User;
 
 /*
-/application
-    1) als je geen account hebt ga je naar profile ✔
-    2) companies hebben daar een overzicht van al hun apllication en kunnen aproven ✔, ze kunnen ook naar detail ✔
-    3) students hebben daar een overicht van al hun application met status en ze kunnen deleten ✔, ze kunnen ook naar detail ✔
-    4) application toevoegen aan de nav
-
 /application/{id}
     1) als je geen account hebt ga je naar profile
     2) als de application niet van of voor jouw is kan je het niet zien
