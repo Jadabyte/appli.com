@@ -177,18 +177,6 @@ class CompanyController extends Controller
             }
         }
 
-        if (isset($user->company->id)) {
-            $applications = DB::table('internships')
-                                        ->join('applications', 'applications.internship_id', '=', 'internships.id')
-                                        ->join('students', 'applications.student_id', '=', 'students.id')
-                                        ->join('users', 'students.user_id', '=', 'users.id')
-                                        ->where('internships.company_id', $user->company->id)
-                                        ->select('applications.id', 'users.firstName', 'users.lastName', 'internships.title', 'applications.label', 'internships.company_id')
-                                        ->get();
-
-            return view('company.profile', ['user'=> $user, 'categories' => $categories, 'applications' => $applications]);
-        }
-
         return view('company.profile', ['user'=> $user, 'categories' => $categories]);
     }
 
@@ -198,39 +186,5 @@ class CompanyController extends Controller
             return User::where('id', Auth::user()->id)->with('student')->first();
         }
         return User::where('id', Auth::user()->id)->with('company')->first();
-    }
-
-    public function handleLabel(Request $request, $id)
-    {
-        $user = $this->user();
-
-        $application = \App\Models\Application::where('id', $id)->first();
-
-        $application->label = $request->input('label');
-        $application->save();
-        return back();
-    }
-
-    public function application($id)
-    {
-        if (Gate::denies('hasCompany')) {
-            session()->flash('error', 'First add your company details.');
-            return redirect('company/profile');
-        }
-
-        $user = $this->user();
-
-        $data['info'] = DB::table('internships')
-                                    ->join('applications', 'applications.internship_id', '=', 'internships.id')
-                                    ->join('students', 'applications.student_id', '=', 'students.id')
-                                    ->join('users', 'students.user_id', '=', 'users.id')
-                                    ->join('categories', 'internships.category_id', '=', 'categories.id')
-                                    ->join('internshipPeriods', 'internships.internshipPeriod_id', '=', 'internshipPeriods.id')
-                                    ->where('internships.company_id', $user->company->id)
-                                    ->where('applications.id', $id)
-                                    ->select('internships.title as internshipTitle', 'internships.description', 'users.firstName', 'users.lastName', 'students.mobile', 'students.LinkedIn', 'students.portfolio', 'students.biography', 'applications.motivation', 'applications.label', 'applications.id as applicationId', 'categories.title as categoryTitle', 'internshipPeriods.title as internshipPeriodTitle', 'students.id as studentsId', 'internships.id as internshipsId')
-                                    ->get();
-
-        return view('company.application', $data);
     }
 }

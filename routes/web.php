@@ -6,6 +6,7 @@ use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,6 @@ Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('aut
 /* COMPANIES*/
 Route::get('/company/profile', [CompanyController::class, 'profile'])->middleware('auth');
 Route::get('/company', [CompanyController::class, 'index'])->middleware('auth');
-Route::post('/company/label/{id}', [CompanyController::class, 'handleLabel'])->middleware('auth');
-Route::get('/company/application/{id}', [CompanyController::class, 'application'])->middleware('auth');
-Route::post('/company/application/{id}', [CompanyController::class, 'handleLabel'])->middleware('auth');
 Route::post('/company/create', [CompanyController::class, 'create'])->middleware('auth');
 Route::post('/company/match', [CompanyController::class, 'match'])->middleware('auth');
 Route::get('/company/{id}', [CompanyController::class, 'show'])->middleware('auth');
@@ -57,6 +55,11 @@ Route::get('/internship/create', [InternshipController::class, 'create'])->middl
 Route::post('/internship/create', [InternshipController::class, 'store'])->middleware('auth');
 Route::get('/internship/{id}', [InternshipController::class, 'show'])->middleware('auth');
 
+
+/* APPLICATIONS*/
+Route::get('/application', [ApplicationController::class, 'index'])->middleware('auth');
+Route::get('/application/{id}', [ApplicationController::class, 'show'])->middleware('auth');
+Route::post('/application/{id}', [ApplicationController::class, 'handleLabel'])->middleware('auth');
 
 //nog toe te voegen: apply for internship
 //nog toe te voegen: remove apply
