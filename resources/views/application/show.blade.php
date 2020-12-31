@@ -70,8 +70,12 @@
             <div class="card" id="cardCompany">
                 <div class="card-body" id="card-body">
                     <h4 class="card-title" id="headerFour">Extra</h4>
+                    @isset($user->company)
                     <p class="card-text" id="cardTextCompany"><strong>Category:</strong> {{$info->categoryTitle}}</p>
-
+                    @endisset
+                    @isset($user->student)
+                    <p class="card-text" id="cardTextCompany"><strong>Category:</strong> {{$info->internship->company->category->title}}</p>
+                    @endisset
                     <p class="card-text" id="cardTextCompany"><strong>Motivation:</strong> {{$info->motivation}}</p>
                     <div class="table-responsive">
                         <table class="table">
@@ -87,6 +91,7 @@
                                     <td>
                                         <form class="form-inline" method="POST">
                                         @csrf
+                                            @isset($user->company)
                                             <div class="form-group">
                                                 <select id="label" name="label" class="form-control" >
                                                     <option value="Starred">Starred</option>
@@ -95,6 +100,10 @@
                                                 </select>
                                             </div>
                                             <button class="btn btn-primary btnSave" id="labelButton" type="submit">Save</button>
+                                            @endisset
+                                            @isset($user->student)
+                                            <button class="btn btn-primary btnDeclined" id="labelButton" type="submit">Delete</button>
+                                            @endisset
                                         </form>
                                     </td>
                                 </tr>

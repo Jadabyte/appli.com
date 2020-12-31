@@ -62,7 +62,6 @@ Route::get('/application/{id}', [ApplicationController::class, 'show'])->middlew
 Route::post('/application/{id}', [ApplicationController::class, 'handleLabel'])->middleware('auth');
 
 //nog toe te voegen: apply for internship
-//nog toe te voegen: remove apply
 //nog toe te voegen: tags voor filtering
 //nog toe te voegen: status application
 

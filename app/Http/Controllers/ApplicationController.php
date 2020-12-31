@@ -12,11 +12,6 @@ use App\Models\User;
 
 /*
 /application/{id}
-    1) als je geen account hebt ga je naar profile ✔
-    2) als de application niet van of voor jouw is kan je het niet zien ✔
-    3) een overzicht van de application, je kan doorklikken naar de internship ✔
-    4) als student kan je doorklikken naar de company, als company kan je doorklikken naar de stunent ✔
-    5) als company kan je approven, als student kan je deleten en status zien
     6) Als status starred is, kunnnen student en bedrijf commenten onder de application
 
 ?) students via een knop op een internship een application aanmaken en verzenden
@@ -66,6 +61,7 @@ class ApplicationController extends Controller
 
         if (Gate::allows('isStudent')) {
             $application->delete();
+            return redirect('application');
         }
 
         return back();
@@ -99,7 +95,7 @@ class ApplicationController extends Controller
         }
 
         if (Gate::allows('isStudent')) {
-            $info = Application::where('id', $id)->where('student_id', $user->student->id)->with('internship.company', 'internship.internshipPeriod')->first();
+            $info = Application::where('id', $id)->where('student_id', $user->student->id)->with('internship.company', 'internship.internshipPeriod', 'internship.company.category')->first();
         }
 
         if (!$info) {
