@@ -13,8 +13,8 @@ use App\Models\User;
 /*
 /application
     1) als je geen account hebt ga je naar profile ✔
-    2) companies hebben daar een overzicht van al hun apllication en kunnen aproven, ze kunnen ook naar detail
-    3) students hebben daar een overicht van al hun application met status en ze kunnen deleten, ze kunnen ook naar detail
+    2) companies hebben daar een overzicht van al hun apllication en kunnen aproven ✔, ze kunnen ook naar detail ✔
+    3) students hebben daar een overicht van al hun application met status en ze kunnen deleten ✔, ze kunnen ook naar detail ✔
     4) application toevoegen aan de nav
 
 /application/{id}
@@ -44,38 +44,55 @@ class ApplicationController extends Controller
 
         $user = $this->user();
 
-        $applications = DB::table('internships')
+        if (Gate::denies('isStudent')) {
+            $applications = DB::table('internships')
                                 ->join('applications', 'applications.internship_id', '=', 'internships.id')
                                 ->join('students', 'applications.student_id', '=', 'students.id')
                                 ->join('users', 'students.user_id', '=', 'users.id')
                                 ->where('internships.company_id', $user->company->id)
                                 ->select('applications.id', 'users.firstName', 'users.lastName', 'internships.title', 'applications.label', 'internships.company_id')
                                 ->get();
+        }
+
+        if (Gate::allows('isStudent')) {
+            $applications = Application::where('student_id', $user->student->id)->with('internship.company')->get();
+        }
 
         return view('application.index', ['user'=> $user, 'applications' => $applications]);
     }
 
     public function handleLabel(Request $request, $id)
     {
-        $user = $this->user();
+        $application = Application::find($id);
 
-        $application = Application::where('id', $id)->first();
+        if (Gate::denies('isStudent')) {
+            $application->label = $request->input('label');
+            $application->save();
+        }
 
-        $application->label = $request->input('label');
-        $application->save();
+        if (Gate::allows('isStudent')) {
+            $application->delete();
+        }
+
         return back();
     }
 
     public function show($id)
     {
-        if (Gate::denies('hasCompany')) {
+        if (Gate::denies('isStudent') && Gate::denies('hasCompany')) {
             session()->flash('error', 'First add your company details.');
             return redirect('company/profile');
         }
 
+        if (Gate::allows('isStudent') && Gate::denies('hasStudent')) {
+            session()->flash('error', 'First add your student details.');
+            return redirect('student/profile');
+        }
+
         $user = $this->user();
 
-        $data['info'] = DB::table('internships')
+        if (Gate::denies('isStudent')) {
+            $data['info'] = DB::table('internships')
                                     ->join('applications', 'applications.internship_id', '=', 'internships.id')
                                     ->join('students', 'applications.student_id', '=', 'students.id')
                                     ->join('users', 'students.user_id', '=', 'users.id')
@@ -85,6 +102,11 @@ class ApplicationController extends Controller
                                     ->where('applications.id', $id)
                                     ->select('internships.title as internshipTitle', 'internships.description', 'users.firstName', 'users.lastName', 'students.mobile', 'students.LinkedIn', 'students.portfolio', 'students.biography', 'applications.motivation', 'applications.label', 'applications.id as applicationId', 'categories.title as categoryTitle', 'internshipPeriods.title as internshipPeriodTitle', 'students.id as studentsId', 'internships.id as internshipsId')
                                     ->get();
+        }
+
+        if (Gate::allows('isStudent')) {
+            $data = 0;
+        }
 
         return view('application.show', $data);
     }

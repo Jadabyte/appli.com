@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Application;
+
 class Internship extends Model
 {
     use HasFactory;
@@ -12,5 +14,10 @@ class Internship extends Model
     public function company()
     {
         return $this->belongsTo('\App\Models\Company');
+    }
+
+    public function application()
+    {
+        return $this->hasMany(Application::class);
     }
 }
