@@ -13,29 +13,54 @@
             <div class="card" id="cardCompany">
                 <div class="card-body" id="card-body">
                     <h4 class="card-title" id="headerFour">Internship</h4>
-                    <p class="card-text" id="cardTextCompany">{{$info[0]->internshipTitle}}</p>
-                    <p class="card-text" id="cardTextCompany"><strong>Period:</strong> {{$info[0]->internshipPeriodTitle}}</p>
-                    <p class="card-text" id="cardTextCompany">{{$info[0]->description}}</p>
-                    <a class="btn btn-primary" href="/internship/{{$info[0]->internshipsId}}">More info</a>
+                    <p class="card-text" id="cardTextCompany">
+                    @isset($user->company)
+                    {{$info->internshipTitle}}
+                    @endisset
+                    @isset($user->student)
+                    {{$info->internship->title}}
+                    @endisset
+                    </p>
+                    <p class="card-text" id="cardTextCompany"><strong>Period:</strong>
+                    @isset($user->company)
+                    {{$info->internshipPeriodTitle}}
+                    @endisset
+                    @isset($user->student)
+                    {{$info->internship->internshipPeriod->title}}
+                    @endisset</p>
+                    <p class="card-text" id="cardTextCompany">
+                    @isset($user->company)
+                    {{$info->description}}
+                    @endisset
+                    @isset($user->student)
+                    {{$info->internship->description}}
+                    @endisset
+                    </p>
+                    @isset($user->company)
+                    <a class="btn btn-primary" href="/internship/{{$info->internshipsId}}">More info</a>
+                    @endisset
+                    @isset($user->student)
+                    <a class="btn btn-primary" href="/internship/{{$info->internship->id}}">More info</a>
+                    @endisset
                 </div>
             </div>
             <div class="card" id="cardCompany">
                 <div class="card-body" id="card-body">
                     <h4 class="card-title" id="headerFour">Student Info</h4>
-                    <p class="card-text" id="cardTextCompany">{{$info[0]->firstName}} {{$info[0]->lastName}}</p>
-                    <p class="card-text" id="cardTextCompany"><strong>Mobile:</strong> {{$info[0]->mobile}}</p>
-                    <p class="card-text" id="cardTextCompany"><strong>LinkedIn:</strong> {{$info[0]->LinkedIn}}</p>
-                    <p class="card-text" id="cardTextCompany"><strong>Portfolio:</strong> {{$info[0]->portfolio}}</p>
-                    <p class="card-text" id="cardTextCompany"><strong>BIO:</strong> {{$info[0]->biography}}</p>
-                    <a class="btn btn-primary" href="/student/{{$info[0]->studentsId}}">More info</a>
+                    <p class="card-text" id="cardTextCompany">{{$info->firstName}} {{$info->lastName}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>Mobile:</strong> {{$info->mobile}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>LinkedIn:</strong> {{$info->LinkedIn}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>Portfolio:</strong> {{$info->portfolio}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>BIO:</strong> {{$info->biography}}</p>
+                    <a class="btn btn-primary" href="/student/{{$info->studentsId}}">More info</a>
                 </div>
             </div>
             <div class="card" id="cardCompany">
                 <div class="card-body" id="card-body">
                     <h4 class="card-title" id="headerFour">Extra</h4>
-                    <p class="card-text" id="cardTextCompany"><strong>Category:</strong> {{$info[0]->categoryTitle}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>Category:</strong> {{$info->categoryTitle}}</p>
 
-                    <p class="card-text" id="cardTextCompany"><strong>Motivation:</strong> {{$info[0]->motivation}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>Motivation:</strong> {{$info->motivation}}</p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -46,7 +71,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{$info[0]->label}}</td>
+                                    <td>{{$info->label}}</td>
                                     <td>
                                         <form class="form-inline" method="POST">
                                         @csrf
