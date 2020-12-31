@@ -135,7 +135,14 @@
             @if($info->label === 'Starred')
             <form action="comment/{{ $info->id }}" method="post">
                 @csrf
-                <input class="form-control" type="text" name="comment" placeholder="Comment" value="{{ old('comment') }}">
+                @if( $errors->any())
+                    <ul class="alert alert-danger">
+                    @foreach($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                    @endforeach
+                    </ul>
+                @endif
+                <input class="form-control" type="text" name="comment" placeholder="Comment">
                 <button class="btn btn-primary btnSave" id="labelButton" type="submit">Send</button>
             </form>
             @else

@@ -11,13 +11,6 @@ use App\Models\Application;
 use App\Models\User;
 use App\Models\Comment;
 
-/*
-/application/{id}
-    6) Als status starred is, kunnnen student en bedrijf commenten onder de application
-
-?) students via een knop op een internship een application aanmaken en verzenden
-*/
-
 class ApplicationController extends Controller
 {
     public function index()
@@ -108,9 +101,22 @@ class ApplicationController extends Controller
         return view('application.show', ['info' => $info, 'user' => $user, 'comments' => $comments]);
     }
 
-    public function comment()
+    public function comment(Request $request, $id)
     {
-        exit('hello');
+        $validation = $request->validate([
+            'comment' => 'required|string',
+        ]);
+
+        $user = $this->user();
+
+        $comment = new Comment;
+        $comment->text = $request->comment;
+        $comment->application_id = $id;
+        $comment->user_id = $user->id;
+
+        $comment->save();
+
+        return back();
     }
 
     public function user()
