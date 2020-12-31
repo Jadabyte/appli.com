@@ -7,6 +7,13 @@
     @component('components/navigation')@endcomponent
     <section id="sectionDetail">
         <h1 class="headerOne">{{$company->name}}</h1>
+        @empty(!$company->logo)
+            <div class="profile-header-container">
+                <div class="profile-header-img">
+                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/companylogos/' . $company->logo) }}" />
+                </div>
+            </div>
+        @endempty
         <div class="card-group">
             <div class="card" id="cardCompany">
                 <div class="card-body" id="card-body">
@@ -40,6 +47,5 @@
         </div>
     </section>
 
-   <a href="/company/application.blade.php">Show applications overview</a>
     @component('components/footer')@endcomponent
 @endsection
