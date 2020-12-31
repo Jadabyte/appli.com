@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CompanySeeder::class);
         $this->call(InternshipPeriodSeeder::class);
         $this->call(InternshipSeeder::class);
-        //$this->call(ReviewSeeder::class);
+        $this->call(CommentSeeder::class);
         $this->call(SkillsSeeder::class);
         $this->call(StudentSeeder::class);
         $this->call(UserSeeder::class);
