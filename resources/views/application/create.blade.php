@@ -10,6 +10,7 @@
 
     <div class="container">
         <h1 class="headerOne">Create application</h1>
+        <h2 class="headerTwo">{{ $internship->title . ' of ' . $internship->company->name}}</h2>
         <form method="post">
             @csrf
             @if( $flash = session('message') )

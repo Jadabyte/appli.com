@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Application;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Internship;
 
 class ApplicationController extends Controller
 {
@@ -119,9 +120,19 @@ class ApplicationController extends Controller
         return back();
     }
 
-    public function create()
+    public function create($id)
     {
-        return view('application.create');
+        if (Gate::denies('isStudent')) {
+            return redirect('company');
+        }
+
+        if (Gate::allows('isStudent') && Gate::denies('hasStudent')) {
+            session()->flash('error', 'First add your student details.');
+            return redirect('student/profile');
+        }
+
+        $internship = Internship::where('id', $id)->with('company')->first();
+        return view('application.create', ['internship' => $internship]);
     }
 
     public function handelCreate()
