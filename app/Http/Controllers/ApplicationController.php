@@ -131,13 +131,40 @@ class ApplicationController extends Controller
             return redirect('student/profile');
         }
 
+        $user = $this->user();
+
+        $application = Application::where('internship_id', $id)->where('student_id', $user->student->id)->first();
         $internship = Internship::where('id', $id)->with('company')->first();
+
+        if (isset($application)) {
+            return view('application.create', ['internship' => $internship, 'application' => $application]);
+        }
+
         return view('application.create', ['internship' => $internship]);
     }
 
-    public function handelCreate()
+    public function handelCreate(Request $request, $id)
     {
-        exit('😎');
+        $validation = $request->validate([
+            'motivation' => 'required|string',
+        ]);
+
+        $user = $this->user();
+
+        $application = Application::where('internship_id', $id)->where('student_id', $user->student->id)->first();
+
+        if (!$application) {
+            $application = new Application;
+            $application->label = "New";
+            $application->internship_id = $id;
+            $application->student_id = $user->student->id;
+        }
+
+        $application->motivation = $request->motivation;
+
+        $application->save();
+
+        return redirect('application/' . $application->id);
     }
 
     public function user()

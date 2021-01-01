@@ -76,7 +76,7 @@
                     @isset($user->student)
                     <p class="card-text" id="cardTextCompany"><strong>Category:</strong> {{$info->internship->company->category->title}}</p>
                     @endisset
-                    <p class="card-text" id="cardTextCompany"><strong>Motivation:</strong> {{$info->motivation}}</p>
+                    <p class="card-text" id="cardTextCompany"><strong>Motivation:</strong> {!!nl2br(e($info->motivation))!!}</p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>

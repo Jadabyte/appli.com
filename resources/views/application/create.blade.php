@@ -31,7 +31,7 @@
 
             <div class="form-group">
                 <label for="motivation">Motivation</label>
-                <textarea class="form-control" name="motivation" placeholder="Write an extensive motivation letter here" rows="30">{{ old('motivation') }}</textarea>
+                <textarea class="form-control" name="motivation" placeholder="Write an extensive motivation letter here" rows="30">@isset($application){{ $application->motivation }}@else{{ old('motivation') }}@endisset</textarea>
             </div>
             <button class="btn btn-primary" type="submit">Send</button>
         </form>
