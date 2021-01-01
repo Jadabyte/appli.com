@@ -119,6 +119,16 @@ class ApplicationController extends Controller
         return back();
     }
 
+    public function create()
+    {
+        return view('application.create');
+    }
+
+    public function handelCreate()
+    {
+        exit('😎');
+    }
+
     public function user()
     {
         if (Gate::allows('isStudent')) {

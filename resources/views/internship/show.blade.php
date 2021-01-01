@@ -55,9 +55,11 @@
                 </div>
             </div>
         </div>
-        <form action="" method="post">
-            <button class="btn btn-primary" id="createBtn" type="button">Apply</button>
-        </form>
 </section>
+@isset($user->student)
+<div>
+    <a class="btn btn-primary" id="createBtn" href="/application/create/{{$internship->id}}">Apply</a>
+</div>
+@endisset
 
 @endsection

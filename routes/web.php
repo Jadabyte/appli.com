@@ -58,11 +58,12 @@ Route::get('/internship/{id}', [InternshipController::class, 'show'])->middlewar
 
 /* APPLICATIONS*/
 Route::get('/application', [ApplicationController::class, 'index'])->middleware('auth');
+Route::get('/application/create/{id}', [ApplicationController::class, 'create'])->middleware('auth');
+Route::post('/application/create/{id}', [ApplicationController::class, 'handelCreate'])->middleware('auth');
 Route::get('/application/{id}', [ApplicationController::class, 'show'])->middleware('auth');
 Route::post('/application/{id}', [ApplicationController::class, 'handleLabel'])->middleware('auth');
 Route::post('/application/comment/{id}', [ApplicationController::class, 'comment'])->middleware('auth');
 
-//nog toe te voegen: apply for internship
 //nog toe te voegen: tags voor filtering
 //nog toe te voegen: status application
 
