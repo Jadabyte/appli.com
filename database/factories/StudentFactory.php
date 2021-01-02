@@ -23,6 +23,7 @@ class StudentFactory extends Factory
     {
         return [
             'user_id' => $this->faker->randomDigit,
+            'picture' => $this->faker->image,
             'mobile' => $this->faker->phoneNumber,
             'LinkedIn' => $this->faker->url,
             'portfolio' => $this->faker->url,

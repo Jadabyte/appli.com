@@ -16,6 +16,7 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->foreignId('user_id');
+            $table->string('picture');
             $table->string('mobile')->nullable();
             $table->string('LinkedIn')->nullable();
             $table->string('portfolio')->nullable();

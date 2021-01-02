@@ -29,11 +29,13 @@ Route::get('/register', [GeneralController::class, 'register']);
 Route::post('/register', [GeneralController::class, 'handleRegister']);
 Route::get('/logout', [GeneralController::class, 'logout']);
 Route::post('/company/profile', [GeneralController::class, 'handleProfile'])->middleware('auth');
+Route::post('/student/profile', [GeneralController::class, 'handleProfile'])->middleware('auth');
 
 
 /* STUDENTS*/
 Route::get('/student/profile', [StudentController::class, 'profile'])->middleware('auth');
 Route::get('/student', [StudentController::class, 'index'])->middleware('auth');
+Route::post('/student/create', [StudentController::class, 'create'])->middleware('auth');
 Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('auth');
 
 
