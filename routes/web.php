@@ -6,6 +6,7 @@ use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,8 +55,14 @@ Route::post('/internship/create', [InternshipController::class, 'store'])->middl
 Route::get('/internship/{id}', [InternshipController::class, 'show'])->middleware('auth');
 
 
-//nog toe te voegen: apply for internship
-//nog toe te voegen: remove apply
+/* APPLICATIONS*/
+Route::get('/application', [ApplicationController::class, 'index'])->middleware('auth');
+Route::get('/application/create/{id}', [ApplicationController::class, 'create'])->middleware('auth');
+Route::post('/application/create/{id}', [ApplicationController::class, 'handelCreate'])->middleware('auth');
+Route::get('/application/{id}', [ApplicationController::class, 'show'])->middleware('auth');
+Route::post('/application/{id}', [ApplicationController::class, 'handleLabel'])->middleware('auth');
+Route::post('/application/comment/{id}', [ApplicationController::class, 'comment'])->middleware('auth');
+
 //nog toe te voegen: tags voor filtering
 //nog toe te voegen: status application
 
@@ -73,6 +80,5 @@ Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
 Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
-Route::get('/components/label', [GeneralController::class,'label']);
 Route::get('/components/pagination', [GeneralController::class,'pages']);
 Route::get('/components/filterCompany', [GeneralController::class,'filterCompany']);

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 use App\Models\Company;
 use App\Models\Student;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -52,5 +53,10 @@ class User extends Authenticatable
     public function student()
     {
         return $this->hasOne(Student::class);
+    }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

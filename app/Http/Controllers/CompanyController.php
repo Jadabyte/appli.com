@@ -35,9 +35,14 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        if (Gate::denies('hasCompany')) {
+        if (Gate::denies('isStudent') && Gate::denies('hasCompany')) {
             session()->flash('error', 'First add your company details.');
             return redirect('company/profile');
+        }
+
+        if (Gate::allows('isStudent') && Gate::denies('hasStudent')) {
+            session()->flash('error', 'First add your student details.');
+            return redirect('student/profile');
         }
 
         $company = Company::where('id', $id)->first();
@@ -63,7 +68,7 @@ class CompanyController extends Controller
         }
 
         $score = count($stations->json()['stations']);
-        return view('company.create', ['company' => Company::findOrFail($id), 'score' => $score]);
+        return view('company.show', ['company' => Company::findOrFail($id), 'score' => $score]);
     }
 
     public function match(Request $request)

@@ -8,7 +8,6 @@
     git reset --hard origin/master
     composer install --no-dev
     php artisan migrate --force
-    php artisan db:seed --class=CategorySeeder --force
     php artisan cache:clear
     php artisan config:clear
     php artisan storage:link
@@ -18,6 +17,7 @@
 @task('staging', ['on' => 'web'])
     cd staging/appli.com
     php artisan down
+    git fetch
     git checkout {{ $branch }}
     git fetch --all
     git reset --hard origin/{{ $branch }}

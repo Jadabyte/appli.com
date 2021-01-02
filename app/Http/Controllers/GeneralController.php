@@ -47,11 +47,6 @@ class GeneralController extends Controller
         return view('register');
     }
 
-    public function label()
-    {
-        return view('components/label');
-    }
-
     public function pages()
     {
         return view('components/pagination');

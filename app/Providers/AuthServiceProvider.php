@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Company;
+use App\Models\Student;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -34,6 +35,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('hasCompany', function ($user) {
             return Company::where('user_id', $user->id)->first();
+        });
+
+        Gate::define('hasStudent', function ($user) {
+            return Student::where('user_id', $user->id)->first();
         });
     }
 }
