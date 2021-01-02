@@ -8,17 +8,19 @@ use App\Models\Internship;
 
 class InternshipController extends Controller
 {
-    public function index(){
-
+    public function index()
+    {
         $data['internships'] = \DB::table('internships')->get();
         return view('internship/index', $data);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('internship/create');
     }
 
-    public function store (Request $request){
+    public function store(Request $request)
+    {
 
         //dd($request->all());
 
@@ -34,11 +36,10 @@ class InternshipController extends Controller
         return redirect('/internship');
     }
 
-    public function show($internship){
-        $data['internships'] = \DB::table('internships')->where('id', $internship)->first();
-        //$data['companies'] = \DB::table('companies')->where('id', $company)->first();
-
-        return view('internship/show', $data);
+    public function show($internship)
+    {
+        $internship = Internship::where('id', $internship)->with('company')->first();
+        return view('internship.show', ['internship' => $internship]);
     }
 
     public function edit($id)
@@ -51,7 +52,8 @@ class InternshipController extends Controller
         //
     }
 
-    public function detail($id){
+    public function detail($id)
+    {
         return view('internship/show', ['users' => User::findOrFail($id)]);
     }
 
@@ -59,5 +61,4 @@ class InternshipController extends Controller
     {
         //
     }
-
 }

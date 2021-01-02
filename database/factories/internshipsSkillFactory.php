@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\internshipsSkill;
+use App\Models\InternshipsSkill;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class internshipsSkillFactory extends Factory
+class InternshipsSkillFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = internshipsSkill::class;
+    protected $model = InternshipsSkill::class;
 
     /**
      * Define the model's default state.

@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Company;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +28,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('isStudent', function ($user) {
+            return $user->isStudent === 1;
+        });
+
+        Gate::define('hasCompany', function ($user) {
+            return Company::where('user_id', $user->id)->first();
+        });
     }
 }

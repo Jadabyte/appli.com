@@ -5,6 +5,7 @@
 /vendor
 .env
 .env.backup
+.env.dusk.local
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -12,3 +13,4 @@ npm-debug.log
 yarn-error.log
 .vscode/settings.json
 /.vagrant
+.vagrant\machines\appli-com\virtualbox\index.uuid

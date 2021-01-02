@@ -8,8 +8,10 @@
     git reset --hard origin/master
     composer install --no-dev
     php artisan migrate --force
+    php artisan db:seed --class=CategorySeeder --force
     php artisan cache:clear
-    php artisan config:cache
+    php artisan config:clear
+    php artisan storage:link
     php artisan up
 @endtask
 
@@ -22,6 +24,7 @@
     composer install
     php artisan migrate:fresh --seed
     php artisan cache:clear
-    php artisan config:cache
+    php artisan config:clear
+    php artisan storage:link
     php artisan up
 @endtask

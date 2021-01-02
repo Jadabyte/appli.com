@@ -23,35 +23,33 @@ Route::get('/', [GeneralController::class, 'index']);
 
 
 /* USERS */
-Route::get('/login', [GeneralController::class, 'login']);
+Route::get('/login', [GeneralController::class, 'login'])->name('login');
 Route::post('/login', [GeneralController::class, 'handleLogin']);
-
 Route::get('/register', [GeneralController::class, 'register']);
 Route::post('/register', [GeneralController::class, 'handleRegister']);
-
 Route::get('/logout', [GeneralController::class, 'logout']);
+Route::post('/company/profile', [GeneralController::class, 'handleProfile'])->middleware('auth');
 
 
 /* STUDENTS*/
-Route::get('/student', [StudentController::class, 'index']);
-Route::get('/student/{id}', [StudentController::class, 'show']);
-//nog toe te voegen: student update (Amber)
-Route::get('/student/update/{id}', [StudentController::class, 'update']);
-//Route::post('/student/update/{id}', [StudentController::class, 'handleUpdate']);
+Route::get('/student/profile', [StudentController::class, 'profile'])->middleware('auth');
+Route::get('/student', [StudentController::class, 'index'])->middleware('auth');
+Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('auth');
+
 
 /* COMPANIES*/
-Route::get('/company', [CompanyController::class, 'index']);
-Route::get('/company/{id}', [CompanyController::class, 'show']);
-//Route::post('/company/create', [CompanyController::class, 'create']);
-
-//nog toe te voegen: company profile (Wannes)
+Route::get('/company/profile', [CompanyController::class, 'profile'])->middleware('auth');
+Route::get('/company', [CompanyController::class, 'index'])->middleware('auth');
+Route::post('/company/create', [CompanyController::class, 'create'])->middleware('auth');
+Route::post('/company/match', [CompanyController::class, 'match'])->middleware('auth');
+Route::get('/company/{id}', [CompanyController::class, 'show'])->middleware('auth');
 
 
 /* INTERNSHIPS*/
-Route::get('/internship', [InternshipController::class, 'index']);
-Route::get('/internship/create', [InternshipController::class, 'create']);
-Route::post('/internship/create', [InternshipController::class, 'store']);
-Route::get('/internship/{id}', [InternshipController::class, 'show']);
+Route::get('/internship', [InternshipController::class, 'index'])->middleware('auth');
+Route::get('/internship/create', [InternshipController::class, 'create'])->middleware('auth');
+Route::post('/internship/create', [InternshipController::class, 'store'])->middleware('auth');
+Route::get('/internship/{id}', [InternshipController::class, 'show'])->middleware('auth');
 
 
 //nog toe te voegen: apply for internship
