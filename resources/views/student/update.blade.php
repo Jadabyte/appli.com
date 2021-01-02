@@ -2,7 +2,7 @@
 
 
 @section('content')
-
+{{-- update profile maar kan rechtstreeks op profiel (apart component) --}}
     <h1>Update your profile</h1>
     <form method="post" action="/student/update/{{ $users->id }}"> 
     {{ csrf_field() }}
