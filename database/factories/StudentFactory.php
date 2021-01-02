@@ -23,12 +23,13 @@ class StudentFactory extends Factory
     {
         return [
             'user_id' => $this->faker->randomDigit,
-            'picture' => $this->faker->image,
+            'picture' => $this->faker->imageUrl,
             'mobile' => $this->faker->phoneNumber,
             'LinkedIn' => $this->faker->url,
             'portfolio' => $this->faker->url,
             'category_id' =>$this->faker->randomDigit,
             'biography' => $this->faker->realText($maxNbChars = 500, $indexSize = 2),
+            'github' => $this->faker->userName,
         ];
     }
 }

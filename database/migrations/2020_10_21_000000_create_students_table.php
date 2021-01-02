@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->foreignId('user_id');
             $table->string('picture');
             $table->string('mobile')->nullable();
+            $table->string('github')->nullable();
             $table->string('LinkedIn')->nullable();
             $table->string('portfolio')->nullable();
             $table->foreignId('category_id');

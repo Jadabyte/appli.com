@@ -94,6 +94,26 @@ class StudentController extends Controller
         return redirect('student/profile');
     }
 
+    function github(Request $request){
     
+        $githubName = $request->input('github');
+        
+        $url = 'https://api.github.com/users/' . $githubName . '/repos';
+     
+        $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
+  
+        if (isset($repositories['message'])) {
+            $request->session()->flash('error', $repositories['message']);
+            return back();
+        }
+
+        $data['repositories'] = $repositories;
+
+        $user = $this->user();
+
+        $categories = Category::All();
+        //dd($repositories);
+        return view('student/profile', $data, ['user'=> $user, 'categories' => $categories]);
+    }
 
 }

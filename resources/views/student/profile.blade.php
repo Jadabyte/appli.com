@@ -111,6 +111,30 @@
         <button class="btn btn-primary" type="submit">Save</button>
     </form>
 </div>
+<h2 class="headerTwo">Github repositories</h2>
+<form method="post" action="/student/github" enctype="multipart/form-data">
+    @csrf
+    <div class="form-row">
+      <div class="col">
+          <label for="github">Github username</label>
+          <input class="form-control" type="text" name="github" placeholder="Github username" value="{{ $user->github }}">
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">search repo's'</button>
+</form>
+
+  @foreach($repositories as $repo)
+  <div class="card-group">
+            <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{$repo['name']}}</h3>
+                        <h4 class="card-title">{{$repo['description']}}</h4>
+                        <a href="{{$repo['svn_url']}}">Ga naar repository</a>
+                    </div>
+            </div>
+  </div>
+  @endforeach
+
 
 @component('components/footer')@endcomponent
 @endsection

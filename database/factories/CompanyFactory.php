@@ -24,7 +24,7 @@ class CompanyFactory extends Factory
         return [
             'user_id' => $this->faker->randomDigit,
             'name' => $this->faker->company,
-            'logo' => $this->faker->image,
+            'logo' => $this->faker->imageUrl,
             'category' =>$this->faker->jobTitle,
             'street' => $this->faker->streetName,
             'houseNumber' => $this->faker->buildingNumber,
