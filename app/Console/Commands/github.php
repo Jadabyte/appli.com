@@ -46,7 +46,7 @@ class github extends Command
             $github = $student->github;
             
                 
-                Student::where('id', $student->id)->update(['github' => $github . '1']);
+                Student::where('id', $student->id)->update(['github' => $github]);
                 echo("  updated info  ");
             
             
