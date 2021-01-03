@@ -130,21 +130,17 @@ class StudentController extends Controller
         //dd($user_id);
         $user = User::where('id', $user_id)->first();
         //dd($user);
-
+        $categories = Category::All();
         $githubName = $student->github;
         $url = 'https://api.github.com/users/' . $githubName . '/repos';
         $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
   
-        if (isset($repositories['message'])) {
-            $request->session()->flash('error', $repositories['message']);
-            return back();
+        if (!isset($repositories['message'])) {
+            $data['repositories'] = $repositories;
+            return view('student.show', $data, ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
         }
 
-        $data['repositories'] = $repositories;
-
-        $categories = Category::All();
-
-        return view('student.show', $data, ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
+        return view('student.show', ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
     }
 
 }
