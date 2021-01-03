@@ -41,7 +41,7 @@ class StudentController extends Controller
         
         $categories = Category::All();
 
-        if ($user->student->github) {
+        if (isset($user->student->github)) {
             $githubName = $user->student->github;
            
             $url = 'https://api.github.com/users/' . $githubName . '/repos';
