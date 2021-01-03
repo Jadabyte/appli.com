@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('github:update')->everyMinute();
+        $schedule->command('github:update')->daily();
     }
 
     /**
