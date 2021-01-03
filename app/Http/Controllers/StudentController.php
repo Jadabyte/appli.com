@@ -38,8 +38,17 @@ class StudentController extends Controller
         }
 
         $user = $this->user();
-
+        
         $categories = Category::All();
+
+        if ($user->student->github) {
+            $githubName = $user->student->github;
+           
+            $url = 'https://api.github.com/users/' . $githubName . '/repos';
+        
+            $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
+            return view('student.profile', ['user'=> $user, 'categories' => $categories, 'repositories' => $repositories]);
+        }
 
         return view('student.profile', ['user'=> $user, 'categories' => $categories]);
     }
@@ -91,8 +100,10 @@ class StudentController extends Controller
 
     function github(Request $request){
     
+        $validation = $request->validate([
+            'github' => 'required|unique:students',
+        ]);
         $githubName = $request->input('github');
-     
         
         $url = 'https://api.github.com/users/' . $githubName . '/repos';
      
@@ -103,14 +114,12 @@ class StudentController extends Controller
             return back();
         }
 
-        $data['repositories'] = $repositories;
-
         $user = $this->user();
         $user->student->github = $githubName;
         $user->student->save();
         $categories = Category::All();
         //dd($repositories);
-        return view('student/profile', $data, ['user'=> $user, 'categories' => $categories]);
+        return redirect('student/profile');
     }
 
     public function show($id)
