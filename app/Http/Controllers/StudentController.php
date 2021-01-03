@@ -31,11 +31,6 @@ class StudentController extends Controller
         return view('student/index', $data);
     }
 
-    public function show($id)
-    {
-        return view('student.show', ['student' => User::findOrFail($id)]);
-    }
-
     public function profile()
     {
         if (Gate::denies('isStudent')) {
@@ -97,6 +92,7 @@ class StudentController extends Controller
     function github(Request $request){
     
         $githubName = $request->input('github');
+     
         
         $url = 'https://api.github.com/users/' . $githubName . '/repos';
      
@@ -110,10 +106,45 @@ class StudentController extends Controller
         $data['repositories'] = $repositories;
 
         $user = $this->user();
-
+        $user->student->github = $githubName;
+        $user->student->save();
         $categories = Category::All();
         //dd($repositories);
         return view('student/profile', $data, ['user'=> $user, 'categories' => $categories]);
+    }
+
+    public function show($id)
+    {
+        if (Gate::denies('isStudent') && Gate::denies('hasCompany')) {
+            session()->flash('error', 'First add your company details.');
+            return redirect('company/profile');
+        }
+
+        if (Gate::allows('isStudent') && Gate::denies('hasStudent')) {
+            session()->flash('error', 'First add your student details.');
+            return redirect('student/profile');
+        }
+
+        $student = Student::where('id', $id)->first();
+        $user_id = $student->user_id;
+        //dd($user_id);
+        $user = User::where('id', $user_id)->first();
+        //dd($user);
+
+        $githubName = $student->github;
+        $url = 'https://api.github.com/users/' . $githubName . '/repos';
+        $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
+  
+        if (isset($repositories['message'])) {
+            $request->session()->flash('error', $repositories['message']);
+            return back();
+        }
+
+        $data['repositories'] = $repositories;
+
+        $categories = Category::All();
+
+        return view('student.show', $data, ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
     }
 
 }
