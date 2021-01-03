@@ -117,13 +117,13 @@
     <div class="form-row">
       <div class="col">
           <label for="github">Github username</label>
-          <input class="form-control" type="text" name="github" placeholder="Github username" value="{{ $user->student->github }}">
+          <input class="form-control" type="text" name="github" placeholder="Github username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
       </div>
     </div>
     <button class="btn btn-primary" type="submit">Show repo's</button>
 </form>
 
-@if(isset($repositories))
+@isset($repositories)
   @foreach($repositories as $repo)
   <div class="card-group">
             <div class="card">
@@ -135,7 +135,6 @@
             </div>
   </div>
   @endforeach
-@endif
-
+@endisset
 @component('components/footer')@endcomponent
 @endsection

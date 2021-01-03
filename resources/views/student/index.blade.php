@@ -44,6 +44,7 @@
     </div>
     <a href="#">Reset filters</a>
 
+
     @foreach ($internships as $i)
         <div class="card-group">
             <div class="card">
