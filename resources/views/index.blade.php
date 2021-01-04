@@ -28,3 +28,6 @@
         </div>
     </div>
 @endsection
+
+@section('components/footer')
+@endsection
