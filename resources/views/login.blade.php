@@ -38,5 +38,5 @@
             <a id="already" class="already" href="register">New here? Go to register page.</a>
         </form>
     </div>
-
+@component('components/footer')@endcomponent
 @endsection
