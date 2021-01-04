@@ -27,6 +27,6 @@
             </div>
         </div>
     </div>
-@component('components/footer')@endcomponent
+@component('components/general/footer')@endcomponent
 
 @endsection

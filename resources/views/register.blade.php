@@ -51,5 +51,5 @@
             <a id="already" class="already" href="login">You already have an account? Login here.</a>
         </form>
     </div>
-@component('components/footer')@endcomponent
+@component('components/general/footer')@endcomponent
 @endsection
