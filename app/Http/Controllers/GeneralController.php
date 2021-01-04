@@ -22,14 +22,9 @@ class GeneralController extends Controller
         return view('layouts/detailpage');
     }
 
-    public function header()
-    {
-        return view('components/header');
-    }
-
     public function navigation()
     {
-        return view('components/navigation');
+        return view('components/general/navigation');
     }
 
     public function index()
@@ -39,7 +34,7 @@ class GeneralController extends Controller
 
     public function footer()
     {
-        return view('components/footer');
+        return view('components/general/footer');
     }
 
     public function register()
@@ -54,7 +49,7 @@ class GeneralController extends Controller
 
     public function filter()
     {
-        return view('components/filterCompany');
+        return view('components/student/filters');
     }
 
 
@@ -129,7 +124,7 @@ class GeneralController extends Controller
         $validation = $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => ['required','email','regex:/(.*)student\.thomasmore\.be$/i', Rule::unique('users')->ignore($user)],
+            'email' => ['required', 'email', 'regex:/(.*)student\.thomasmore\.be$/i', Rule::unique('users')->ignore($user)],
             'password' => 'required|min:8|confirmed'
         ]);
 
