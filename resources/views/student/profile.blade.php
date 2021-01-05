@@ -91,15 +91,11 @@
                             <div class="col">
                                 <div class="form-group" style="color: #011C3A;">
                                     <label for="category" class="profileFieldLabel">Category</label>
-                                    <form class="form-inline">
-                                        <div class="form-group">
-                                            <select class="form-control descInput" >
-                                                @foreach ($categories as $category)
-                                                    <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </form>
+                                    <select class="form-control" name="category">
+                                        @foreach ($categories as $category)
+                                                <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
