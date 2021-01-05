@@ -381,11 +381,12 @@ td {
 /* FOOTER */
 
 #footerpad {
-    margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
     height: initial;
     background-color: #0e0e2c;
+    position: absolute;
+    bottom: 0;
 }
 
 .list-inline.text-center {
