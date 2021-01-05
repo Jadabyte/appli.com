@@ -118,7 +118,7 @@
     </div>
 </section>
 
-<section style="margin-top:50%;">
+<section style="margin-top:55%;">
     <h3 class="headerThree">Accountdetails</h3>
     <div class="profileForm" style="margin-top:17.5%">
         <form class="profileContainer" method="post" action="" style="margin-top:0%;">
@@ -172,7 +172,9 @@
                 </div>
         </form>
     </div>
+</section>
 
+<section>
     <h3 class="headerThree">Github Repository</h3>
 
     @isset($user->student)
@@ -190,6 +192,7 @@
                     </div>
             </form>
         </div>
+    @endisset
 
     @isset($repositories)
         @foreach($repositories as $repo)
