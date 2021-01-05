@@ -176,7 +176,7 @@
 
 @isset($user->student)
 <h3 class="headerThree">Github Repository</h3>
-    <div class="profileForm" style="margin-top:12.5%">
+
         <form class="profileContainer" method="post" action="/student/github" enctype="multipart/form-data" style="margin-top:0%;">
             @csrf
                 <div class="form-row" style="margin-top:-10%">
@@ -204,6 +204,5 @@
                 @endforeach
             @endisset
     @endisset
-</div>
 @component('components/general/footer')@endcomponent
 @endsection
