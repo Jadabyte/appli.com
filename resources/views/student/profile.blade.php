@@ -166,13 +166,11 @@
 
                 <div class="form-row" style="text-align:right;">
                     <div class="col offset-xl-0">
-                        <button class="btn btn-primary btnDeclined" type="button" style="margin-right:-6%;">Cancel</button>
                         <button class="btn btn-primary btnApproved" type="submit" style="margin-right:5%;">Save</button>
                     </div>
                 </div>
         </form>
     </div>
-</section>
 
 <h3 class="headerThree">Github Repository</h3>
 @isset($user->student)
@@ -202,5 +200,6 @@
         @endforeach
     @endisset
 @endisset
+</section>
 @component('components/general/footer')@endcomponent
 @endsection
