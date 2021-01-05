@@ -93,9 +93,19 @@
                     <div class="col">
                         <div class="form-group" style="color: #011C3A;">
                             <label for="category" class="profileFieldLabel">Category</label>
-                            @foreach ($categories as $category)
-                                <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
-                            @endforeach
+                            <form class="form-inline">
+                                <div class="form-group">
+                                @foreach ($categories as $category)
+                                    <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
+                                @endforeach
+                                    <select class="form-control descInput" >
+                                        <option>Choose</option>
+                                        <option>Designer</option>
+                                        <option>Developer</option>
+                                        <option>Hybrid</option>
+                                    </select>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -108,6 +118,7 @@
             </div>
         </form>
         </div>
+
     <h3 class="headerThree">Accountdetails</h3>
         <div class="profileForm" style="margin-top:17.5%">
             <form class="profileContainer" method="post" action="" style="margin-top:0%;">
