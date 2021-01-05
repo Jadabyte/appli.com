@@ -174,35 +174,33 @@
     </div>
 </section>
 
-@isset($user->student)
 <h3 class="headerThree">Github Repository</h3>
+@isset($user->student)
+    <h2 class="headerTwo">Github repositories</h2>
+    <form method="post" action="/student/github" enctype="multipart/form-data">
+        @csrf
+        <div class="form-row">
+        <div class="col">
+            <label for="github">Github username</label>
+            <input class="form-control" type="text" name="github" placeholder="Github username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
+        </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Show repo's</button>
+    </form>
 
-        <form class="profileContainer" method="post" action="/student/github" enctype="multipart/form-data" style="margin-top:0%;">
-            @csrf
-                <div class="form-row" style="margin-top:-10%">
-                    <div class="col">
-                        <div class="form-group" style="color: #011C3A;">
-                            <label for="github" class="profileFieldLabel">Github Username</label>
-                            <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
-                        </div>
-                    </div>
-                </div>
-            <button class="btn btn-primary searchButton" type="submit">Show repository</button>
-        </form>
-
-            @isset($repositories)
-                @foreach($repositories as $repo)
-                    <div class="card-group">
-                        <div class="card">
+    @isset($repositories)
+        @foreach($repositories as $repo)
+        <div class="card-group">
+                    <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">{{$repo['name']}}</h3>
                                 <h4 class="card-title">{{$repo['description']}}</h4>
                                 <a href="{{$repo['svn_url']}}">Ga naar repository</a>
                             </div>
-                        </div>
                     </div>
-                @endforeach
-            @endisset
+        </div>
+        @endforeach
     @endisset
+@endisset
 @component('components/general/footer')@endcomponent
 @endsection
