@@ -96,14 +96,14 @@
                             <form class="form-inline">
                                 <div class="form-group">
                                 @foreach ($categories as $category)
+                                <select class="form-control descInput" >
                                     <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
-                                @endforeach
-                                    <select class="form-control descInput" >
                                         <option>Choose</option>
                                         <option>Designer</option>
                                         <option>Developer</option>
                                         <option>Hybrid</option>
                                     </select>
+                                @endforeach
                                 </div>
                             </form>
                         </div>
