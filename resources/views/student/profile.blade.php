@@ -118,7 +118,7 @@
     </div>
 </section>
 
-<section style="margin-top:55%;">
+<section style="margin-top:50%;">
     <h3 class="headerThree">Accountdetails</h3>
     <div class="profileForm" style="margin-top:17.5%">
         <form class="profileContainer" method="post" action="" style="margin-top:0%;">
@@ -174,9 +174,8 @@
     </div>
 </section>
 
-<section>
+<section style="margin-top:20%">
     <h3 class="headerThree">Github Repository</h3>
-
     @isset($user->student)
         <div class="profileForm" style="margin-top:12.5%">
             <form class="profileContainer" method="post" action="/student/github" enctype="multipart/form-data" style="margin-top:0%;">
