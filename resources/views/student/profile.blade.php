@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @component('components/general/navigation')@endcomponent
+    @component('components/navigation')@endcomponent
 
 <div class="container profile profile-view" id="profile">
     <h1 class="headerOne">Profile</h1>
@@ -36,43 +36,107 @@
         </div>
         @endisset
 
-        @component('components/student/information')@endcomponent
-    </form>
+        <div class="form-row">
+            <div class="col">
+                <label for="picture">Picture</label>
+                <input class="form-control" type="file" name="picture" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+            </div>
+        </div>
 
-    <section style="margin-top:65%;">
-    <h3 class="headerThree">Accountdetails</h3>
-    <form class="profileContainer" method="post" action="" style="margin-top:0%;">
+        <div class="form-row">
+            <div class="col">
+                <label for="mobile">Mobile</label>
+                <input class="form-control" type="tel" name="mobile" placeholder="Mobile" value="@isset($user->student->mobile){{ $user->student->mobile }}@else{{ old('mobile') }}@endisset">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="biography">Biography</label>
+                <textarea class="form-control" name="biography" placeholder="Biography">@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset</textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="portfolio">Portfolio</label>
+                <input class="form-control" type="url" name="portfolio" placeholder="Portfolio link" value="@isset($user->student->portfolio){{ $user->student->portfolio }}@else{{ old('portfolio') }}@endisset">
+            </div>
+            <div class="col">
+                <label for="linkedin">LinkedIn</label>
+                <input class="form-control" type="url" name="linkedin" placeholder="LinkedIn" value="@isset($user->student->LinkedIn){{ $user->student->LinkedIn }}@else{{ old('linkedin') }}@endisset">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="category">Category</label>
+                <select class="form-control" name="category">
+                @foreach ($categories as $category)
+                        <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+    <h2 class="headerTwo">User</h2>
+    <form method="post" action="">
         @csrf
 
-        @component('components/student/accountdetails')@endcomponent
+        <div class="form-row">
+            <div class="col">
+                <label for="firstName">First name</label>
+                <input class="form-control" type="text" name="firstName" placeholder="First name" value="{{ $user->firstName }}">
+            </div>
+            <div class="col">
+                <label for="lastName">Last name</label>
+                <input class="form-control" type="text" name="lastName" placeholder="Last name" value="{{ $user->lastName }}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" name="email" placeholder="Email" value="{{ $user->email }}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="col">
+                <label for="password_confirmation">Confirm password</label>
+                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm password">
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
     </form>
 </div>
-</section>
-
 @isset($user->student)
-    <section style="margin-top:40%;">
-        <h3 class="headerThree">Github Repository</h3>
-            <div class="profileForm" style="margin-top:12.5%">
-                <form class="profileContainer" method="post" action="/student/github" style="margin-top:0%;" enctype="multipart/form-data">
-                    @csrf
-                    @component('components/student/github')@endcomponent
-                </form>
-            </div>
-    </section>
+    <h2 class="headerTwo">Github repositories</h2>
+    <form method="post" action="/student/github" enctype="multipart/form-data">
+        @csrf
+        <div class="form-row">
+        <div class="col">
+            <label for="github">Github username</label>
+            <input class="form-control" type="text" name="github" placeholder="Github username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
+        </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Show repo's</button>
+    </form>
 
     @isset($repositories)
         @foreach($repositories as $repo)
-            <div class="card-group">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">{{$repo['name']}}</h3>
-                        <h4 class="card-title">{{$repo['description']}}</h4>
-                        <a href="{{$repo['svn_url']}}">Ga naar repository</a>
+        <div class="card-group">
+                    <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">{{$repo['name']}}</h3>
+                                <h4 class="card-title">{{$repo['description']}}</h4>
+                                <a href="{{$repo['svn_url']}}">Ga naar repository</a>
+                            </div>
                     </div>
-                </div>
-            </div>
+        </div>
         @endforeach
     @endisset
 @endisset
-@component('components/general/footer')@endcomponent
+@component('components/footer')@endcomponent
 @endsection
