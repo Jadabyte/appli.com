@@ -124,7 +124,6 @@ body {
 
 .btn {
     background-color: #00cf8d;
-    /*color: #EDEFF0;*/
 }
 
 .forgot {
@@ -155,7 +154,7 @@ body {
 }
 
 .formRegister {
-    margin-top: 18%;
+    margin-top: 20%;
     margin-left: 50%;
     max-width: 450px;
     height: auto;
