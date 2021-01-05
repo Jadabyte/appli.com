@@ -8,7 +8,7 @@
 @component('components/general/navigation')@endcomponent
 
 <h1 class="headerOne" style="text-align:center; margin:2%;">My profile</h1>
-
+<div class="container profile profile-view" id="profile">
 <section>
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
     <div class="profileForm"  id="profile" style="margin-top:22%">
@@ -201,5 +201,6 @@
     @endisset
 @endisset
 </section>
+</div>
 @component('components/general/footer')@endcomponent
 @endsection
