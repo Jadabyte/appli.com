@@ -102,8 +102,7 @@
 
                 <div class="form-row" style="text-align:right;">
                     <div class="col offset-xl-0">
-                        <button class="btn btn-primary btnDeclined" type="button" style="margin-right:-6%;">Cancel</button>
-                        <button class="btn btn-primary btnApproved" type="button" style="margin-right:5%;">Save</button>
+                        <button class="btn btn-primary" type="submit">Save</button>
                     </div>
                 </div>
             </form>
