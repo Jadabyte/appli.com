@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    < class="login-dark">
+    <div class="login-dark">
         <img class="img-fluid logo" src="/applibranding/logoAppli.svg?h=60d8998b2af02b7c83c7ce77b565694b" loading="lazy" id="logoRegister">
         <div class="form-container">
             <form class="formRegister" method="post" action="">
@@ -58,5 +58,6 @@
             <a id="already" class="already" href="login">You already have an account? Login here.</a>
         </form>
     </div>
+</div>
 @component('components/general/footer')@endcomponent
 @endsection
