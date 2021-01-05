@@ -1,7 +1,6 @@
 body {
     background-color: #011c3a;
     font-family: Nunito, sans-serif;
-    position: relative;
 }
 
 /* HEADERS */
@@ -389,10 +388,14 @@ td {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #0e0e2c;
+    position: relative;
+}
+
+#footerContainer {
     position: absolute;
-    left: 0;
     right: 0;
     bottom: 0;
+    left: 0;
 }
 
 .list-inline.text-center {
