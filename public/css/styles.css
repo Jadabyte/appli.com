@@ -389,13 +389,13 @@ td {
     padding-bottom: 20px;
     background-color: #0e0e2c;
     position: relative;
+    min-height: 100vh;
 }
 
 #footerContainer {
     position: absolute;
-    right: 0;
     bottom: 0;
-    left: 0;
+    width: 100%;
 }
 
 .list-inline.text-center {
