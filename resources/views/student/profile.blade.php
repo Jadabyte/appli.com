@@ -174,24 +174,21 @@
     </div>
 </section>
 
-<section style="margin-top:20%">
-    <h3 class="headerThree">Github Repository</h3>
-    @isset($user->student)
-        <div class="profileForm" style="margin-top:12.5%">
-            <form class="profileContainer" method="post" action="/student/github" enctype="multipart/form-data" style="margin-top:0%;">
-                @csrf
-                    <div class="form-row" style="margin-top:-10%">
-                        <div class="col">
-                            <div class="form-group" style="color: #011C3A;">
-                                <label for="github" class="profileFieldLabel">Github Username</label>
-                                <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
-                                <button class="btn btn-primary searchButton" type="submit">Show repository</button>
-                            </div>
+@isset($user->student)
+<h3 class="headerThree">Github Repository</h3>
+    <div class="profileForm" style="margin-top:12.5%">
+        <form class="profileContainer" method="post" action="/student/github" enctype="multipart/form-data" style="margin-top:0%;">
+            @csrf
+                <div class="form-row" style="margin-top:-10%">
+                    <div class="col">
+                        <div class="form-group" style="color: #011C3A;">
+                            <label for="github" class="profileFieldLabel">Github Username</label>
+                            <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
+                            <button class="btn btn-primary searchButton" type="submit">Show repository</button>
                         </div>
                     </div>
-            </form>
-        </div>
-    @endisset
+                </div>
+        </form>
 
     @isset($repositories)
         @foreach($repositories as $repo)
@@ -206,6 +203,6 @@
             </div>
         @endforeach
     @endisset
-</section>
+    </div>
 @component('components/general/footer')@endcomponent
 @endsection
