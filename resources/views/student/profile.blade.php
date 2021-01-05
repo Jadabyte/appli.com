@@ -8,10 +8,10 @@
 @component('components/general/navigation')@endcomponent
 
 <h1 class="headerOne" style="text-align:center; margin:2%;">My profile</h1>
-<div class="container profile profile-view" id="profile">
+
 <section>
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
-    <div class="profileForm"  id="profile" style="margin-top:22%">
+    <div class="profileForm"  id="profile" style="margin-top:20%">
         <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
             @csrf
                 @if( $flash = session('message') )
@@ -118,9 +118,9 @@
     </div>
 </section>
 
-<section style="margin-top:50%;">
+<section style="margin-top:55%;">
     <h3 class="headerThree">Accountdetails</h3>
-    <div class="profileForm" style="margin-top:15%">
+    <div class="profileForm" style="margin-top:17.5%">
         <form class="profileContainer" method="post" action="" style="margin-top:0%;">
             @csrf
                 <div class="form-row">
@@ -166,13 +166,14 @@
 
                 <div class="form-row" style="text-align:right;">
                     <div class="col offset-xl-0">
+                        <button class="btn btn-primary btnDeclined" type="button" style="margin-right:-6%;">Cancel</button>
                         <button class="btn btn-primary btnApproved" type="submit" style="margin-right:5%;">Save</button>
                     </div>
                 </div>
         </form>
     </div>
+</section>
 
-<h3 class="headerThree">Github Repository</h3>
 @isset($user->student)
     <h2 class="headerTwo">Github repositories</h2>
     <form method="post" action="/student/github" enctype="multipart/form-data">
@@ -200,7 +201,6 @@
         @endforeach
     @endisset
 @endisset
-</section>
-</div>
+
 @component('components/general/footer')@endcomponent
 @endsection
