@@ -64,16 +64,6 @@ Route::get('/application/{id}', [ApplicationController::class, 'show'])->middlew
 Route::post('/application/{id}', [ApplicationController::class, 'handleLabel'])->middleware('auth');
 Route::post('/application/comment/{id}', [ApplicationController::class, 'comment'])->middleware('auth');
 
-//nog toe te voegen: tags voor filtering
-//nog toe te voegen: status application
-
-
-//nog toe te voegen: update internship
-//nog toe te voegen: delete internship
-
-//Dribbble portfolio routes
-//Afstand API routes
-
 //Zoekroutes
 
 Route::get('/layouts/appli', [GeneralController::class, 'appli']);
@@ -81,3 +71,5 @@ Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
 Route::get('/components/general/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/general/footer', [GeneralController::class, 'footer']);
 Route::get('/components/student/filter', [GeneralController::class, 'filter']);
+Route::get('/components/internship/createInternship', [GeneralController::class, 'createInternship']);
+Route::get('/components/internship/showInternships', [GeneralController::class, 'showInternships']);

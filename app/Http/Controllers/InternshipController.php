@@ -15,7 +15,7 @@ class InternshipController extends Controller
     public function index()
     {
         $data['internships'] = \DB::table('internships')->get();
-        return view('internship/index', $data);
+        return view('student/index', $data);
     }
 
     public function create()

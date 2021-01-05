@@ -47,6 +47,16 @@ class GeneralController extends Controller
         return view('components/student/filters');
     }
 
+    public function createInternship()
+    {
+        return view('components/internship/createInternship');
+    }
+
+    public function showInternships()
+    {
+        return view('components/internship/showInternships');
+    }
+
     public function handleRegister(Request $request)
     {
         $validation = $request->validate([
