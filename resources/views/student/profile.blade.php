@@ -11,7 +11,7 @@
 
 <div class="container profile profile-view" id="profile">
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
-        <div class="profileForm" style="margin-top:30%">
+        <div class="profileForm" style="margin-top:20%">
     <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
         @csrf
         @if( $flash = session('message') )
@@ -98,9 +98,6 @@
                                     <select class="form-control descInput" >
                                         @foreach ($categories as $category)
                                             <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
-                                                <option value="">Designer</option>
-                                                <option value="">Developer</option>
-                                                <option value="" >Hybrid</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -118,7 +115,7 @@
         </form>
         </div>
 
-    {{-- <h3 class="headerThree">Accountdetails</h3>
+    <h3 class="headerThree">Accountdetails</h3>
         <div class="profileForm" style="margin-top:17.5%">
             <form class="profileContainer" method="post" action="" style="margin-top:0%;">
         @csrf
@@ -196,5 +193,5 @@
         </div>
         @endforeach
     @endisset
-@endisset --}}
+@endisset
 @endsection
