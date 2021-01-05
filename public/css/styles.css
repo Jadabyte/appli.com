@@ -3,12 +3,25 @@ body {
     font-family: Nunito, sans-serif;
 }
 
+/* HEADERS */
+
 .headerOne {
     text-align: center;
     color: #edeff0;
     margin-top: 5%;
     margin-bottom: 2.5%;
+    font-size: 1.5rem;
 }
+
+.headerTwo {
+    color: #edbd16;
+    margin-bottom: 10%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 1.25rem;
+}
+
+/* INDEXPAGINA APPLI */
 
 .indexContainer {
     margin-top: 8%;
@@ -119,14 +132,14 @@ body {
 }
 
 /* REGISTER */
-
-.formRegister {
-    margin-top: 10%;
+#logoRegister {
+    margin-top: 2.5%;
+    margin-left: 45%;
+    height: 80px;
 }
 
-.headerTwo {
-    color: #edbd16;
-    margin-bottom: 10%;
+.formRegister {
+    margin-top: 20%;
 }
 
 .form-control {
