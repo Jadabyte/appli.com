@@ -51,7 +51,7 @@
                     <span>I am a student.</span>
                 </label>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-top:-5%;">
                 <button class="btn btn-primary btn-block" id="registerbutton" type="submit">Register</button>
             </div>
 
