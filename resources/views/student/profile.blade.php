@@ -11,7 +11,7 @@
 
 <section>
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
-    <div class="profileForm"  id="profile" style="margin-top:20%">
+    <div class="profileForm"  id="profile" style="margin-top:22%">
         <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
             @csrf
                 @if( $flash = session('message') )
