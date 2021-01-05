@@ -132,6 +132,10 @@ body {
 }
 
 /* REGISTER */
+.registerDiv {
+    min-height: 100vh;
+}
+
 #logoRegister {
     margin-top: 2.5%;
     margin-left: 45%;
@@ -383,7 +387,6 @@ td {
 #footerpad {
     padding-top: 20px;
     padding-bottom: 20px;
-    height: initial;
     background-color: #0e0e2c;
     position: absolute;
     left: 0;
