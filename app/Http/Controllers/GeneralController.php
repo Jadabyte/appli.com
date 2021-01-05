@@ -42,29 +42,9 @@ class GeneralController extends Controller
         return view('register');
     }
 
-    public function pages()
-    {
-        return view('components/pagination');
-    }
-
     public function filter()
     {
         return view('components/student/filters');
-    }
-
-    public function account()
-    {
-        return view('components/student/accountdetails');
-    }
-
-    public function information()
-    {
-        return view('components/student/information');
-    }
-
-    public function github()
-    {
-        return view('components/student/github');
     }
 
     public function handleRegister(Request $request)

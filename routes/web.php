@@ -80,8 +80,4 @@ Route::get('/layouts/appli', [GeneralController::class, 'appli']);
 Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
 Route::get('/components/general/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/general/footer', [GeneralController::class, 'footer']);
-Route::get('/components/pagination', [GeneralController::class, 'pages']);
 Route::get('/components/student/filter', [GeneralController::class, 'filter']);
-Route::get('/components/student/accountdetails', [GeneralController::class, 'account']);
-Route::get('/components/student/information', [GeneralController::class, 'information']);
-Route::get('/components/student/github', [GeneralController::class, 'github']);
