@@ -10,7 +10,7 @@ body {
     color: #edeff0;
     margin-top: 5%;
     margin-bottom: 2.5%;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .headerTwo {
@@ -18,7 +18,7 @@ body {
     margin-bottom: 10%;
     text-align: center;
     margin-top: 5%;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 }
 
 /* INDEXPAGINA APPLI */
@@ -381,7 +381,7 @@ td {
 /* FOOTER */
 
 #footerpad {
-    margin-top: 5%;
+    margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
     height: initial;
