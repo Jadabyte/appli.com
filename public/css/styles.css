@@ -133,7 +133,7 @@ body {
 
 /* REGISTER */
 .registerDiv {
-    min-height: 100vh;
+    margin-bottom: 5%;
 }
 
 #logoRegister {
