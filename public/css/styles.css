@@ -89,7 +89,7 @@ body {
     transform: translate(-50%, -50%);
     position: absolute;
     top: 28%;
-    left: 52.5%;
+    left: 50%;
 }
 
 .login-dark form .form-control {
