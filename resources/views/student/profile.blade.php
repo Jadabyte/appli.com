@@ -184,25 +184,26 @@
                         <div class="form-group" style="color: #011C3A;">
                             <label for="github" class="profileFieldLabel">Github Username</label>
                             <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
-                            <button class="btn btn-primary searchButton" type="submit">Show repository</button>
                         </div>
                     </div>
                 </div>
+            <button class="btn btn-primary searchButton" type="submit">Show repository</button>
         </form>
 
-    @isset($repositories)
-        @foreach($repositories as $repo)
-            <div class="card-group">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">{{$repo['name']}}</h3>
-                        <h4 class="card-title">{{$repo['description']}}</h4>
-                        <a href="{{$repo['svn_url']}}">Ga naar repository</a>
+            @isset($repositories)
+                @foreach($repositories as $repo)
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">{{$repo['name']}}</h3>
+                                <h4 class="card-title">{{$repo['description']}}</h4>
+                                <a href="{{$repo['svn_url']}}">Ga naar repository</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        @endforeach
+                @endforeach
+            @endisset
     @endisset
-    </div>
+</div>
 @component('components/general/footer')@endcomponent
 @endsection
