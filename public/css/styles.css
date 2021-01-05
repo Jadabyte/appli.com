@@ -385,7 +385,7 @@ td {
     padding-bottom: 20px;
     height: initial;
     background-color: #0e0e2c;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
