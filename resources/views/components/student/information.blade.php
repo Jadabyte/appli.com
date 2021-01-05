@@ -5,16 +5,16 @@
                 <div class="form-row" style="margin-top:-5%">
                     <div class="col">
                         <div class="form-group" style="color:#011C3A;">
-                            <label class="profileFieldLabel">Firstname</label>
-                            <input class="form-control profileGroup" type="text" name="companyName" placeholder="Firstname">
+                            <label for="firstName" class="profileFieldLabel">Firstname</label>
+                            <input class="form-control profileGroup" type="text" name="firstName" placeholder="Firstname" value="{{ $user->firstName }}">
                         </div>
                         <div class="form-group" style="color: #011C3A;">
-                            <label class="profileFieldLabel">Lastname</label>
-                            <input class="form-control profileGroup" type="text" name="companyEmail" placeholder="Lastname">
+                            <label for="lastName" class="profileFieldLabel">Lastname</label>
+                            <input class="form-control profileGroup" type="text" name="lastName" placeholder="Lastname" value="{{ $user->lastName }}">
                         </div>
                         <div class="form-group" style="color: #011C3A;">
-                            <label class="profileFieldLabel">Mobile phone</label>
-                            <input class="form-control profileGroup" type="text" name="companyPhone" placeholder="Mobile phone">
+                            <label for="mobile" class="profileFieldLabel">Mobile phone</label>
+                            <input class="form-control profileGroup" type="tel" name="mobile" placeholder="Mobile phone" value="@isset($user->student->mobile){{ $user->student->mobile }}@else{{ old('mobile') }}@endisset">
                         </div>
                     </div>
 
@@ -22,9 +22,9 @@
                         <div class="avatar">
                             <div class="avatar-bg center" style="margin-left:35%;"></div>
                                 <div style="margin-top:1%; color: #011C3A;">
-                                    <label class="profileFieldLabel">Profile picture</label>
-                                    <input type="file" class="form-control" name="avatar-file" style="color: #011C3A;">
-                                    <p class="infoSearch">Please upload a valid image file. Size of image should not be more than 2MB.</p>
+                                    <label for="picture" class="profileFieldLabel">Profile picture</label>
+                                    <input type="file" class="form-control" name="picture" style="color: #011C3A;" aria-describedby="fileHelp">
+                                    <p class="infoSearch" id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</p>
                                 </div>
                             </div>
                         </div>
@@ -33,8 +33,8 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group" style="color: #011C3A;">
-                                <label class="profileFieldLabel">Biography</label>
-                                <input class="form-control profileGroup" type="text" name="" placeholder="Add a biography about you so companies can get to know you!">
+                                <label for="biography" class="profileFieldLabel">Biography</label>
+                                <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography">@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset>
                             </div>
                         </div>
                     </div>
@@ -42,14 +42,14 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group" style="color: #011C3A;">
-                                <label class="profileFieldLabel">Portfolio website</label>
-                                <input class="form-control profileGroup" type="text" name="" placeholder="Portfolio website">
+                                <label for="portfolio" class="profileFieldLabel">Portfolio website</label>
+                                <input class="form-control profileGroup" type="url" name="portfolio" placeholder="Portfolio link" value="@isset($user->student->portfolio){{ $user->student->portfolio }}@else{{ old('portfolio') }}@endisset">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group" style="color: #011C3A;">
-                                <label class="profileFieldLabel">LinkedIn</label>
-                                <input class="form-control profileGroup" type="text" name="" placeholder="LinkedIn">
+                                <label for="linkedin" class="profileFieldLabel">LinkedIn</label>
+                                <input class="form-control profileGroup" type="url" name="linkedin" placeholder="LinkedIn" value="@isset($user->student->LinkedIn){{ $user->student->LinkedIn }}@else{{ old('linkedin') }}@endisset">
                             </div>
                         </div>
                     </div>
@@ -57,17 +57,10 @@
                 <div class="form-row">
                     <div class="col">
                         <div class="form-group" style="color: #011C3A;">
-                            <label class="profileFieldLabel">Category</label>
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <select class="form-control descInput">
-                                        <option>Choose</option>
-                                        <option>Designer</option>
-                                        <option>Developer</option>
-                                        <option>Hybrid</option>
-                                    </select>
-                                </div>
-                            </form>
+                            <label for="category" class="profileFieldLabel">Category</label>
+                            @foreach ($categories as $category)
+                                <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
+                            @endforeach
                         </div>
                     </div>
                 </div>
