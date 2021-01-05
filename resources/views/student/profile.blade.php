@@ -69,7 +69,7 @@
                         <div class="col">
                             <div class="form-group" style="color: #011C3A;">
                                 <label for="biography" class="profileFieldLabel">Biography</label>
-                                <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography">@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset>
+                                <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography"@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset>
                             </div>
                         </div>
                     </div>
