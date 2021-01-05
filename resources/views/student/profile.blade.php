@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
 <div class="container profile profile-view" id="profile">
     <h1 class="headerOne">Profile</h1>
@@ -138,5 +138,5 @@
         @endforeach
     @endisset
 @endisset
-@component('components/footer')@endcomponent
+@component('components/general/footer')@endcomponent
 @endsection
