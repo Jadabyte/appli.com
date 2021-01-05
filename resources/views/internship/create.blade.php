@@ -6,10 +6,10 @@
 
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
-    @component('components/createInternship')@endcomponent
+    @component('components/internship/createInternship')@endcomponent
 
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection
 

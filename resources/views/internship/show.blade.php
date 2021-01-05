@@ -6,60 +6,62 @@
 
 @section('content')
 <section id="sectionDetail">
-    <h1 class="headerOne">{{$internship->title}}</h1>
-    <div class="internGroup">
-        @isset($internship->description)
-        <div class="card" id="internshipCard">
-            <div class="card-body" id="card-body">
-                <h4 class="card-title" id="card-title">Description</h4>
-                <p class="card-text" id="cardTextCompany">{{$internship->description}}</p>
-            </div>
-        </div>
-        @endisset
-        @isset($internship->category->title)
-        <div class="card" id="internshipCard">
-            <div class="card-body" id="card-body">
-                <h4 class="card-title" id="card-title">Category</h4>
-                <p class="card-text" id="cardTextCompany">{{$internship->category->title}}</p>
-            </div>
-        </div>
-        @endisset
-        @isset($internship->internshipsSkill->title)
-        <div class="card" id="internshipCard">
-            <div class="card-body" id="card-body">
-                <h4 class="card-title" id="card-title">Skills</h4>
-                <p class="card-text" id="cardTextCompany">{{$internship->internshipsSkill->title}}</p>
-            </div>
-        </div>
-        @endisset
-        @isset($internship->internshipPeriod->title)
-        <div class="card" id="internshipCard">
-            <div class="card-body" id="card-body">
-                <h4 class="card-title" id="card-title">Timeperiod</h4>
-                <p class="card-text" id="cardTextCompany">{{$internship->internshipPeriod->title}}</p>
-            </div>
-        </div>
-        @endisset
-
-        <div class="card" id="internshipCard">
-            <div class="card-body" id="contactContainer">
-                <div class="media">
-                    <div class="media-body">
-                        <ul class="list-unstyled fa-ul" id="contactinfo-1">
-                            <li><i class="fa fa-user fa-li"></i><a id="contactinfo-2" href="/company/{{ $internship->company->id }}">{{ $internship->company->name }}</a></li>
-                            <li><i class="fa fa-envelope fa-li"></i><a id="contactinfo-3" href="#">{{ $internship->company->mail }}</a></li>
-                            <li><i class="fa fa-phone fa-li" id="contactinfo-4"></i>{{ $internship->company->telephone }}</li>
-                            <li><i class="fa fa-map-marker fa-li" id="contactinfo-5"></i>{{$internship->company->street}} {{$internship->company->houseNumber}}, @if($internship->company->pobox > 0)PO Box {{$internship->company->pobox}},@endif {{$internship->company->postalCode}} {{$internship->company->city}}</li>
-                        </ul>
+        <h1 class="nameStudent headerOne">Internship</h1>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    @isset($internship->description)
+                    <div class="card">
+                        <div class="card-body" id="card-body">
+                            <h4 class="card-title headerTwo" id="card-title">Description</h4>
+                            <p class="card-text explanationParagraph">{{$internship->description}}</p>
+                        </div>
                     </div>
+                    @endisset
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    @isset($internship->category->title)
+                    <div class="card">
+                        <div class="card-body" id="card-body">
+                            <h4 class="card-title headerTwo" id="card-title">Category</h4>
+                            <p class="card-text explanationParagraph">{{$internship->category->title}}</p>
+                        </div>
+                    </div>
+                    @endisset
+                </div>
+                <div class="col-md-4">
+                    @isset($internship->internshipsSkill->title)
+                    <div class="card" id="card-title">
+                        <div class="card-body" id="card-body">
+                            <h4 class="card-title headerTwo" id="card-title">Requirements</h4>
+                            <p class="card-text explanationParagraph">{{$internship->internshipsSkill->title}}</p>
+                        </div>
+                    </div>
+                    @endisset
+                </div>
+                <div class="col-md-4">
+                    @isset($internship->internshipPeriod->title)
+                    <div class="card" id="card-title">
+                        <div class="card-body" id="card-body">
+                            <h4 class="card-title headerTwo" id="card-title">Timeperiod</h4>
+                            <p class="card-text explanationParagraph">{{$internship->internshipPeriod->title}}</p>
+                        </div>
+                    </div>
+                    @endisset
                 </div>
             </div>
         </div>
-</section>
-@isset($user->student)
-<div>
-    <a class="btn btn-primary" id="createBtn" href="/application/create/{{$internship->id}}">Apply</a>
-</div>
-@endisset
+    </div>
+    @isset($user->student)
+    <div class="col offset-xl-0" style="text-align:right; margin-top:5%;">
+        <button class="btn btn-primary btnDeclined" type="button" style="margin-right:-6%;">Go back to list</button>
+        <button class="btn btn-primary btnApproved" id="createBtn" href="/application/create/{{$internship->id}}" style="margin-right:5%;">Apply for this internship</button>
+    </div>
+    @endisset
+
+@component('components/general/footer')@endcomponent
 
 @endsection

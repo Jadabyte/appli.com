@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
     @component('components/student/filters')@endcomponent
     @component('components/internship/showInternships')@endcomponent
     @component('components/general/footer')@endcomponent
