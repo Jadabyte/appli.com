@@ -387,6 +387,7 @@ td {
     background-color: #0e0e2c;
     position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 .list-inline.text-center {
