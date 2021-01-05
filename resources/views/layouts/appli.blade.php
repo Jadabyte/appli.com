@@ -39,7 +39,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.min.js"></script>
     <script src="js/app/js"></script>
-    <script src="js/Profile-Edit-Form.js"></script>
     @yield('script')
 </body>
 </html>
