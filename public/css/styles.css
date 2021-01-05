@@ -388,12 +388,8 @@ td {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #0e0e2c;
-    position: relative;
-    min-height: 100vh;
-}
-
-#footerContainer {
     position: absolute;
+    height: 10vh;
     bottom: 0;
     width: 100%;
 }
