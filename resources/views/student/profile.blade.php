@@ -172,9 +172,7 @@
                 </div>
         </form>
     </div>
-</section>
 
-<section style="margin-top:40%;">
     <h3 class="headerThree">Github Repository</h3>
 
     @isset($user->student)
