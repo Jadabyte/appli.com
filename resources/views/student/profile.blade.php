@@ -11,7 +11,7 @@
 
 <section>
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
-    <div class="profileForm"  id="profile" style="margin-top:30%">
+    <div class="profileForm"  id="profile" style="margin-top:20%">
         <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
             @csrf
                 @if( $flash = session('message') )
@@ -118,14 +118,14 @@
     </div>
 </section>
 
-<section style="margin-top:65%;">
+<section style="margin-top:55%;">
     <h3 class="headerThree">Accountdetails</h3>
     <div class="profileForm" style="margin-top:17.5%">
         <form class="profileContainer" method="post" action="" style="margin-top:0%;">
             @csrf
                 <div class="form-row" style="margin-top:-10%">
                     <div class="col">
-                        <div class="form-group" style="color: #011C3A;">
+                        <div class="form-group" style="color:#011C3A;">
                             <label for="firstName" class="profileFieldLabel">Firstname</label>
                             <input class="form-control profileGroup" type="text" name="firstName" placeholder="Firstname" value="{{ $user->firstName }}">
                         </div>
