@@ -70,10 +70,10 @@ body {
 /* login */
 
 .logo {
-    width: 10em;
+    width: 8em;
     height: auto;
     margin-top: 4%;
-    margin-left: 4%;
+    margin-left: 33%;
 }
 
 .form-group {
@@ -92,7 +92,7 @@ body {
     border-radius: 4px;
     transform: translate(-50%, -50%);
     position: absolute;
-    top: 28%;
+    top: 15%;
     left: 51%;
 }
 
