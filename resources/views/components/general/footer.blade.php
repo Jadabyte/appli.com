@@ -1,4 +1,4 @@
-<footer id="footerpad" class="footerCreate" style="margin-top:10%">
+<footer id="footerpad" class="footerCreate">
     <div class="container" id="containerFooter">
         <div class="row">
             <div class="col-md-6 col-lg-8 mx-auto">
