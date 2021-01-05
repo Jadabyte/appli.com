@@ -4,7 +4,8 @@
     Company :name
 @endsection
 @section('content')
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
+
     <section id="sectionDetail">
         <h1 class="headerOne">{{$company->name}}</h1>
         @empty(!$company->logo)
@@ -47,5 +48,5 @@
         </div>
     </section>
 
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection

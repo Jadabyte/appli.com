@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
     <div class="container">
     <h1 class="headerOne">Applications</h1>
@@ -66,5 +66,5 @@
             </table>
         </div>
     </div>
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
     @endsection

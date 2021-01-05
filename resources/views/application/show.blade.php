@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
     <section id="sectionDetail">
         <h1 class="headerOne">Details application</h1>
@@ -150,5 +150,5 @@
             @endif
         </div>
     </section>
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection

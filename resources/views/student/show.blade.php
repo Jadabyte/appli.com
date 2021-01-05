@@ -4,7 +4,7 @@
     Student {{$user['firstName']}}
 @endsection
 @section('content')
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
     <section id="sectionDetail">
         <h1 class="headerOne">{{$user->firstName}} {{$user->lastName}}</h1>
         @empty(!$student->picture)
@@ -53,5 +53,5 @@
         @endif
     </section>
 
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection

@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+@component('components/general/navigation')@endcomponent
+
 <section id="sectionDetail">
         <h1 class="nameStudent headerOne">Internship</h1>
     <div>

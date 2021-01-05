@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
     <div class="container profile profile-view" id="profile">
         <h1 class="headerOne">Profile</h1>
@@ -149,5 +149,5 @@
         </form>
     </div>
 </div>
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
     @endsection

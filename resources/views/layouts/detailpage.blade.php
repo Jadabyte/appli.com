@@ -10,22 +10,29 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/beautiful-danger-alert.css">
+    <link rel="stylesheet" href="/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="/css/Edit-Form.css">
+    <link rel="stylesheet" href="/css/Filter.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-
-
 <section>
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
     <div>
         @yield('content')
     </div>
 </section>
 
-@component('components/footer')@endcomponent
+@component('components/general/footer')@endcomponent
 
 @yield('script')
 </body>

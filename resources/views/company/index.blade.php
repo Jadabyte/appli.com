@@ -5,12 +5,12 @@
 @endsection
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
     <h1 class="headerOne">Overview of students looking for an internship</h1>
     <p class="explainP">Filter thru our students based on category (designer, developer or hybrid) and/ or location.</p>
 
-    @component('components/filterCompany')@endcomponent
+    {{-- @component('components/filterCompany')@endcomponent --}}
 
     <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
         <div class="col-md-3" style="max-width: 300px;min-width:100px;">
@@ -88,28 +88,6 @@
             </div>
         </div>
     </div>
-    @component('components/pagination')@endcomponent
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection
 
-
-{{--
-@foreach ($users as $u)
-    @if ($u->isStudent)
-        <div class="card-group">
-            <div class="card">
-                <img class="card-img-top" src="..." alt="logo company image">
-                    <div class="card-body">
-                        <h3 class="card-title">{{$u->firstName}} {{$u->lastName}}</h3>
-                        <a href="/student/{{$u->id}}">More</a>
-                    </div>
-            </div>
-        </div>
-    @endif
-@endforeach
-
-<!-- temporary list of all companies -->
-@foreach( $companies as $company )
-    <a href="/company/{{ $company->id }}">{{ $company->name }}</a>
-@endforeach
- --}}
