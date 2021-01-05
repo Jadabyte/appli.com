@@ -107,7 +107,7 @@
                 </div>
             </div>
         </form>
-
+        </div>
     <h3 class="headerThree">Accountdetails</h3>
         <div class="profileForm" style="margin-top:17.5%">
             <form class="profileContainer" method="post" action="" style="margin-top:0%;">
