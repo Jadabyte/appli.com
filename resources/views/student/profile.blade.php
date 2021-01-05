@@ -138,5 +138,4 @@
         @endforeach
     @endisset
 @endisset
-@component('components/general/footer')@endcomponent
 @endsection
