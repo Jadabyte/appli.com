@@ -8,7 +8,7 @@
 
     <div class="login-dark">
         <img class="img-fluid logo" src="/applibranding/logoAppli.svg?h=60d8998b2af02b7c83c7ce77b565694b" loading="lazy">
-        <form method="post" action="" class="formRegister" style="margin-top:12.5%">
+        <form method="post" action="" class="formLogin">
             <h1 class="text-center headerTwo">Login</h1>
 
             @csrf
