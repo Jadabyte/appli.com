@@ -385,8 +385,8 @@ td {
 /* FOOTER */
 
 #footerpad {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /*     padding-top: 20px;
+    padding-bottom: 20px; */
     background-color: #0e0e2c;
     position: relative;
     min-height: 100vh;
