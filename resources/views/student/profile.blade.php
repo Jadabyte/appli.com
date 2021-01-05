@@ -120,7 +120,7 @@
 
 <section style="margin-top:50%;">
     <h3 class="headerThree">Accountdetails</h3>
-    <div class="profileForm" style="margin-top:17.5%">
+    <div class="profileForm" style="margin-top:15%">
         <form class="profileContainer" method="post" action="" style="margin-top:0%;">
             @csrf
                 <div class="form-row">
