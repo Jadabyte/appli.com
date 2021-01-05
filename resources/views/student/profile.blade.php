@@ -95,15 +95,14 @@
                             <label for="category" class="profileFieldLabel">Category</label>
                             <form class="form-inline">
                                 <div class="form-group">
-                                @foreach ($categories as $category)
-                                <select class="form-control descInput" >
-                                    <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
-                                        <option>Choose</option>
-                                        <option>Designer</option>
-                                        <option>Developer</option>
-                                        <option>Hybrid</option>
+                                    <select class="form-control descInput" >
+                                        @foreach ($categories as $category)
+                                            <option @if(!empty($user->student->category_id) && $category->id === $user->student->category_id){{ 'selected' }}@endif value="{{ $category->id }}">{{ $category->title }}</option>
+                                                <option value="">Designer</option>
+                                                <option value="">Developer</option>
+                                                <option value="" >Hybrid</option>
+                                        @endforeach
                                     </select>
-                                @endforeach
                                 </div>
                             </form>
                         </div>
