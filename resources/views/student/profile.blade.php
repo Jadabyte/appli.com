@@ -7,9 +7,9 @@
 
     @component('components/general/navigation')@endcomponent
 
-<div class="container profile profile-view" id="profile">
-    <h3 class="headerThree" style="margin-top:2%">Information</h3>
-        <div class="profileForm" style="margin-top:20%">
+<div class="container profile profile-view" id="profile" style="margin-top:5%">
+    <h3 class="headerThree" style="margin-top:2%; margin-left:-30%">Information</h3>
+        <div class="profileForm" style="margin-top:22%">
             <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
                 @csrf
                 @if( $flash = session('message') )
@@ -29,11 +29,19 @@
                 @endif
 
                 @isset($user->student->picture)
-                <div class="profile-header-container">
-                    <div class="profile-header-img">
-                        <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
+                    <div class="col">
+                        <div class="avatar">
+                            <div class="avatar-bg center" style="margin-left:35%;"></div>
+                                <div style="margin-top:1%; color: #011C3A;">
+                                    <label for="picture" class="profileFieldLabel">Profile picture</label>
+                                    <input type="file" class="form-control" name="picture" style="color: #011C3A;" aria-describedby="fileHelp">
+                                    <p class="infoSearch" id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</p>
+                                </div>
+                                <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
+
+                            </div>
+                        </div>
                     </div>
-                </div>
                 @endisset
                         <div class="form-row" style="margin-top:-5%">
                             <div class="col">
@@ -51,17 +59,7 @@
                                 </div>
                             </div>
 
-                            <div class="col">
-                                <div class="avatar">
-                                    <div class="avatar-bg center" style="margin-left:35%;"></div>
-                                        <div style="margin-top:1%; color: #011C3A;">
-                                            <label for="picture" class="profileFieldLabel">Profile picture</label>
-                                            <input type="file" class="form-control" name="picture" style="color: #011C3A;" aria-describedby="fileHelp">
-                                            <p class="infoSearch" id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="form-row">
                                 <div class="col">
