@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<img class="indexImage" src="/applibranding/logoAppli.svg">
+<img class="indexImage" src="/applibranding/logoAppli.svg" style="margin:auto;">
     <h1 class="headerOne">Welcome to Appli</h1>
     <div class="indexContainer">
         <div class="container">
