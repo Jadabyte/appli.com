@@ -28,20 +28,20 @@
                 </ul>
             @endif
 
-            <div class="form-group">
+            <div class="form-group" style="margin-top:-2.5%;">
                 <label for="firstName">Firstname</label>
                 <input class="form-control" type="text" name="firstName" placeholder="Firstname" value="{{ old('firstName') }}">
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-top:-2.5%;">
                 <label for="lastName">Lastname</label>
                 <input class="form-control" type="text" name="lastName" placeholder="Lastname" value="{{ old('lastName') }}">
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-top:-2.5%;">
                 <label for="email" aria-describedby="emailHelp">Email</label>
                 <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                 <small id="emailHelp" class="form-text text-muted">You can only use an email address from Thomas More.</small>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-top:-2.5%;">
                 <label for="password">Password</label>
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
