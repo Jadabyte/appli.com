@@ -45,7 +45,7 @@
                 <label for="password">Password</label>
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
-            <div class="form-check">
+            <div class="form-check" style="margin-top:-2.5%;">
                 <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" name="isStudent" value="1" id="isStudent">
                     <span>I am a student.</span>
