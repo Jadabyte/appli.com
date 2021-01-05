@@ -140,7 +140,7 @@ body {
 }
 
 .formRegister {
-    margin-top: 20%;
+    margin-top: 17.5%;
     margin-left: 50%;
     max-width: 450px;
     height: auto;
@@ -157,7 +157,7 @@ body {
 
 .form-check-label {
     color: #edbd16;
-    margin-bottom: 10%;
+    margin-bottom: 7.5%;
     margin-top: 2.5%;
 }
 
@@ -168,7 +168,7 @@ body {
 #registerbutton {
     background-color: #00cf8d;
     width: 100px;
-    margin-left: 35%;
+    margin-left: 33%;
     margin-top: 5%;
     border: none;
     border-radius: 8px;
@@ -176,7 +176,7 @@ body {
 
 #already {
     text-align: center;
-    margin-left: 5%;
+    margin-left: 2.5%;
     color: #011c3a;
     font-size: 14px;
     text-decoration: underline;
