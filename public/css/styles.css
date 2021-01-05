@@ -132,9 +132,6 @@ body {
 }
 
 /* REGISTER */
-.registerDiv {
-    margin-bottom: 25%;
-}
 
 #logoRegister {
     margin-top: 2.5%;
@@ -143,7 +140,15 @@ body {
 }
 
 .formRegister {
-    margin-top: 10%;
+    margin-top: 16%;
+    margin-left: 50%;
+    max-width: 400px;
+    height: 600px;
+    background-color: #edeff0;
+    padding: 20px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
 .form-control {
