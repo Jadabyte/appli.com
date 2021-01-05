@@ -88,8 +88,8 @@ body {
     border-radius: 4px;
     transform: translate(-50%, -50%);
     position: absolute;
-    /* top: 28%;
-    left: 50%; */
+    top: 28%;
+    left: 51%;
 }
 
 .login-dark form .form-control {
