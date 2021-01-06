@@ -22,11 +22,6 @@ class GeneralController extends Controller
         return view('layouts/detailpage');
     }
 
-    public function header()
-    {
-        return view('components/header');
-    }
-
     public function navigation()
     {
         return view('components/navigation');
