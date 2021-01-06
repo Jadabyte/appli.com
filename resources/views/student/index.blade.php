@@ -12,7 +12,7 @@
             <div class="col-md-3">
                 <div class="card border rounded shadow">
                     <div class="border rounded shadow">
-                        <img class="img-fluid" src="{{ asset('storage/companylogos/' . $i->company->logo) }}">
+                        <img class="img-fluid" src="{{ asset('storage/companylogos/' . $user->company->logo) }}">
                     </div>
                     <div class="card-body text-center">
                         <h3 class="card-title">{{$i->title}}</h3>
