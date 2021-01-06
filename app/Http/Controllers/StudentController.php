@@ -26,7 +26,7 @@ class StudentController extends Controller
         }
 
         $internships = Internship::With('company')->get();
-
+        dd($internships);
         return view('student/index', ['internships' => $internships]);
     }
 
