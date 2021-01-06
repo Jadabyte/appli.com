@@ -352,6 +352,11 @@ div.avatar-bg {
 .filter {
     margin-bottom: 2%;
     margin-top: -1%;
+    text-align: center;
+}
+
+.filterDrop {
+    border: #edbd16 1px solid;
 }
 
 .resetFilter {
