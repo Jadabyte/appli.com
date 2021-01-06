@@ -52,13 +52,21 @@
                             <div class="col">
                                 <div class="avatar">
                                     <div class="avatar-bg center" style="margin-left:35%;">
-                                        @isset($user->student->picture)
+                                        @if
+                                            @isset($user->student->picture)
+                                                <div class="profile-header-container">
+                                                    <div class="profile-header-img">
+                                                        <img class="rounded mx-auto d-block" style="width:80%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
+                                                    </div>
+                                                </div>
+                                            @endisset
+                                        @else
                                             <div class="profile-header-container">
                                                 <div class="profile-header-img">
-                                                    <img class="rounded mx-auto d-block" style="width:80%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
+                                                    <img class="rounded mx-auto d-block" style="width:80%" src="../../../public/images/students/profile.png" />
                                                 </div>
                                             </div>
-                                        @endisset
+                                        @endif
                                         <div style="margin-top:1%; color: #011C3A;">
                                             <label for="picture" class="profileFieldLabel">Profile picture</label>
                                             <input type="file" class="form-control" name="picture" style="color: #011C3A;" aria-describedby="fileHelp">
@@ -106,9 +114,9 @@
             </form>
         </div>
 
-    <div style="margin-top:65%;">
+    <div style="margin-top:80%;">
         <h3 class="headerThree">Accountdetails</h3>
-            <div class="profileForm" id="accountForm" style="margin-top:17.5%">
+            <div class="profileForm" id="accountForm">
                 <form class="profileContainer" method="post" action="" style="margin-top:0%;">
                     @csrf
                     <div class="form-row" style="margin-top:-10%">

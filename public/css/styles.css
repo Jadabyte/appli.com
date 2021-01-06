@@ -445,7 +445,8 @@ div.avatar-bg {
 }
 
 #accountForm {
-    height: 500px;
+    height: 350px;
+    margin-top: 12.5%;
 }
 
 #githubSection {
