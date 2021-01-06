@@ -59,24 +59,9 @@ class InternshipController extends Controller
         return view('internship.show', ['internship' => $internship, 'user' => $user]);
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     public function detail($id)
     {
         return view('internship/show', ['users' => User::findOrFail($id)]);
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 
     public function user()
