@@ -13,11 +13,11 @@
             <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
                 @csrf
                 @if( $flash = session('message') )
-                    <div class="alert alert-success" style="margin-top:-5%;">{{ $flash }}</div>
+                    <div class="alert alert-success" style="margin-top:-10%;">{{ $flash }}</div>
                 @endif
 
                 @if( $flash = session('error') )
-                    <div class="alert alert-danger" style="margin-top:-5%;">{{ $flash }}</div>
+                    <div class="alert alert-danger" style="margin-top:-10%;">{{ $flash }}</div>
                 @endif
 
                 @if( $errors->any())
@@ -167,11 +167,17 @@
             </div>
     </div>
 
-@isset($user->student)
+<section style="margin-top:40%;">
+<div class="profileForm" style="margin-top:12.5%">
+            <form class="profileContainer" method="post" action="" style="margin-top:0%;">
+                <div class="form-row" style="margin-top:-10%">
+                    <div class="col">
+                        <div class="form-group" style="color: #011C3A;"><label class="profileFieldLabel">Github Username</label><input class="form-control profileGroup" type="text" name="" placeholder="Github Username"><button class="btn btn-primary searchButton" type="button">Search</button></div>
+                    @isset($user->student)
     <h3 class="headerThree">Github Repository</h3>
     <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
         @csrf
-        <div class="form-row" style="margi-top:-10%">
+        <div class="form-row" style="margin-top:-10%">
         <div class="col">
             <label for="github">Github username</label>
             <input class="form-control" type="text" name="github" placeholder="Github username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
@@ -194,4 +200,13 @@
         @endforeach
     @endisset
 @endisset
+
+
+
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
 @endsection
