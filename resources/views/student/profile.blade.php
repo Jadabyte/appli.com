@@ -9,7 +9,7 @@
 
 <div class="container profile profile-view" id="profile">
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
-        <div class="profileForm" style="margin-top:20%">
+        <div class="profileForm" style="margin-top:25%">
             <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
                 @csrf
                 @if( $flash = session('message') )
@@ -27,14 +27,6 @@
                     @endforeach
                     </ul>
                 @endif
-
-                {{-- @isset($user->student->picture)
-                <div class="profile-header-container">
-                    <div class="profile-header-img">
-                        <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
-                    </div>
-                </div>
-                @endisset --}}
                         <div class="form-row" style="margin-top:-5%">
                             <div class="col">
                                 <div class="form-group" style="color:#011C3A;">
@@ -57,7 +49,7 @@
                                         @isset($user->student->picture)
                                             <div class="profile-header-container">
                                                 <div class="profile-header-img">
-                                                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
+                                                    <img class="rounded mx-auto d-block" style="width:50%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
                                                 </div>
                                             </div>
                                         @endisset
