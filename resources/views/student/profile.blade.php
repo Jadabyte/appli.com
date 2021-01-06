@@ -169,12 +169,12 @@
 
 @isset($user->student)
 <section style="margin-top:65%;">
-    <h3 class="headerThree">Github Repository</h3>
     <div class="profileForm">
         <form class="profileContainer" style="margin:0%;" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
             <div class="form-row" style="margin-top:-10%">
                 <div class="col">
+                    <h3 class="headerThree">Github Repository</h3>
                     <div class="form-group" style="color: #011C3A;">
                         <label class="profileFieldLabel">Github Username</label>
                         <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
@@ -191,7 +191,7 @@
                     <div class="card-body">
                         <h3 class="card-title">{{$repo['name']}}</h3>
                         <h4 class="card-title">{{$repo['description']}}</h4>
-                        <a href="{{$repo['svn_url']}}">Ga naar repository</a>
+                        <a href="{{$repo['svn_url']}}">Go to repository</a>
                     </div>
                 </div>
             </div>
