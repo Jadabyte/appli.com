@@ -150,6 +150,7 @@
                     </div>
                 </form>
             </div>
+            @endisset
         </section>
 
 <section style="margin-top:85%;">
@@ -201,6 +202,6 @@
         </form>
     </div>
 </div>
-@endisset
+
     @component('components/general/footer')@endcomponent
     @endsection
