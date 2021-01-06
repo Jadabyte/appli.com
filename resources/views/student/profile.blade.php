@@ -167,9 +167,9 @@
             </div>
     </div>
 
-<section style="margin-top:40%;">
-    <h3 class="headerThree">Github Repository</h3>
+<section style="margin-top:140%;">
     <div class="profileForm" style="margin-top:12.5%">
+        <h3 class="headerThree">Github Repository</h3>
         <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
             @isset($user->student)
