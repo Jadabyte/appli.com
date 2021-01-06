@@ -49,7 +49,6 @@ Route::get('/company/{id}', [CompanyController::class, 'show'])->middleware('aut
 
 
 /* INTERNSHIPS*/
-Route::get('/internship', [InternshipController::class, 'index'])->middleware('auth');
 Route::get('/internship/create', [InternshipController::class, 'create'])->middleware('auth');
 Route::post('/internship/create', [InternshipController::class, 'store'])->middleware('auth');
 Route::get('/internship/{id}', [InternshipController::class, 'show'])->middleware('auth');
