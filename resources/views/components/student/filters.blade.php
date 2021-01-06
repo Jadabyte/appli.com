@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="text-center headerOne">Possible internships</h1>
-                    <p>Filter thru our companies based on category, number of employees, required skills, hours and/ or location.</p>
+                    <p class="filterP">Filter thru our companies based on category, number of employees, required skills, hours and/ or location.</p>
                 </div>
             </div>
     <div class="filter">

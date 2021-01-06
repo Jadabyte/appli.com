@@ -262,7 +262,6 @@ label {
 
 .createLabel {
     margin-right: 3%;
-    /*margin-bottom: 10%;*/
 }
 
 #createBtn {
@@ -355,8 +354,14 @@ div.avatar-bg {
     text-align: center;
 }
 
+.filterP {
+    color: #edbd16;
+    font-size: 1.1rem;
+}
+
 .filterDrop {
     border: #edbd16 1px solid;
+    border-radius: 8px;
 }
 
 .resetFilter {
