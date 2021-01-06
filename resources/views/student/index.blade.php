@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 <div class="card border rounded shadow">
                     <div class="card-body text-center">
                         <h3 class="card-title">{{$i->title}}</h3>
@@ -44,7 +44,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     @endforeach
 
