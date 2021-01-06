@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Internship;
 
 class StudentController extends Controller
 {
@@ -26,9 +27,8 @@ class StudentController extends Controller
 
         //$user= $this->user();
         //dd($user);
-
-        $data['internships'] = \DB::table('internships')->get();
-        return view('student/index', $data);
+        $internships = Internship::With('company')->get();
+        return view('student/index', ['internships' => $internships]);
     }
 
     public function profile()
