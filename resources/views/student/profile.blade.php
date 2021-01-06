@@ -169,10 +169,10 @@
 
 <section style="margin-top:140%;">
     <div class="profileForm" style="margin-top:12.5%">
-        <h3 class="headerThree">Github Repository</h3>
         <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
             @isset($user->student)
+            <h3 class="headerThree">Github Repository</h3>
             <div class="form-row" style="margin-top:-10%">
                 <div class="col">
                     <div class="form-group" style="color: #011C3A;">
