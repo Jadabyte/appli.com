@@ -168,10 +168,10 @@
     </div>
 
 <section style="margin-top:140%;">
+    @isset($user->student)
     <div class="profileForm" style="margin-top:12.5%">
         <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
-            @isset($user->student)
             <h3 class="headerThree">Github Repository</h3>
             <div class="form-row" style="margin-top:-10%">
                 <div class="col">
