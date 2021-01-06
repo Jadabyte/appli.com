@@ -143,7 +143,9 @@
             </div>
         </section>
 
-        <h2 class="headerTwo">User</h2>
+<section style="margin-top:85%;">
+    <h3 class="headerThree">Accountdetails</h3>
+        <div class="profileForm" style="margin-top:17.5%">
         <form method="post" action="">
             @csrf
 
