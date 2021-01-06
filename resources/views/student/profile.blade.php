@@ -165,7 +165,7 @@
     </div>
 
 @isset($user->student)
-<section style="margin-top:65%;">
+<section style="margin-top:175%;">
     <div class="profileForm" id="githubForm">
         <form class="profileContainer" style="margin:0%;" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
