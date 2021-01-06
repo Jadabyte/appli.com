@@ -44,7 +44,7 @@
                                 <div class="col">
                                     <div class="form-group" style="color: #011C3A;">
                                         <label for="biography" class="profileFieldLabel">Biography</label>
-                                        <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography"@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset>
+                                        <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography" value="@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset">
                                     </div>
                                 </div>
                             </div>
@@ -168,9 +168,9 @@
     </div>
 
 @isset($user->student)
-<section style="margin-top:140%;">
-    <div class="profileForm" style="margin-top:12.5%">
-        <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
+<section style="margin-top:-14%;">
+    <div class="profileForm">
+        <form class="profileContainer" style="margin:0%;" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
             <h3 class="headerThree">Github Repository</h3>
             <div class="form-row" style="margin-top:-10%">
