@@ -8,12 +8,12 @@
     @component('components/general/navigation')@endcomponent
 
 <div class="container profile profile-view" id="profile">
-    <h3 class="headerThree" style="margin-top:2%">Information</h3>
-        <div class="profileForm" style="margin-top:25%">
+    <h3 class="headerThree" style="margin-top:2%; margin-left:-17%;">Information</h3>
+        <div class="profileForm" style="margin-top:23%">
             <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
                 @csrf
                 @if( $flash = session('message') )
-                    <div class="alert alert-success" style="margin-top:-10%;">{{ $flash }}</div>
+                    <div class="alert alert-success" style="margin-top:-7%;">{{ $flash }}</div>
                 @endif
 
                 @if( $flash = session('error') )
@@ -27,7 +27,7 @@
                     @endforeach
                     </ul>
                 @endif
-                        <div class="form-row" style="margin-top:-5%">
+                        <div class="form-row">
                             <div class="col">
                                 <div class="form-group" style="color:#011C3A;">
                                     <label for="firstName" class="profileFieldLabel">Firstname</label>
@@ -41,11 +41,9 @@
                                     <label for="mobile" class="profileFieldLabel">Mobile phone</label>
                                     <input class="form-control profileGroup" type="tel" name="mobile" placeholder="Mobile phone" value="@isset($user->student->mobile){{ $user->student->mobile }}@else{{ old('mobile') }}@endisset">
                                 </div>
-                                <div class="col">
-                                    <div class="form-group" style="color: #011C3A;">
-                                        <label for="biography" class="profileFieldLabel">Biography</label>
-                                        <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography" value="@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset">
-                                    </div>
+                                <div class="form-group" style="color: #011C3A;">
+                                    <label for="biography" class="profileFieldLabel">Biography</label>
+                                    <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography" value="@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset">
                                 </div>
                             </div>
 
@@ -114,7 +112,7 @@
         </div>
 
     <div style="margin-top:80%;">
-        <h3 class="headerThree">Accountdetails</h3>
+        <h3 class="headerThree" style="margin-left:-16%;">Accountdetails</h3>
             <div class="profileForm" id="accountForm">
                 <form class="profileContainer" method="post" action="" style="margin-top:8%;">
                     @csrf
@@ -159,8 +157,7 @@
                     </div>
                     <div class="form-row" style="text-align:right;">
                         <div class="col offset-xl-0">
-                            <button class="btn btn-primary btnDeclined" type="button" style="margin-right:-6%;">Cancel</button>
-                            <button class="btn btn-primary btnApproved" type="submit" style="margin-right:5%;">Save</button>
+                            <button class="btn btn-primary" type="submit">Save</button>
                         </div>
                     </div>
                 </form>
@@ -169,14 +166,14 @@
 
 @isset($user->student)
 <section style="margin-top:65%;">
-    <div class="profileForm">
+    <div class="profileForm" id="githubForm">
         <form class="profileContainer" style="margin:0%;" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
             <div class="form-row" style="margin-top:-10%">
                 <div class="col">
-                    <h3 class="headerThree">Github Repository</h3>
+                    <h3 class="headerThree" style="margin-left:-3%;">Github Repository</h3>
                     <div class="form-group" style="color: #011C3A;">
-                        <label class="profileFieldLabel">Github Username</label>
+                        <label class="profileFieldLabel active">Github Username</label>
                         <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
                         <button class="btn btn-primary searchButton" type="submit">Search</button>
                     </div>
@@ -199,4 +196,5 @@
         @endisset
     </section>
 @endisset
+@component('components/general/footer')@endcomponent
 @endsection
