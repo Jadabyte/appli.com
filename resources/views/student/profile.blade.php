@@ -49,7 +49,7 @@
                                         @isset($user->student->picture)
                                             <div class="profile-header-container">
                                                 <div class="profile-header-img">
-                                                    <img class="rounded mx-auto d-block" style="width:50%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
+                                                    <img class="rounded mx-auto d-block" style="width:80%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
                                                 </div>
                                             </div>
                                         @endisset
@@ -164,7 +164,7 @@
 
 @isset($user->student)
     <h3 class="headerThree">Github Repository</h3>
-    <form class="profileContainer" method="post" action="/student/github" enctype="multipart/form-data">
+    <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
         @csrf
         <div class="form-row" style="margi-top:-10%">
         <div class="col">
