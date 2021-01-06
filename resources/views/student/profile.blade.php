@@ -53,7 +53,15 @@
 
                             <div class="col">
                                 <div class="avatar">
-                                    <div class="avatar-bg center" style="margin-left:35%;"></div>
+                                    <div class="avatar-bg center" style="margin-left:35%;">
+                                        @isset($user->student->picture)
+                                            <div class="profile-header-container">
+                                                <div class="profile-header-img">
+                                                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
+                                                </div>
+                                            </div>
+                                        @endisset
+                                    </div>
                                         <div style="margin-top:1%; color: #011C3A;">
                                             <label for="picture" class="profileFieldLabel">Profile picture</label>
                                             <input type="file" class="form-control" name="picture" style="color: #011C3A;" aria-describedby="fileHelp">
