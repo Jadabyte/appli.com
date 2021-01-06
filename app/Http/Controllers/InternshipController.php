@@ -12,11 +12,11 @@ use App\Models\User;
 
 class InternshipController extends Controller
 {
-    public function index()
+    /* public function index()
     {
         $data['internships'] = \DB::table('internships')->get();
         return view('student/index', $data);
-    }
+    } */
 
     public function create()
     {
