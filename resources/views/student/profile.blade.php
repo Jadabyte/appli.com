@@ -168,42 +168,35 @@
     </div>
 
 <section style="margin-top:40%;">
+    <h3 class="headerThree">Github Repository</h3>
     <div class="profileForm" style="margin-top:12.5%">
-        <form class="profileContainer" method="post" action="" style="margin-top:0%;">
-            <div class="form-row" style="margin-top:-10%">
-                <div class="col">
-                    <div class="form-group" style="color: #011C3A;"><label class="profileFieldLabel">Github Username</label><input class="form-control profileGroup" type="text" name="" placeholder="Github Username"><button class="btn btn-primary searchButton" type="button">Search</button></div>
-                @isset($user->student)
-
-        <h3 class="headerThree">Github Repository</h3>
         <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
+            @isset($user->student)
             <div class="form-row" style="margin-top:-10%">
-            <div class="col">
-                <label for="github">Github username</label>
-                <input class="form-control" type="text" name="github" placeholder="Github username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
+                <div class="col">
+                    <div class="form-group" style="color: #011C3A;">
+                        <label class="profileFieldLabel">Github Username</label>
+                        <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
+                        <button class="btn btn-primary searchButton" type="submit">Search</button>
+                    </div>
+                </div>
             </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Show repo's</button>
         </form>
 
         @isset($repositories)
             @foreach($repositories as $repo)
             <div class="card-group">
-                        <div class="card">
-                                <div class="card-body">
-                                    <h3 class="card-title">{{$repo['name']}}</h3>
-                                    <h4 class="card-title">{{$repo['description']}}</h4>
-                                    <a href="{{$repo['svn_url']}}">Ga naar repository</a>
-                                </div>
-                        </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{$repo['name']}}</h3>
+                        <h4 class="card-title">{{$repo['description']}}</h4>
+                        <a href="{{$repo['svn_url']}}">Ga naar repository</a>
+                    </div>
+                </div>
             </div>
             @endforeach
         @endisset
     @endisset
-                        </div>
-                    </div>
-                </form>
-            </div>
 </section>
 @endsection
