@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Internship;
+use App\Models\InternshipPeriod;
 use App\Models\Category;
+use App\Utilities\FilterBuilder;
 
 class StudentController extends Controller
 {
@@ -152,8 +155,61 @@ class StudentController extends Controller
         return view('student.show', ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
     }
 
-    public function filter()
-    {
+    public function filter(Request $request){
+        $internship = Internship::with('internshipPeriod', 'category')->get();
 
+        $internshipPeriod = InternshipPeriod::get();
+        $category = Category::get();
+
+        /*$internship = Internship::where(function($query) use ($request){
+            return $request->category_id ?
+                $query->from('categories')->where('id', $request->category_id) : '';
+        })->where(function($query) use($request){
+            return $request->internshipPeriod_id ?
+                $query->from('internshipPeriods')->where('id', $request->internshipPeriod_id) : '';
+            })
+            ->with('category', 'internshipPeriod')
+            ->get();
+
+        $selected_id = [];
+        $selected_id['category_id'] = $request->category;
+        $selected_id['internshipPeriod_id'] = $request->internshipPeriod;
+        */
+
+        //return view('student.index', compact('internship', 'selected_id'));
+        $ip = $request->get('internshipPeriod_id');
+        $internship = Internship::where('internshipPeriod_id', '=', $ip)->get();
+        //dd($ip);
+        //dd($internship);
+
+        return view('student.index', ['internship'=>$internship, 'internshipPeriod'=>$internshipPeriod, 'category'=>$category]);
     }
+
+    /*public function filter(Request $request){
+        $sortBy = 'id';
+        $orderBy = 'desc';
+        $perPage = 20;
+        $q = null;
+
+        if($request->has('orderBy')) $orderBy = $request->query('orderBy');
+        if($request->has('sortBy')) $sortBy = $request->query('sortBy');
+        if($request->has('perPage')) $perPage = $request->query('perPage');
+        if($request->has('q')) $q = $request->query('q');
+
+        $internships = Internship::search($q)->orderBy($sortBy, $orderBy)->paginate($perPage);
+        return view('student.index', compact('internships', 'orderBy', 'sortBy', 'q', 'perPage'));
+    }*/
+
+    /*public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function scopeFilterBy($query, $filters)
+    {
+        $namespace = 'App\Utilities\InternshipFilters';
+        $filter = new FilterBuilder($query, $filters, $namespace);
+
+        return $filter->apply();
+    }*/
 }

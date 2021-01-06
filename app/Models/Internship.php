@@ -38,4 +38,14 @@ class Internship extends Model
     {
         return $this->hasOne(InternshipsSkill::class, 'id', 'skills_id');
     }
+
+    public function scopeSearch($query, $q){
+        if($q == null) return $query;
+        return $query
+            ->where('title', 'LIKE', "%[$q}%")
+            ->orWhere('category_id', 'LIKE', "%[$q}%")
+            ->orWhere('skills_id', 'LIKE', "%[$q}%")
+            ->orWhere('internshipPeriod_id', 'LIKE', "%[$q}%")
+            ->orWhere('availability', 'LIKE', "%[$q}%");
+    }
 }

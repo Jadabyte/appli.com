@@ -7,9 +7,26 @@
 @section('content')
 <section>
     <h1>Overview of companies offering an internship</h1>
-        <form method="POST" action="">
+        <form action="" method="GET">
         <p>Filter through our companies based on category, number of employees, required skills, hours and/ or location.</p>
-        <div class='dropdown'>
+        <select name="internshipPeriod_id" id="input">
+            <option value="0">Select Internship Period</option>
+            @foreach ($internshipPeriod as $ip)
+                <option value="{{ $ip->id }}">
+                {{ $ip['title'] }}
+                </option>
+            @endforeach
+        </select>
+        <select name="category_id" id="input">
+            <option value="0">Select Category</option>
+            @foreach ($category as $c)
+                <option value="{{ $c->id }}">
+                {{ $c['title'] }}
+                </option>
+            @endforeach
+        </select>
+        <input type="submit" value="Filter">
+        <!--<div class='dropdown'>
             <button onclick="myFunction()" class="dropbtn">Category</button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#">Designer</a>
@@ -43,10 +60,10 @@
                 <a href="#">&gt;10km</a>
             </div>
         </div>
-        <a href="#">Reset filters</a>
-    </form>
+        <a href="#">Reset filters</a>-->
+        </form>
 
-    @foreach ($internships as $i)
+    @foreach ($internship as $i)
         <div class="card-group">
             <div class="card">
                 <img class="card-img-top" src="..." alt="logo company image">

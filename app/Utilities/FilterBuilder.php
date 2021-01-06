@@ -12,6 +12,21 @@ class FilterBuilder{
     }
 
     public function apply(){
+        foreach ($this->filters as $name => $value){
+            $normalisedName = ucfirst($name);
+            $class = $this->namespace . "\\{$normalisedName}";
 
+            if(! class_exists($class)){
+                continue;
+            }
+
+            if(strlen($value)){
+                (new $class($this->query))->handle($value);
+            }
+            else{
+                (new $class($this->query))->handle();
+            }
+        }
+        return $this->query;
     }
 }
