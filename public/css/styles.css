@@ -357,11 +357,15 @@ div.avatar-bg {
 .filterP {
     color: #edbd16;
     font-size: 1.1rem;
+    text-align: center;
+    padding-bottom: 5px;
 }
 
 .filterDrop {
     border: #edbd16 1px solid;
     border-radius: 8px;
+    height: 30px;
+    margin-right: 15px;
 }
 
 .resetFilter {
