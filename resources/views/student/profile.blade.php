@@ -13,11 +13,11 @@
             <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
                 @csrf
                 @if( $flash = session('message') )
-                    <div class="alert alert-success">{{ $flash }}</div>
+                    <div class="alert alert-success" style="margin-top:-5%;">{{ $flash }}</div>
                 @endif
 
                 @if( $flash = session('error') )
-                    <div class="alert alert-danger">{{ $flash }}</div>
+                    <div class="alert alert-danger" style="margin-top:-5%;">{{ $flash }}</div>
                 @endif
 
                 @if( $errors->any())
@@ -41,6 +41,12 @@
                                     <label for="mobile" class="profileFieldLabel">Mobile phone</label>
                                     <input class="form-control profileGroup" type="tel" name="mobile" placeholder="Mobile phone" value="@isset($user->student->mobile){{ $user->student->mobile }}@else{{ old('mobile') }}@endisset">
                                 </div>
+                                <div class="col">
+                                    <div class="form-group" style="color: #011C3A;">
+                                        <label for="biography" class="profileFieldLabel">Biography</label>
+                                        <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography"@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col">
@@ -53,7 +59,6 @@
                                                 </div>
                                             </div>
                                         @endisset
-                                    </div>
                                         <div style="margin-top:1%; color: #011C3A;">
                                             <label for="picture" class="profileFieldLabel">Profile picture</label>
                                             <input type="file" class="form-control" name="picture" style="color: #011C3A;" aria-describedby="fileHelp">
@@ -62,15 +67,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-row">
-                                <div class="col">
-                                    <div class="form-group" style="color: #011C3A;">
-                                        <label for="biography" class="profileFieldLabel">Biography</label>
-                                        <input class="form-control profileGroup" type="text" name="biography" placeholder="Biography"@isset($user->student->biography){{ $user->student->biography }}@else{{ old('biography') }}@endisset>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-row">
                                 <div class="col">
