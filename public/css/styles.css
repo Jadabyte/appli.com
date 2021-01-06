@@ -444,8 +444,12 @@ div.avatar-bg {
     margin-top: -8%;
 }
 
+#accountForm {
+    height: 500px;
+}
+
 #githubSection {
-    margin-top: 30%;
+    margin-top: 60%;
 }
 
 .profileForm {
