@@ -116,7 +116,7 @@
     <div style="margin-top:80%;">
         <h3 class="headerThree">Accountdetails</h3>
             <div class="profileForm" id="accountForm">
-                <form class="profileContainer" method="post" action="" style="margin-top:0%;">
+                <form class="profileContainer" method="post" action="" style="margin-top:8%;">
                     @csrf
                     <div class="form-row" style="margin-top:-10%">
                         <div class="col">
