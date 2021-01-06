@@ -24,8 +24,10 @@ class StudentController extends Controller
             return redirect('company');
         }
 
-        //$user= $this->user();
-        //dd($user);
+        if (Gate::denies('hasStudent')) {
+            session()->flash('error', 'First add your student details.');
+            return redirect('student/profile');
+        }
 
         $data['internships'] = \DB::table('internships')->get();
         return view('student/index', $data);
@@ -38,14 +40,14 @@ class StudentController extends Controller
         }
 
         $user = $this->user();
-        
+
         $categories = Category::All();
 
         if (isset($user->student->github)) {
             $githubName = $user->student->github;
-           
+
             $url = 'https://api.github.com/users/' . $githubName . '/repos';
-        
+
             $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
             return view('student.profile', ['user'=> $user, 'categories' => $categories, 'repositories' => $repositories]);
         }
@@ -98,17 +100,17 @@ class StudentController extends Controller
         return redirect('student/profile');
     }
 
-    function github(Request $request){
-    
+    public function github(Request $request)
+    {
         $validation = $request->validate([
             'github' => 'required|unique:students',
         ]);
         $githubName = $request->input('github');
-        
+
         $url = 'https://api.github.com/users/' . $githubName . '/repos';
-     
+
         $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
-  
+
         if (isset($repositories['message'])) {
             $request->session()->flash('error', $repositories['message']);
             return back();
@@ -143,7 +145,7 @@ class StudentController extends Controller
         $githubName = $student->github;
         $url = 'https://api.github.com/users/' . $githubName . '/repos';
         $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
-  
+
         if (!isset($repositories['message'])) {
             $data['repositories'] = $repositories;
             return view('student.show', $data, ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
@@ -151,5 +153,4 @@ class StudentController extends Controller
 
         return view('student.show', ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
     }
-
 }
