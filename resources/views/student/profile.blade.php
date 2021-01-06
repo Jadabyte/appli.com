@@ -167,8 +167,8 @@
             </div>
     </div>
 
+@isset($user->student)
 <section style="margin-top:140%;">
-    @isset($user->student)
     <div class="profileForm" style="margin-top:12.5%">
         <form class="profileContainer" id="githubSection" method="post" action="/student/github" enctype="multipart/form-data">
             @csrf
@@ -197,6 +197,6 @@
             </div>
             @endforeach
         @endisset
-    @endisset
-</section>
+    </section>
+@endisset
 @endsection
