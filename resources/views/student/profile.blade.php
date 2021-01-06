@@ -52,14 +52,13 @@
                             <div class="col">
                                 <div class="avatar">
                                     <div class="avatar-bg center" style="margin-left:35%;">
-                                        @if
-                                            @isset($user->student->picture)
+                                        @if(isset($user->student->picture))
                                                 <div class="profile-header-container">
                                                     <div class="profile-header-img">
                                                         <img class="rounded mx-auto d-block" style="width:80%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
                                                     </div>
                                                 </div>
-                                            @endisset
+
                                         @else
                                             <div class="profile-header-container">
                                                 <div class="profile-header-img">
