@@ -16,6 +16,7 @@ use App\Models\Student;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Internship;
+use App\Models\InternshipsSkill;
 
 class StudentController extends Controller
 {

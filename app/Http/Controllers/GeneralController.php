@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
 use App\Models\User;
+use App\Models\InternshipsSkill;
 
 class GeneralController extends Controller
 {

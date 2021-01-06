@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Company;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\InternshipsSkill;
 
 class CompanyController extends Controller
 {
@@ -61,7 +62,7 @@ class CompanyController extends Controller
         $lat = $location->json()['items'][0]['position']['lat'];
         $lng = $location->json()['items'][0]['position']['lng'];
 
-        $stations = Http::get('https://transit.hereapi.com/v8/stations?in=' . $lat. ',' . $lng . ';r=2000&maxPlaces=10' . '&apiKey=' . env('HERE_API'));
+        $stations = Http::get('https://transit.hereapi.com/v8/stations?in=' . $lat . ',' . $lng . ';r=2000&maxPlaces=10' . '&apiKey=' . env('HERE_API'));
 
         if (!($stations->ok() && isset($stations->json()['stations']))) {
             return view('company.show', ['company' => Company::findOrFail($id), 'score' => 'Not found']);
@@ -117,7 +118,7 @@ class CompanyController extends Controller
             $user->company->user_id = $user->id;
         }
 
-        $logoName = $user->company->user_id.'_logo'.time().'.'.request()->logo->getClientOriginalExtension();
+        $logoName = $user->company->user_id . '_logo' . time() . '.' . request()->logo->getClientOriginalExtension();
 
         Storage::putFileAs('companylogos', $request->file('logo'), $logoName);
 
@@ -182,7 +183,7 @@ class CompanyController extends Controller
             }
         }
 
-        return view('company.profile', ['user'=> $user, 'categories' => $categories]);
+        return view('company.profile', ['user' => $user, 'categories' => $categories]);
     }
 
     public function user()
