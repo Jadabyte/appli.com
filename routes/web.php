@@ -77,7 +77,6 @@ Route::post('/application/comment/{id}', [ApplicationController::class, 'comment
 
 Route::get('/layouts/appli', [GeneralController::class, 'appli']);
 Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
-Route::get('/components/header', [GeneralController::class, 'header']);
 Route::get('/components/navigation', [GeneralController::class, 'navigation']);
 Route::get('/components/footer', [GeneralController::class, 'footer']);
 Route::get('/components/pagination', [GeneralController::class,'pages']);
