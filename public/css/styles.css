@@ -322,7 +322,7 @@ iframe {
 }
 
 div.avatar-bg {
-    background: url(https://www.gravatar.com/avatar/1234566?size=200&d=mm);
+    /* background: url(https://www.gravatar.com/avatar/1234566?size=200&d=mm); */
     background-position: 50% 50%;
     height: 150px;
     width: 150px;

@@ -28,13 +28,13 @@
                     </ul>
                 @endif
 
-                @isset($user->student->picture)
+                {{-- @isset($user->student->picture)
                 <div class="profile-header-container">
                     <div class="profile-header-img">
                         <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/studentPictures/' . $user->student->picture) }}" />
                     </div>
                 </div>
-                @endisset
+                @endisset --}}
                         <div class="form-row" style="margin-top:-5%">
                             <div class="col">
                                 <div class="form-group" style="color:#011C3A;">
