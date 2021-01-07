@@ -20,7 +20,7 @@
                         {{-- <h4 class="card-title headerThree">{{$i->company_id->name}}</h4> --}}
                         <p class="explanationParagraph">{{$i->description}}</p>
                         <button class="btn btn-light btn-block moreButton" style="text-transform:capitalize" type="button">
-                            <a href="/internship/{{$i->id}}">More</a>
+                            <a href="/internship/{{$i->id}}" style="color:#EAEAEA">More</a>
                         </button>
                     </div>
                 </div>
