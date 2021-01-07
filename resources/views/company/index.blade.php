@@ -18,7 +18,6 @@
             <div class="card border rounded shadow">
                 <div class="card-body text-center">
                     <h3 class="card-title">{{$u->firstName}}{{$u->lastName}}</h3>
-                    <p class="explanationParagraph">{{$u->biography}}</p>
                     <button class="btn btn-light btn-block moreButton" type="button">
                         <a href="/student/{{$u->id}}">More</a></button>
                 </div>
