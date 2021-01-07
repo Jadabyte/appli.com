@@ -58,7 +58,7 @@ class InternshipController extends Controller
 
         $user = $this->user();
 
-        $internship = Internship::where('id', $id)->with('company', 'category', 'internshipPeriod', 'internshipsSkill')->first();
+        $internship = Internship::where('id', $id)->with('company', 'category', 'internshipPeriod')->first();
         return view('internship.show', ['internship' => $internship, 'user' => $user]);
     }
 

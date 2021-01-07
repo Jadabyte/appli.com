@@ -34,7 +34,7 @@
                     </div>
                     @endisset
                 </div>
-                <div class="col-md-4">
+                {{--<!--<div class="col-md-4">
                     @isset($internship->internshipsSkill->title)
                     <div class="card" id="card-title">
                         <div class="card-body" id="card-body">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     @endisset
-                </div>
+                </div>-->--}}
                 <div class="col-md-4">
                     @isset($internship->internshipPeriod->title)
                     <div class="card" id="card-title">
