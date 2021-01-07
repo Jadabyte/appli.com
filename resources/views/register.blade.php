@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <input class="form-control" type="email" name="email" placeholder="Email" aria-describedby="emailHelp" value="{{ old('email') }}">
-                <small id="emailHelp" class="form-text text-muted">You can only use an email address from Thomas More.</small>
+                <small id="emailHelp" class="form-text text-muted">If you are a student you can only use an email address from Thomas More.</small>
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password">
