@@ -50,7 +50,7 @@
 
                 <div class="col">
                     <div class="avatar">
-                        <div class="avatar-bg center" style="margin-left:35%;">
+                        <div class="avatar-bg center">
                             @if(isset($user->company->logo))
                             <div class="profile-header-container">
                                 <div class="profile-header-img">
@@ -60,7 +60,7 @@
                             @else
                             <div class="profile-header-container">
                                 <div class="profile-header-img">
-                                    <img class="rounded mx-auto d-block" style="width:80%" src="../public/images/students/profile.png" />
+                                    <img class="rounded mx-auto d-block" style="width:80%" src="/public/images/students/profile.png" />
                                 </div>
                             </div>
                             @endif
@@ -155,9 +155,9 @@
             </div>
         </section>
 
-<section style="margin-top:110%; margin-bottom:15%;">
+<section style="margin-top:115%;">
     <h3 class="headerThree">Accountdetails</h3>
-        <div class="profileForm" id="accountForm" style="margin-top:17.5%">
+        <div class="profileForm" id="accountForm" style="margin-top:14.5%; margin-bottom:15%;">
         <form class="profileContainer" method="post" action="" style="margin-top:8%;">
             @csrf
             <div class="form-row" style="margin-top:-10%">
