@@ -12,15 +12,15 @@
 
     @component('components/company/filters')@endcomponent
 
-    @foreach ($students as $s)
+    @foreach ($users as $u)
     <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
         <div class="col-md-3">
             <div class="card border rounded shadow">
                 <div class="card-body text-center">
-                    <h3 class="card-title">{{$s->firstname}}{{$s->lastname}}</h3>
-                    <p class="explanationParagraph">{{$s->biography}}</p>
+                    <h3 class="card-title">{{$u->firstname}}{{$u->lastname}}</h3>
+                    <p class="explanationParagraph">{{$u->biography}}</p>
                     <button class="btn btn-light btn-block moreButton" type="button">
-                        <a href="/student/{{$s->id}}">More</a></button>
+                        <a href="/student/{{$u->id}}">More</a></button>
                 </div>
             </div>
         </div>
