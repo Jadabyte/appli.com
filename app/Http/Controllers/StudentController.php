@@ -70,7 +70,7 @@ class StudentController extends Controller
             'mobile' => 'required|numeric',
             'biography' => 'required',
             'portfolio' => 'required|url',
-            'linkedin' => 'required|url|regex:/http(?:s):\/\/(?:www\.)linkedin\.com\/.+/i',
+            'linkedin' => 'required|url|regex:/^(?:https?:\/\/)?(?:[^@\/\n]+)?(?:www\.)?(linkedin\.com\/.+)/i',
             'category' => 'required'
         ]);
 
