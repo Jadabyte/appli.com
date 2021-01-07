@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col" style="margin-top: -11%;">
                     <div class="form-group" style="color: #011C3A;">
                         <label class="profileFieldLabel">Company phone</label>
                         <input class="form-control profileGroup" type="tel" name="phone" placeholder="Company telephone" value="@isset($user->company->telephone){{ $user->company->telephone }}@else{{ old('phone') }}@endisset">
@@ -96,11 +96,11 @@
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">Company website</label>
                             <input class="form-control profileGroup" type="url" name="website" placeholder="Website" value="@isset($user->company->website){{ $user->company->website }}@else{{ old('website') }}@endisset">
-                    </div>
-                    <div class="col">
+                        </div>
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">Company LinkedIn</label>
                             <input class="form-control profileGroup" type="url" name="linkedin" placeholder="LinkedIn" value="@isset($user->company->LinkedIn){{ $user->company->LinkedIn }}@else{{ old('linkedin') }}@endisset">
+                        </div>
                     </div>
                 </div>
 
@@ -121,18 +121,16 @@
                     <div class="col">
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">Street</label>
-                        <input class="form-control profileGroup" type="text" name="street" placeholder="Street" value="@isset($user->company->street){{ $user->company->street }}@else{{ old('street') }}@endisset">
-                    </div>
-
-                    <div class="col">
+                            <input class="form-control profileGroup" type="text" name="street" placeholder="Street" value="@isset($user->company->street){{ $user->company->street }}@else{{ old('street') }}@endisset">
+                        </div>
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">House number</label>
-                        <input class="form-control" type="number" name="houseNumber" placeholder="House number" value="@isset($user->company->houseNumber){{ $user->company->houseNumber }}@else{{ old('houseNumber') }}@endisset">
-                    </div>
-                    <div class="col">
+                            <input class="form-control" type="number" name="houseNumber" placeholder="House number" value="@isset($user->company->houseNumber){{ $user->company->houseNumber }}@else{{ old('houseNumber') }}@endisset">
+                        </div>
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">P.O. Box</label>
-                        <input class="form-control" type="number" name="pobox" placeholder="P.O. box" value="@isset($user->company->pobox){{ $user->company->pobox }}@else{{ old('pobox') }}@endisset">
+                            <input class="form-control" type="number" name="pobox" placeholder="P.O. box" value="@isset($user->company->pobox){{ $user->company->pobox }}@else{{ old('pobox') }}@endisset">
+                        </div>
                     </div>
                 </div>
 
@@ -141,11 +139,11 @@
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">Postal Code</label>
                         <input class="form-control" type="number" name="postalCode" placeholder="Postal code" value="@isset($user->company->postalCode){{ $user->company->postalCode }}@else{{ old('postalCode') }}@endisset">
-                    </div>
-                    <div class="col">
+                        </div>
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">City</label>
-                        <input class="form-control" type="text" name="city" placeholder="City" value="@isset($user->company->city){{ $user->company->city }}@else{{ old('city') }}@endisset">
+                            <input class="form-control" type="text" name="city" placeholder="City" value="@isset($user->company->city){{ $user->company->city }}@else{{ old('city') }}@endisset">
+                        </div>
                     </div>
                 </div>
                 <div class="form-row" style="text-align:right;">
