@@ -8,7 +8,7 @@
     @component('components/general/navigation')@endcomponent
 
     <h1 class="headerOne">Overview of students looking for an internship</h1>
-<section class="gridView" style="margin-bottom:10%;">
+<section class="gridView">
     @foreach ($users as $u)
     <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
         <div class="col-md-3">
