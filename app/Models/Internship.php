@@ -34,6 +34,10 @@ class Internship extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function internshipsSkill()
+    {
+        return $this->hasOne(InternshipsSkill::class);
+    }
     public function skill()
     {
         return $this->hasOne(Skills::class, 'id', 'skills_id');
