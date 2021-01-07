@@ -74,7 +74,6 @@
                                 <input type="file" class="form-control" name="picture" style="color: #011C3A;" aria-describedby="fileHelp">
                                 <p class="infoSearch" id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</p>
                             </div>
-                            @endisset
                         </div>
                     </div>
                 </div>
