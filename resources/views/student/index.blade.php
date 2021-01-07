@@ -10,9 +10,11 @@
 
 <section>
     <h1 class="headerOne">Overview of companies offering an internship</h1>
-    <section class="gridView">
-        <form action="" method="GET">
-        <p>Filter through our internships based on category, required skills, and/ or internship period.</p>
+    <p class="headerThree" style="text-align: center; margin: 0; margin-bottom: 2.5%">Filter through our internships based on category, required skills, and/ or internship period.</p>
+    <section class="filter">
+        <form class="form-group" action="" method="GET">
+
+        <div class="col">
         <select class="custom-select fieldInformation" name="internshipPeriod_id" id="input">
             <option value="0">Select Internship Period</option>
             @foreach ($internshipPeriod as $ip)
@@ -21,6 +23,8 @@
                 </option>
             @endforeach
         </select>
+        </div>
+        <div class="col">
         <select class="custom-select fieldInformation" name="category_id" id="input">
             <option value="0">Select Category</option>
             @foreach ($category as $c)
@@ -29,6 +33,8 @@
                 </option>
             @endforeach
         </select>
+        </div>
+        <div class="col">
         <select class="custom-select fieldInformation" name="skills_id" id="input">
             <option value="0">Select Skills</option>
             @foreach ($skill as $sk)
@@ -37,7 +43,10 @@
                 </option>
             @endforeach
         </select>
-        <input class="btn btn-info searchButton" type="submit" value="Filter">
+        </div>
+        <div class="col">
+            <input class="btn btn-info searchButton" style="text-transform: capitalize" type="submit" value="Filter">
+        </div>
         </form>
     </section>
     <section class="gridView">
