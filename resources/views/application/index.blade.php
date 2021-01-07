@@ -52,10 +52,10 @@
                                         <option value="Declined">Declined</option>
                                     </select>
                                 </div>
-                                <button class="btn btn-primary btnSave" id="labelButton" type="submit">Save</button>
+                                <button class="btn btn-primary btnSave" style="text-transform:capitalize" id="labelButton" type="submit">Save</button>
                             @endisset
                             @isset($user->student)
-                                <button class="btn btn-primary btnDeclined" id="labelButton" type="submit">Delete</button>
+                                <button class="btn btn-primary btnDeclined" style="text-transform:capitalize" id="labelButton" type="submit">Delete</button>
                             @endisset
                             </form>
                         </td>

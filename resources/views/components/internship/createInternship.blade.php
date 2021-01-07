@@ -114,7 +114,7 @@
             </section>
 
         <div class="col offset-xl-0" style="text-align:right;">
-            <button class="btn btn-primary btnApproved" id="createBtn" type="submit" style="margin-right:5%;">Add Internship</button>
+            <button class="btn btn-primary btnApproved" id="createBtn" style="text-transform:capitalize" type="submit" style="margin-right:5%;">Add Internship</button>
         </div>
     </form>
 </div>

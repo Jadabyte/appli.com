@@ -105,7 +105,7 @@
 
                 <div class="form-row" style="text-align:right;">
                     <div class="col offset-xl-0">
-                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary" style="text-transform:capitalize" type="submit">Save</button>
                     </div>
                 </div>
             </form>
@@ -157,7 +157,7 @@
                     </div>
                     <div class="form-row" style="text-align:right;">
                         <div class="col offset-xl-0">
-                            <button class="btn btn-primary" type="submit">Save</button>
+                            <button class="btn btn-primary" style="text-transform:capitalize" type="submit">Save</button>
                         </div>
                     </div>
                 </form>
@@ -175,7 +175,7 @@
                     <div class="form-group" style="color: #011C3A;">
                         <label class="profileFieldLabel active">Github Username</label>
                         <input class="form-control profileGroup" type="text" name="github" placeholder="Github Username" value="@isset($user->student->github){{ $user->student->github }}@else{{ old('github') }}@endisset">
-                        <button class="btn btn-primary searchButton" type="submit">Search</button>
+                        <button class="btn btn-primary searchButton" style="text-transform:capitalize" type="submit">Search</button>
                     </div>
                 </div>
             </div>

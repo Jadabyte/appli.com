@@ -15,10 +15,10 @@
                 <option class="filterTags" value="">Devigner</option>
             </select>
             <select class="filterDrop">
-                <option class="filterTags" value="">Location</option>
-                <option class="filterTags" value="">&lt; 5km</option>
-                <option class="filterTags" value="">&gt; 5km / &lt; 10km</option>
-                <option class="filterTags" value="">&gt; 10km</option>
+                <option class="filterTags" value="">Internship timeperiod</option>
+                <option class="filterTags" value="">First semester</option>
+                <option class="filterTags" value="">Second semester</option>
+                <option class="filterTags" value="">one year</option>
             </select>
             <select class="filterDrop">
                 <option class="filterTags" value="">Skills</option>
@@ -61,12 +61,6 @@
                     <option class="filterTags" value="">SCRUM</option>
                     <option class="filterTags" value="">Agile</option>
                     <option class="filterTags" value="">Trello</option>
-            </select>
-            <select class="filterDrop">
-                <option class="filterTags" value="">Company Size</option>
-                <option class="filterTags" value="">&lt; 10 employees</option>
-                <option class="filterTags" value="">&gt; 10 employees / &lt; 50 employees</option>
-                <option class="filterTags" value="">&gt; 50 employees</option>
             </select>
             <a class="resetFilter" href="#">Reset filters</a>
         </form>

@@ -51,8 +51,6 @@
             <div class="form-group" style="margin-top:-5%;">
                 <button class="btn btn-primary btn-block" style="text-transform:capitalize" id="registerbutton" type="submit">Register</button>
             </div>
-
-
             <a id="already" class="already" href="login">You already have an account? Login here.</a>
         </form>
     </div>
