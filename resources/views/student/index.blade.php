@@ -7,6 +7,7 @@
 @section('content')
     @component('components/student/filters')@endcomponent
 
+    <section class="gridView">
     @foreach ($internships as $i)
         <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
             <div class="col-md-3">
@@ -23,6 +24,7 @@
             </div>
         </div>
     @endforeach
+    </section>
 
     @component('components/general/footer')@endcomponent
 @endsection
