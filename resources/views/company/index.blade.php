@@ -8,7 +8,7 @@
     @component('components/general/navigation')@endcomponent
 
     <h1 class="headerOne">Overview of students looking for an internship</h1>
-
+<section>
     @foreach ($users as $u)
     <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
         <div class="col-md-3">
@@ -22,7 +22,7 @@
         </div>
     </div>
     @endforeach
-
+</section>
     @component('components/general/footer')@endcomponent
 @endsection
 
