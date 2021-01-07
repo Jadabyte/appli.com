@@ -47,4 +47,6 @@
             </div>
         </div>
     @endforeach
+
+    @component('components/general/footer')@endcomponent
 @endsection
