@@ -12,17 +12,17 @@
     <h1 class="headerOne">Applications</h1>
     @unless($user->isStudent)
     <form action="" method="GET">
-        <input type="text" name="search" placeholder="Search by applicant name" id="search">
-        <button class="btn btn-info" type="submit" title="Search">Search</button>
+        <input type="text" name="search" placeholder="Search by applicant name" id="search editLabel">
+        <button class="btn btn-info searchButton" type="submit" title="Search">Search</button>
     </form>
     <form action="" method="GET">
-        <select class="custom-select" name="label">
+        <select class="custom-select fieldInformation" name="label">
             <option value="0">Filter by status of the application</option>
             <option value="New">New</option>
             <option value="Approved">Approved</option>
             <option value="Declined">Declined</option>
         </select>
-        <button class="btn btn-info" type="submit" title="Filter">Filter</button>
+        <button class="btn btn-info searchButton" type="submit" title="Filter">Filter</button>
     </form>
     @endunless
 
@@ -62,20 +62,20 @@
                             @csrf
                             @isset($user->company)
                                 <div class="form-group">
-                                    <select id="label" name="label" class="form-control" >
+                                    <select id="label" name="label" class="form-control fieldInformation" >
                                         <option value="Starred">Starred</option>
                                         <option value="Approved">Approved</option>
                                         <option value="Declined">Declined</option>
                                     </select>
                                 </div>
-                                <button class="btn btn-primary btnSave" style="text-transform:capitalize" id="labelButton" type="submit">Save</button>
+                                <button class="btn btn-primary btnSave btnApproved" style="text-transform:capitalize" id="labelButton" type="submit">Save</button>
                             @endisset
                             @isset($user->student)
                                 <button class="btn btn-primary btnDeclined" style="text-transform:capitalize" id="labelButton" type="submit">Delete</button>
                             @endisset
                             </form>
                         </td>
-                        <td><a class="btn btn-info btnDetails" href="/application/{{$a->id}}">Details</a></td>
+                        <td><a class="btn btn-info btnDetails btnApproved" href="/application/{{$a->id}}">Details</a></td>
                     </tr>
                 @endforeach
                 </tbody>
