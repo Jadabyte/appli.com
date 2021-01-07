@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-body" id="card-body">
                     <h4 class="card-title" id="card-title">Biography</h4>
-                    <p class="card-text explanationP">{{$student->biography}}</p>
+                    <p class="card-text" id="headerFour">{{$student->biography}}</p>
                 </div>
             </div>
         </div>
