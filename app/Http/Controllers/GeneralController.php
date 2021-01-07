@@ -58,7 +58,7 @@ class GeneralController extends Controller
         $validation = $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => 'required|email|unique:users|regex:/(.*)student\.thomasmore\.be$/i',
+            'email' => 'required|email|unique:users|exclude_if:isStudent,null|regex:/(.*)student\.thomasmore\.be$/i',
             'password' => 'required|min:8'
         ]);
 
@@ -91,7 +91,7 @@ class GeneralController extends Controller
     public function handleLogin(Request $request)
     {
         $validation = $request->validate([
-            'email' => 'required|email|regex:/(.*)student\.thomasmore\.be$/i',
+            'email' => 'required|email',
             'password' => 'required|min:8'
         ]);
 

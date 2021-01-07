@@ -101,7 +101,7 @@ class CompanyController extends Controller
             'phone' => 'required|numeric',
             'description' => 'required',
             'website' => 'required|url',
-            'linkedin' => 'required|url|regex:/http(?:s):\/\/(?:www\.)linkedin\.com\/.+/i',
+            'linkedin' => 'required|url|regex:/^(?:https?:\/\/)?(?:[^@\/\n]+)?(?:www\.)?(linkedin\.com\/.+)/i',
             'category' => 'required',
             'street' => 'required|string',
             'houseNumber' => 'required|numeric',
