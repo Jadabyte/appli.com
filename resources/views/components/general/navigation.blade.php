@@ -8,6 +8,9 @@
                         <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="/@if(Gate::allows('isStudent')){{ 'student' }}@else{{ 'company' }}@endif">&nbsp;Home</a></li>
                         <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="/application">&nbsp;Applications</a></li>
                         <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="/@if(Gate::allows('isStudent')){{ 'student' }}@else{{ 'company' }}@endif/profile">&nbsp;Profile</a></li>
+                        @if(Gate::denies('isStudent'))
+                            <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="/internship/create">&nbsp;Create Internship</a></li>
+                        @endif
                         <li class="nav-item"><a class="nav-link" style="color:#EDBD16;" href="/logout"><i class="fa fa-sign-in"></i>&nbsp; Log out</a></li>
                     </ul>
             </div>

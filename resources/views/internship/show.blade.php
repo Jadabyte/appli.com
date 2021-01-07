@@ -1,4 +1,4 @@
-@extends('layouts/detailpage')
+@extends('layouts/appli')
 
 @section('title')
     {{$internship->title}}
@@ -7,7 +7,7 @@
 @section('content')
 @component('components/general/navigation')@endcomponent
 
-<section id="sectionDetail">
+<section style="margin-bottom: 10%" id="sectionDetail">
         <h1 class="nameStudent headerOne">Internship</h1>
     <div>
         <div class="container">
@@ -59,7 +59,7 @@
     </div>
     @isset($user->student)
     <div class="col offset-xl-0" style="text-align:right; margin-top:5%;">
-        <button class="btn btn-primary btnApproved" id="createBtn" href="/application/create/{{$internship->id}}" style="margin-right:5%;">Apply for this internship</button>
+        <button style="text-transform: capitalize" class="btn btn-primary btnApproved" id="createBtn" ><a href="/application/create/{{$internship->id}}" style="margin-right:5%;">Apply for this internship </a></button>
     </div>
     @endisset
 

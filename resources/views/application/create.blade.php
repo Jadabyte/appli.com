@@ -8,7 +8,7 @@
 
     @component('components/general/navigation')@endcomponent
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 10%">
         <h1 class="headerOne">Create application</h1>
         <h2 class="headerTwo">{{ $internship->title . ' of ' . $internship->company->name}}</h2>
         <form method="post">
@@ -33,7 +33,7 @@
                 <label for="motivation">Motivation</label>
                 <textarea class="form-control" name="motivation" placeholder="Write an extensive motivation letter here" rows="30">@isset($application){{ $application->motivation }}@else{{ old('motivation') }}@endisset</textarea>
             </div>
-            <button class="btn btn-primary" style="text-transform:capitalize" type="submit">Send</button>
+            <button class="btn btn-primary btnApproved" style="text-transform:capitalize" type="submit">Send</button>
         </form>
     </div>
 </div>

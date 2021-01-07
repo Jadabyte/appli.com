@@ -7,7 +7,7 @@
 
     @component('components/general/navigation')@endcomponent
 
-    <section id="sectionDetail">
+    <section style="margin-bottom: 10%" id="sectionDetail">
         <h1 class="headerOne">Details application</h1>
         <div class="card-group">
             <div class="card" id="cardCompany">
@@ -53,7 +53,7 @@
                     <p class="card-text" id="cardTextCompany"><strong>LinkedIn:</strong> {{$info->LinkedIn}}</p>
                     <p class="card-text" id="cardTextCompany"><strong>Portfolio:</strong> {{$info->portfolio}}</p>
                     <p class="card-text" id="cardTextCompany"><strong>BIO:</strong> {{$info->biography}}</p>
-                    <a class="btn btn-primary" href="/student/{{$info->studentsId}}">More info</a>
+                    <a class="btn btn-primary" style="text-transform: capitalize" href="/student/{{$info->studentsId}}">More info</a>
                     @endisset
 
                     @isset($user->student)

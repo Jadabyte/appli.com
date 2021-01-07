@@ -10,10 +10,11 @@
 
     <div class="container">
     <h1 class="headerOne">Applications</h1>
+    <section style="margin-bottom: 20%">
     @unless($user->isStudent)
     <form action="" method="GET">
         <input type="text" name="search" placeholder="Search by applicant name" id="search editLabel">
-        <button class="btn btn-info searchButton" type="submit" title="Search">Search</button>
+        <button class="btn btn-info searchButton" style="text-transform: capitalize" type="submit" title="Search">Search</button>
     </form>
     <form action="" method="GET">
         <select class="custom-select fieldInformation" name="label">
@@ -22,10 +23,9 @@
             <option value="Approved">Approved</option>
             <option value="Declined">Declined</option>
         </select>
-        <button class="btn btn-info searchButton" type="submit" title="Filter">Filter</button>
+        <button class="btn btn-info searchButton" style="text-transform: capitalize" type="submit" title="Filter">Filter</button>
     </form>
     @endunless
-
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -82,5 +82,6 @@
             </table>
         </div>
     </div>
+    </section>
     @component('components/general/footer')@endcomponent
     @endsection

@@ -1,4 +1,4 @@
-<section>
+<section style="margin-bottom: 10%">
     <div class="container" id="containerCreate">
         <div id="createExplain" class="block-heading">
             <h1 class="nameStudent headerOne">Create Internship</h1>
@@ -34,82 +34,76 @@
         </div>
 
         <section class="grid">
-            <div class="form-group dropdown" id="createFormGroup">
-                <form class="form-inline createGrid">
+            <div style="margin-right: 3%" class="form-group dropdown" id="createFormGroup">
                 <div class="form-group" id="createCategory">
                     <label class="createLabel">Category</label>
-                        <select class="form-control descInput">
-                            <option>Choose</option>
-                            <option>Design</option>
-                            <option>Development</option>
-                            <option>Hybrid</option>
+                        <select class="form-control descInput" name="category_id">
+                            <option value="0">Choose</option>
+                            <option value="1">Design</option>
+                            <option value="2">Development</option>
+                            <option value="3">Hybrid</option>
                         </select>
                     </div>
-                </form>
             </div>
 
-            <div class="form-group dropdown" id="createFormGroup">
-                <form class="form-inline createGrid">
+            <div style="margin-right: 3%" class="form-group dropdown" id="createFormGroup">
                     <div class="form-group" id="createTime">
                         <label class="createLabel">Timeperiod</label>
-                        <select class="form-control descInput" >
-                            <option>Choose</option>
-                            <option>First trimester</option>
-                            <option>Second trimester</option>
-                            <option>One year</option>
+                        <select class="form-control descInput" name="internshipPeriod_id">
+                            <option value="0">Choose</option>
+                            <option value="1">First trimester</option>
+                            <option value="2">Second trimester</option>
+                            <option value="3">One year</option>
                         </select>
                     </div>
-                </form>
                 </div>
 
                 <div class="form-group dropdown" id="createFormGroup">
-                    <form class="form-inline createGrid">
                     <div class="form-group" id="createSkills">
                         <label class="createLabel" for="skills">Required skills for internship</label>
-                        <select multiple class="form-control descInput" id="multipleDrop" style="width:80%">
-                            <option>Skills</option>
-                            <option>Laravel</option>
-                            <option>Linux</option>
-                            <option>PHP</option>
-                            <option>CSS</option>
-                            <option>HTML</option>
-                            <option>Javascript</option>
-                            <option>NodeJS</option>
-                            <option>Sass</option>
-                            <option>ASP.NET Core</option>
-                            <option>React</option>
-                            <option>JSON</option>
-                            <option>API's</option>
-                            <option>Git</option>
-                            <option>GitHub</option>
-                            <option>VueJS</option>
-                            <option>Websockets</option>
-                            <option>Gulp</option>
-                            <option>Parcel</option>
-                            <option>Babel</option>
-                            <option>Java</option>
-                            <option>MongoDB</option>
-                            <option>CMS</option>
-                            <option>Drupal</option>
-                            <option>Arduino</option>
-                            <option>Information Architecture</option>
-                            <option>User Interface Design</option>
-                            <option>User Experience</option>
-                            <option>Sketch</option>
-                            <option>Procreate</option>
-                            <option>Adobe Illustrator</option>
-                            <option>Adobe Photoshop</option>
-                            <option>Adobe Indesign</option>
-                            <option>Adobe Premiere Pro</option>
-                            <option>Adobe XD</option>
-                            <option>Wonda</option>
-                            <option>Kanban</option>
-                            <option>SCRUM</option>
-                            <option>Agile</option>
-                            <option>Trello</option>
+                        <select multiple class="form-control descInput" id="multipleDrop" name="skills_id" style="width:80%">
+                            <option value="0">Skills</option>
+                            <option value="1">Laravel</option>
+                            <option value="2">Linux</option>
+                            <option value="3">PHP</option>
+                            <option value="4">CSS</option>
+                            <option value="5">HTML</option>
+                            <option value="6">Javascript</option>
+                            <option value="7">NodeJS</option>
+                            <option value="8">Sass</option>
+                            <option value="9">ASP.NET Core</option>
+                            <option value="10">React</option>
+                            <option value="11">JSON</option>
+                            <option value="12">API's</option>
+                            <option value="13">Git</option>
+                            <option value="14">GitHub</option>
+                            <option value="15">VueJS</option>
+                            <option value="16">Websockets</option>
+                            <option value="17">Gulp</option>
+                            <option value="18">Parcel</option>
+                            <option value="19">Babel</option>
+                            <option value="20">Java</option>
+                            <option value="21">MongoDB</option>
+                            <option value="22">CMS</option>
+                            <option value="23">Drupal</option>
+                            <option value="24">Arduino</option>
+                            <option value="25">Information Architecture</option>
+                            <option value="26">User Interface Design</option>
+                            <option value="27">User Experience</option>
+                            <option value="28">Sketch</option>
+                            <option value="29">Procreate</option>
+                            <option value="30">Adobe Illustrator</option>
+                            <option value="31">Adobe Photoshop</option>
+                            <option value="32">Adobe Indesign</option>
+                            <option value="33">Adobe Premiere Pro</option>
+                            <option value="34">Adobe XD</option>
+                            <option value="35">Wonda</option>
+                            <option value="36">Kanban</option>
+                            <option value="37">SCRUM</option>
+                            <option value="38">Agile</option>
+                            <option value="39">Trello</option>
                         </select>
                     </div>
-                    </form>
                 </div>
             </section>
 

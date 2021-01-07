@@ -29,7 +29,7 @@ class InternshipController extends Controller
 
     public function store(Request $request)
     {
-
+        $user = $this->user();
         //dd($request->all());
 
         $internship = new \App\Models\Internship();
@@ -38,10 +38,10 @@ class InternshipController extends Controller
         $internship->category_id = $request->input('category_id');
         $internship->skills_id = $request->input('skills_id');
         $internship->internshipPeriod_id = $request->input('internshipPeriod_id');
-        $internship->company_id = $request->input('company_id');
+        $internship->company_id = $user->company->id;
         $internship->availability = 1;
         $internship->save();
-        return redirect('/internship');
+        return redirect('/company');
     }
 
     public function show($id)
