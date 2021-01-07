@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Internship;
 use App\Models\User;
-use App\Models\InternshipsSkill;
+use App\Models\internshipsSkill;
 
 class InternshipController extends Controller
 {
