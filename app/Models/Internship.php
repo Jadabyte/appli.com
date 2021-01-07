@@ -16,7 +16,7 @@ class Internship extends Model
 
     public function company()
     {
-        return $this->belongsTo('\App\Models\Company');
+        return $this->belongsTo(Company::class);
     }
 
     public function application()
@@ -36,7 +36,10 @@ class Internship extends Model
 
     public function internshipsSkill()
     {
-        return $this->belongsTo('\App\Models\InternshipsSkill');
-        return $this->hasOne(InternshipsSkill::class, 'id', 'skills_id');
+        return $this->hasOne(InternshipsSkill::class);
+    }
+    public function skill()
+    {
+        return $this->hasOne(Skills::class, 'id', 'skills_id');
     }
 }
