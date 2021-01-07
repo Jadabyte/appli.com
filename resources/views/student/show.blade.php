@@ -11,7 +11,7 @@
         @empty(!$student->picture)
             <div class="profile-header-container">
                 <div class="profile-header-img">
-                    <img class="rounded mx-auto d-block" style="width:20%" src="{{ asset('storage/studentPictures/' . $student->picture) }}" />
+                    <img class="rounded mx-auto d-block" style="width:10%" src="{{ asset('storage/studentPictures/' . $student->picture) }}" />
                 </div>
             </div>
         @endempty
