@@ -78,21 +78,16 @@
                     </div>
                     </div>
                 </div>
-
-
             </div>
 
-                <div class="form-row">
-                    <div class="col">
+                < class="form-row">
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">Description of company</label>
-                        <textarea class="form-control profileGroup" name="description" placeholder="Description">@isset($user->company->description){{ $user->company->description }}@else{{ old('description') }}@endisset</textarea>
+                            <textarea class="form-control profileGroup" name="description" placeholder="Description">@isset($user->company->description){{ $user->company->description }}@else{{ old('description') }}@endisset</textarea>
                     </div>
-                    </div>
-                </div>
 
-                <div class="form-row">
-                    <div class="col">
+
+
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">Company website</label>
                             <input class="form-control profileGroup" type="url" name="website" placeholder="Website" value="@isset($user->company->website){{ $user->company->website }}@else{{ old('website') }}@endisset">
@@ -101,7 +96,7 @@
                             <label class="profileFieldLabel">Company LinkedIn</label>
                             <input class="form-control profileGroup" type="url" name="linkedin" placeholder="LinkedIn" value="@isset($user->company->LinkedIn){{ $user->company->LinkedIn }}@else{{ old('linkedin') }}@endisset">
                         </div>
-                    </div>
+
                 </div>
 
                 <div class="form-row">
