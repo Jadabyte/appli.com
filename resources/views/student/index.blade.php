@@ -9,7 +9,8 @@
     @component('components/general/navigation')@endcomponent
 
 <section>
-    <h1>Overview of companies offering an internship</h1>
+    <h1 class="headerOne">Overview of companies offering an internship</h1>
+    <section class="gridView">
         <form action="" method="GET">
         <p>Filter through our internships based on category, required skills, and/ or internship period.</p>
         <select class="custom-select fieldInformation" name="internshipPeriod_id" id="input">
@@ -38,7 +39,7 @@
         </select>
         <input class="btn btn-info searchButton" type="submit" value="Filter">
         </form>
-
+    </section>
     <section class="gridView">
     @foreach ($internship as $i)
         <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
