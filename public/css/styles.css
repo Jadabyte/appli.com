@@ -614,8 +614,8 @@ a:hover {
 
 .gridView {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 30px;
+    grid-column-gap: 25px;
     grid-row-gap: 15px;
 }
