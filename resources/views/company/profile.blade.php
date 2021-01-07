@@ -150,7 +150,7 @@
 
 <section style="margin-top:95%;">
     <h3 class="headerThree">Accountdetails</h3>
-        <div class="profileForm" id="accountForm" style="margin-top:14.5%; margin-bottom:15%;">
+        <div class="profileForm" id="accountForm" style="margin-top:12.5%; margin-bottom:15%;">
         <form class="profileContainer" method="post" action="" style="margin-top:8%;">
             @csrf
             <div class="form-row" style="margin-top:-10%">
