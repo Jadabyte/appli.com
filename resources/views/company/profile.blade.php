@@ -148,14 +148,15 @@
                 </div>
                 <div class="form-row" style="text-align:right;">
                     <div class="col offset-xl-0">
-                    <button class="btn btn-primary btnApproved" type="submit">Save</button>
+                        <button class="btn btn-primary" type="submit">Save</button>
                     </div>
+                </div>
                 </form>
             </div>
         </section>
 
-<section style="margin-top:125%;">
-    <h3 class="headerThree" style="margin-left:-16%;">Accountdetails</h3>
+<section style="margin-top:125%; margin-bottom:5%;">
+    <h3 class="headerThree">Accountdetails</h3>
         <div class="profileForm" id="accountForm" style="margin-top:17.5%">
         <form class="profileContainer" method="post" action="" style="margin-top:8%;">
             @csrf
