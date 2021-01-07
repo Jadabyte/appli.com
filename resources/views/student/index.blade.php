@@ -14,7 +14,6 @@
                     <div class="card-body text-center">
                         <h3 class="card-title">{{$i->title}}</h3>
                         <h4 class="card-title headerThree">{{$i->company->name}}</h4>
-                        <h6 class="text-muted card-subtitle mb-2" id="headerFour">{{$i->category}}</h6>
                         <p class="explanationParagraph">{{$i->description}}</p>
                         <button class="btn btn-light btn-block moreButton" type="button">
                             <a href="/internship/{{$i->id}}">More</a>
