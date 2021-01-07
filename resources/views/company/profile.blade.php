@@ -11,10 +11,10 @@
 {{-- <div class="container profile profile-view" id="profile"> --}}
     <h1 class="headerOne" style="margin:2%;">My profile</h1>
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
-        <section style="margin-top:40%">
+        <section style="margin-top:57%">
             <div class="profileForm" >
 
-                <form class="profileContainer" method="post" action="/company/create" enctype="multipart/form-data">
+                <form class="profileContainer" style="margin:0" method="post" action="/company/create" enctype="multipart/form-data">
                     @csrf
                     @if( $flash = session('message') )
                         <div class="alert alert-success">{{ $flash }}</div>
