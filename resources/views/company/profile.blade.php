@@ -47,9 +47,11 @@
                         <input class="form-control profileGroup" type="email" name="companyEmail" placeholder="Company email" value="@isset($user->company->mail){{ $user->company->mail }}@else{{ old('companyEmail') }}@endisset">
                     </div>
 
+                    <div class="col">
                     <div class="form-group" style="color: #011C3A;">
                         <label class="profileFieldLabel">Company phone</label>
                         <input class="form-control profileGroup" type="tel" name="phone" placeholder="Company telephone" value="@isset($user->company->telephone){{ $user->company->telephone }}@else{{ old('phone') }}@endisset">
+                    </div>
                     </div>
                 </div>
 
@@ -84,6 +86,7 @@
                         <div class="form-group" style="color: #011C3A;">
                             <label class="profileFieldLabel">Description of company</label>
                         <textarea class="form-control profileGroup" name="description" placeholder="Description">@isset($user->company->description){{ $user->company->description }}@else{{ old('description') }}@endisset</textarea>
+                    </div>
                     </div>
                 </div>
 
