@@ -22,12 +22,6 @@
                     <p class="card-text" id="cardTextCompany">{{$company->description}}</p>
                 </div>
             </div>
-            <div class="card" id="cardCompany">
-                <div class="card-body" id="card-body">
-                    <h4 class="card-title" id="headerFour">Description</h4>
-                    <p class="card-text" id="cardTextCompany">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                </div>
-            </div>
         </div>
         <div class="card" id="cardContactCompany">
             <div class="card-body" id="contactContainer">

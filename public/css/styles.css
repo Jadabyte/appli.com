@@ -611,3 +611,11 @@ a:hover {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.gridView {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 15px;
+}

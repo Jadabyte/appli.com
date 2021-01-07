@@ -85,7 +85,7 @@
                                 <div class="col">
                                     <div class="form-group" style="color: #011C3A;">
                                         <label for="linkedin" class="profileFieldLabel">LinkedIn</label>
-                                        <input class="form-control profileGroup" type="url" name="linkedin" placeholder="LinkedIn" value="@isset($user->student->LinkedIn){{ $user->student->LinkedIn }}@else{{ old('linkedin') }}@endisset">
+                                        <input class="form-control profileGroup" type="url" name="linkedin" placeholder="LinkedIn (Don't forget to put https://www. in front of link)" value="@isset($user->student->LinkedIn){{ $user->student->LinkedIn }}@else{{ old('linkedin') }}@endisset">
                                     </div>
                                 </div>
                             </div>
