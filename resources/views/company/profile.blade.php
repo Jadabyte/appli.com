@@ -37,9 +37,9 @@
                         <div class="form-group" style="color:#011C3A;">
                             <label class="profileFieldLabel">Companyname</label>
                             <input class="form-control profileGroup" type="text" name="companyName" placeholder="Companyname" value="@isset($user->company->name){{ $user->company->name }}@else{{ old('companyName') }}@endisset">
-                            <button class="btn btn-primary btn searchButton" type="submit" formaction="/company/match">Search</button>
                             <p class="infoSearch">Please enter the name of your company and we will automically try to determine the rest of your information.</p>
                             <p class="infoSearch">Please fill in any information that was not automatically found.</p>
+                            <button class="btn btn-primary btn searchButton" type="submit" formaction="/company/match">Search</button>
                         </div>
 
                     <div class="form-group" style="color: #011C3A;">
@@ -83,7 +83,7 @@
                 <div class="form-row">
                     <div class="col">
                         <div class="form-group" style="color: #011C3A;">
-                            <label class="profileFieldLabel">Description of company</label>
+                            <label for="description" class="profileFieldLabel">Description of company</label>
                             <textarea class="form-control profileGroup" name="description" placeholder="Description">@isset($user->company->description){{ $user->company->description }}@else{{ old('description') }}@endisset</textarea>
                         </div>
                         <div class="form-group" style="color: #011C3A;">
