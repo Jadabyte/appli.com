@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Internship;
+use App\Models\InternshipPeriod;
+use App\Models\InternshipsSkill;
 use App\Models\Category;
+use App\Models\Company;
+use App\Models\Skills;
 
 class StudentController extends Controller
 {
@@ -24,8 +29,10 @@ class StudentController extends Controller
             return redirect('company');
         }
 
-        //$user= $this->user();
-        //dd($user);
+        if (Gate::denies('hasStudent')) {
+            session()->flash('error', 'First add your student details.');
+            return redirect('student/profile');
+        }
 
         $data['internships'] = \DB::table('internships')->get();
         return view('student/index', $data);
@@ -38,19 +45,19 @@ class StudentController extends Controller
         }
 
         $user = $this->user();
-        
+
         $categories = Category::All();
 
         if (isset($user->student->github)) {
             $githubName = $user->student->github;
-           
+
             $url = 'https://api.github.com/users/' . $githubName . '/repos';
-        
+
             $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
-            return view('student.profile', ['user'=> $user, 'categories' => $categories, 'repositories' => $repositories]);
+            return view('student.profile', ['user' => $user, 'categories' => $categories, 'repositories' => $repositories]);
         }
 
-        return view('student.profile', ['user'=> $user, 'categories' => $categories]);
+        return view('student.profile', ['user' => $user, 'categories' => $categories]);
     }
 
     public function user()
@@ -68,7 +75,7 @@ class StudentController extends Controller
             'mobile' => 'required|numeric',
             'biography' => 'required',
             'portfolio' => 'required|url',
-            'linkedin' => 'required|url|regex:/http(?:s):\/\/(?:www\.)linkedin\.com\/.+/i',
+            'linkedin' => 'required|url|regex:/^(?:https?:\/\/)?(?:[^@\/\n]+)?(?:www\.)?(linkedin\.com\/.+)/i',
             'category' => 'required'
         ]);
 
@@ -79,7 +86,7 @@ class StudentController extends Controller
             $user->student->user_id = $user->id;
         }
 
-        $pictureName = $user->student->user_id.'_picture'.time().'.'.request()->picture->getClientOriginalExtension();
+        $pictureName = $user->student->user_id . '_picture' . time() . '.' . request()->picture->getClientOriginalExtension();
 
         Storage::putFileAs('studentPictures', $request->file('picture'), $pictureName);
 
@@ -98,17 +105,17 @@ class StudentController extends Controller
         return redirect('student/profile');
     }
 
-    function github(Request $request){
-    
+    public function github(Request $request)
+    {
         $validation = $request->validate([
             'github' => 'required|unique:students',
         ]);
         $githubName = $request->input('github');
-        
+
         $url = 'https://api.github.com/users/' . $githubName . '/repos';
-     
+
         $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
-  
+
         if (isset($repositories['message'])) {
             $request->session()->flash('error', $repositories['message']);
             return back();
@@ -143,7 +150,7 @@ class StudentController extends Controller
         $githubName = $student->github;
         $url = 'https://api.github.com/users/' . $githubName . '/repos';
         $repositories = Http::withToken(env('GITHUB_ACCESS_TOKEN'))->get($url)->json();
-  
+
         if (!isset($repositories['message'])) {
             $data['repositories'] = $repositories;
             return view('student.show', $data, ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
@@ -152,4 +159,26 @@ class StudentController extends Controller
         return view('student.show', ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
     }
 
+    public function filter(Request $request)
+    {
+        $internshipPeriod = InternshipPeriod::get();
+        $category = Category::get();
+        $company = Company::get();
+        $skill = Skills::get();
+
+        $ip = $request->get('internshipPeriod_id');
+        $c = $request->get('category_id');
+        $sk = $request->get('skills_id');
+
+        $internship = Internship::where('internshipPeriod_id', '=', $ip)
+                                ->orWhere('category_id', '=', $c)
+                                ->orWhere('skills_id', '=', $sk)
+                                ->with('internshipPeriod', 'category', 'company', 'skill')
+                                ->get();
+
+        if ($internship->isEmpty()) {
+            $internship = Internship::with('internshipPeriod', 'category', 'company', 'skill')->get();
+        }
+        return view('student.index', ['internship'=>$internship, 'internshipPeriod'=>$internshipPeriod, 'category'=>$category, 'company'=>$company, 'skill'=>$skill]);
+    }
 }

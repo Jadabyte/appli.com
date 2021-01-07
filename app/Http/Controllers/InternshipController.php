@@ -9,17 +9,21 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Internship;
 use App\Models\User;
+use App\Models\InternshipsSkill;
 
 class InternshipController extends Controller
 {
-    public function index()
-    {
-        $data['internships'] = \DB::table('internships')->get();
-        return view('internship/index', $data);
-    }
-
     public function create()
     {
+        if (Gate::allows('isStudent')) {
+            return redirect('student');
+        }
+
+        if (Gate::denies('isStudent') && Gate::denies('hasCompany')) {
+            session()->flash('error', 'First add your company details.');
+            return redirect('company/profile');
+        }
+
         return view('internship/create');
     }
 
@@ -66,11 +70,6 @@ class InternshipController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
-
-    public function detail($id)
-    {
-        return view('internship/show', ['users' => User::findOrFail($id)]);
     }
 
     public function destroy($id)

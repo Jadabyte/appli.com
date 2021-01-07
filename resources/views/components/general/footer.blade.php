@@ -1,5 +1,5 @@
-<footer id="footerpad" class="footerCreate">
-    <div class="container" id="containerFooter">
+<footer>
+    <div class="footer" id="footerContainer">
         <div class="row">
             <div class="col-md-6 col-lg-8 mx-auto">
                 <ul class="list-inline text-center">

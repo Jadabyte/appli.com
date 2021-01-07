@@ -13,19 +13,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="/css/Filter.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 
 
 <section>
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
     <div>
         @yield('content')
     </div>
 </section>
 
-@component('components/footer')@endcomponent
+@component('components/general/footer')@endcomponent
 
 @yield('script')
 </body>

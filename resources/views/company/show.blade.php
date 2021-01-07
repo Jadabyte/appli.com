@@ -4,13 +4,14 @@
     Company :name
 @endsection
 @section('content')
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
+
     <section id="sectionDetail">
         <h1 class="headerOne">{{$company->name}}</h1>
         @empty(!$company->logo)
             <div class="profile-header-container">
                 <div class="profile-header-img">
-                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/companylogos/' . $company->logo) }}" />
+                    <img class="rounded mx-auto d-block" style="width:10%" src="{{ asset('storage/companylogos/' . $company->logo) }}" />
                 </div>
             </div>
         @endempty
@@ -19,12 +20,6 @@
                 <div class="card-body" id="card-body">
                     <h4 class="card-title" id="headerFour">Bio</h4>
                     <p class="card-text" id="cardTextCompany">{{$company->description}}</p>
-                </div>
-            </div>
-            <div class="card" id="cardCompany">
-                <div class="card-body" id="card-body">
-                    <h4 class="card-title" id="headerFour">Description</h4>
-                    <p class="card-text" id="cardTextCompany">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                 </div>
             </div>
         </div>
@@ -47,5 +42,5 @@
         </div>
     </section>
 
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection

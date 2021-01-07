@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
     <div class="container">
         <h1 class="headerOne">Create application</h1>
@@ -33,9 +33,9 @@
                 <label for="motivation">Motivation</label>
                 <textarea class="form-control" name="motivation" placeholder="Write an extensive motivation letter here" rows="30">@isset($application){{ $application->motivation }}@else{{ old('motivation') }}@endisset</textarea>
             </div>
-            <button class="btn btn-primary" type="submit">Send</button>
+            <button class="btn btn-primary" style="text-transform:capitalize" type="submit">Send</button>
         </form>
     </div>
 </div>
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
     @endsection

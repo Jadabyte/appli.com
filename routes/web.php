@@ -20,6 +20,7 @@ use App\Http\Controllers\ApplicationController;
 */
 
 /* GENERAL*/
+
 Route::get('/', [GeneralController::class, 'index']);
 
 
@@ -35,7 +36,7 @@ Route::post('/student/profile', [GeneralController::class, 'handleProfile'])->mi
 
 /* STUDENTS*/
 Route::get('/student/profile', [StudentController::class, 'profile'])->middleware('auth');
-Route::get('/student', [StudentController::class, 'index'])->middleware('auth');
+Route::get('/student', [StudentController::class, 'filter'])->middleware('auth');
 Route::post('/student/create', [StudentController::class, 'create'])->middleware('auth');
 Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('auth');
 Route::post('/student/github', [StudentController::class, 'github'])->middleware('auth');
@@ -49,7 +50,6 @@ Route::get('/company/{id}', [CompanyController::class, 'show'])->middleware('aut
 
 
 /* INTERNSHIPS*/
-Route::get('/internship', [InternshipController::class, 'index'])->middleware('auth');
 Route::get('/internship/create', [InternshipController::class, 'create'])->middleware('auth');
 Route::post('/internship/create', [InternshipController::class, 'store'])->middleware('auth');
 Route::get('/internship/{id}', [InternshipController::class, 'show'])->middleware('auth');
@@ -63,22 +63,10 @@ Route::get('/application/{id}', [ApplicationController::class, 'show'])->middlew
 Route::post('/application/{id}', [ApplicationController::class, 'handleLabel'])->middleware('auth');
 Route::post('/application/comment/{id}', [ApplicationController::class, 'comment'])->middleware('auth');
 
-//nog toe te voegen: tags voor filtering
-//nog toe te voegen: status application
-
-
-//nog toe te voegen: update internship
-//nog toe te voegen: delete internship
-
-//Dribbble portfolio routes
-//Afstand API routes
-
 //Zoekroutes
 
 Route::get('/layouts/appli', [GeneralController::class, 'appli']);
 Route::get('/layouts/detailpage', [GeneralController::class, 'detailpage']);
-Route::get('/components/header', [GeneralController::class, 'header']);
-Route::get('/components/navigation', [GeneralController::class, 'navigation']);
-Route::get('/components/footer', [GeneralController::class, 'footer']);
-Route::get('/components/pagination', [GeneralController::class,'pages']);
-Route::get('/components/filterCompany', [GeneralController::class,'filterCompany']);
+Route::get('/components/general/navigation', [GeneralController::class, 'navigation']);
+Route::get('/components/general/footer', [GeneralController::class, 'footer']);
+Route::get('/components/internship/createInternship', [GeneralController::class, 'createInternship']);

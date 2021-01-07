@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
 use App\Models\User;
+use App\Models\InternshipsSkill;
 
 class GeneralController extends Controller
 {
@@ -22,14 +23,9 @@ class GeneralController extends Controller
         return view('layouts/detailpage');
     }
 
-    public function header()
-    {
-        return view('components/header');
-    }
-
     public function navigation()
     {
-        return view('components/navigation');
+        return view('components/general/navigation');
     }
 
     public function index()
@@ -39,7 +35,7 @@ class GeneralController extends Controller
 
     public function footer()
     {
-        return view('components/footer');
+        return view('components/general/footer');
     }
 
     public function register()
@@ -47,23 +43,27 @@ class GeneralController extends Controller
         return view('register');
     }
 
-    public function pages()
-    {
-        return view('components/pagination');
-    }
-
     public function filter()
     {
-        return view('components/filterCompany');
+        return view('components/student/filters');
     }
 
+    public function createInternship()
+    {
+        return view('components/internship/createInternship');
+    }
+
+    public function showInternships()
+    {
+        return view('components/internship/showInternships');
+    }
 
     public function handleRegister(Request $request)
     {
         $validation = $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => 'required|email|unique:users|regex:/(.*)student\.thomasmore\.be$/i',
+            'email' => 'required|email|unique:users|exclude_if:isStudent,null|regex:/(.*)student\.thomasmore\.be$/i',
             'password' => 'required|min:8'
         ]);
 
@@ -96,7 +96,7 @@ class GeneralController extends Controller
     public function handleLogin(Request $request)
     {
         $validation = $request->validate([
-            'email' => 'required|email|regex:/(.*)student\.thomasmore\.be$/i',
+            'email' => 'required|email',
             'password' => 'required|min:8'
         ]);
 
@@ -126,10 +126,19 @@ class GeneralController extends Controller
     {
         $user = $this->user();
 
+        if ($user->isStudent === 1) {
+            $validation = $request->validate([
+                'firstName' => 'required',
+                'lastName' => 'required',
+                'email' => ['required','email','regex:/(.*)student\.thomasmore\.be$/i', Rule::unique('users')->ignore($user)],
+                'password' => 'required|min:8|confirmed'
+            ]);
+        }
+
         $validation = $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => ['required','email','regex:/(.*)student\.thomasmore\.be$/i', Rule::unique('users')->ignore($user)],
+            'email' => ['required','email', Rule::unique('users')->ignore($user)],
             'password' => 'required|min:8|confirmed'
         ]);
 

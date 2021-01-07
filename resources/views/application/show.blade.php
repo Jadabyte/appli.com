@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
     <section id="sectionDetail">
         <h1 class="headerOne">Details application</h1>
@@ -37,10 +37,10 @@
                     @endisset
                     </p>
                     @isset($user->company)
-                    <a class="btn btn-primary" href="/internship/{{$info->internshipsId}}">More info</a>
+                    <a class="btn btn-primary" style="text-transform:capitalize" href="/internship/{{$info->internshipsId}}">More info</a>
                     @endisset
                     @isset($user->student)
-                    <a class="btn btn-primary" href="/internship/{{$info->internship->id}}">More info</a>
+                    <a class="btn btn-primary" style="text-transform:capitalize" href="/internship/{{$info->internship->id}}">More info</a>
                     @endisset
                 </div>
             </div>
@@ -99,10 +99,10 @@
                                                     <option value="Declined">Declined</option>
                                                 </select>
                                             </div>
-                                            <button class="btn btn-primary btnSave" id="labelButton" type="submit">Save</button>
+                                            <button class="btn btn-primary btnSave" style="text-transform:capitalize" id="labelButton" type="submit">Save</button>
                                             @endisset
                                             @isset($user->student)
-                                            <button class="btn btn-primary btnDeclined" id="labelButton" type="submit">Delete</button>
+                                            <button class="btn btn-primary btnDeclined" style="text-transform:capitalize" id="labelButton" type="submit">Delete</button>
                                             @endisset
                                         </form>
                                     </td>
@@ -143,12 +143,12 @@
                     </ul>
                 @endif
                 <input class="form-control" type="text" name="comment" placeholder="Comment">
-                <button class="btn btn-primary btnSave" id="labelButton" type="submit">Send</button>
+                <button class="btn btn-primary btnSave" style="text-transform:capitalize" id="labelButton" type="submit">Send</button>
             </form>
             @else
             <p>You can only send messages if the application is starred.</p>
             @endif
         </div>
     </section>
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection

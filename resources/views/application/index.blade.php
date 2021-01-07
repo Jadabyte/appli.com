@@ -6,10 +6,26 @@
 
 @section('content')
 
-    @component('components/navigation')@endcomponent
+    @component('components/general/navigation')@endcomponent
 
     <div class="container">
     <h1 class="headerOne">Applications</h1>
+    @unless($user->isStudent)
+    <form action="" method="GET">
+        <input type="text" name="search" placeholder="Search by applicant name" id="search">
+        <button class="btn btn-info" type="submit" title="Search">Search</button>
+    </form>
+    <form action="" method="GET">
+        <select class="custom-select" name="label">
+            <option value="0">Filter by status of the application</option>
+            <option value="New">New</option>
+            <option value="Approved">Approved</option>
+            <option value="Declined">Declined</option>
+        </select>
+        <button class="btn btn-info" type="submit" title="Filter">Filter</button>
+    </form>
+    @endunless
+
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -52,10 +68,10 @@
                                         <option value="Declined">Declined</option>
                                     </select>
                                 </div>
-                                <button class="btn btn-primary btnSave" id="labelButton" type="submit">Save</button>
+                                <button class="btn btn-primary btnSave" style="text-transform:capitalize" id="labelButton" type="submit">Save</button>
                             @endisset
                             @isset($user->student)
-                                <button class="btn btn-primary btnDeclined" id="labelButton" type="submit">Delete</button>
+                                <button class="btn btn-primary btnDeclined" style="text-transform:capitalize" id="labelButton" type="submit">Delete</button>
                             @endisset
                             </form>
                         </td>
@@ -66,5 +82,5 @@
             </table>
         </div>
     </div>
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
     @endsection

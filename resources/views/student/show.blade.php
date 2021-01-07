@@ -4,25 +4,26 @@
     Student {{$user['firstName']}}
 @endsection
 @section('content')
-    @component('components/navigation')@endcomponent
-    <section id="sectionDetail">
-        <h1 class="headerOne">{{$user->firstName}} {{$user->lastName}}</h1>
+    @component('components/general/navigation')@endcomponent
+
+    <section id="sectionDetail" style="margin-bottom:15%;">
+        <h1 class="nameStudent headerOne">{{$user->firstName}} {{$user->lastName}}</h1>
         @empty(!$student->picture)
             <div class="profile-header-container">
                 <div class="profile-header-img">
-                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/studentPictures/' . $student->picture) }}" />
+                    <img class="rounded mx-auto d-block" style="width:10%" src="{{ asset('storage/studentPictures/' . $student->picture) }}" />
                 </div>
             </div>
         @endempty
         <div class="card-group">
-            <div class="card" id="cardCompany">
+            <div class="card">
                 <div class="card-body" id="card-body">
-                    <h4 class="card-title" id="headerFour">Biography</h4>
-                    <p class="card-text" id="cardTextCompany">{{$student->biography}}</p>
+                    <h4 class="card-title" id="card-title">Biography</h4>
+                    <p class="card-text" id="headerFour">{{$student->biography}}</p>
                 </div>
             </div>
         </div>
-        <div class="card" id="cardContactCompany">
+        <div class="card">
             <div class="card-body" id="contactContainer">
                 <div class="media">
                     <div class="media-body">
@@ -53,5 +54,5 @@
         @endif
     </section>
 
-    @component('components/footer')@endcomponent
+    @component('components/general/footer')@endcomponent
 @endsection
