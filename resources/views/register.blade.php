@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <input class="form-control" type="email" name="email" placeholder="Email" aria-describedby="emailHelp" value="{{ old('email') }}">
-                <small id="emailHelp" class="form-text text-muted">You can only use an email address from Thomas More.</small>
+                <small id="emailHelp" class="form-text text-muted">If you are a student you can only use an email address from Thomas More.</small>
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password">
@@ -51,6 +51,7 @@
             <div class="form-group" style="margin-top:-5%;">
                 <button class="btn btn-primary btn-block" style="text-transform:capitalize" id="registerbutton" type="submit">Register</button>
             </div>
+
 
             <a id="already" class="already" href="login">You already have an account? Login here.</a>
         </form>
