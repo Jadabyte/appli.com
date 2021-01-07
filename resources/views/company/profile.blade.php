@@ -148,7 +148,7 @@
             </div>
         </section>
 
-<section style="margin-top:115%;">
+<section style="margin-top:95%;">
     <h3 class="headerThree">Accountdetails</h3>
         <div class="profileForm" id="accountForm" style="margin-top:14.5%; margin-bottom:15%;">
         <form class="profileContainer" method="post" action="" style="margin-top:8%;">
@@ -191,7 +191,7 @@
             </div>
             <div class="form-row" style="text-align:right;">
                 <div class="col offset-xl-0">
-                    <button class="btn btn-primary btnApproved" type="submit">Save</button>
+                    <button class="btn btn-primary btnApproved" style="text-transform:capitalize" type="submit">Save</button>
                 </div>
             </div>
         </form>
