@@ -71,14 +71,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col">
+                    <div class="col">
                     <div class="form-group" style="color: #011C3A;">
                         <label class="profileFieldLabel">Company phone</label>
                         <input class="form-control profileGroup" type="tel" name="phone" placeholder="Company telephone" value="@isset($user->company->telephone){{ $user->company->telephone }}@else{{ old('phone') }}@endisset">
                     </div>
                     </div>
+                </div>
+
+
             </div>
 
                 <div class="form-row">
