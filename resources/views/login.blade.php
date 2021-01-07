@@ -35,7 +35,7 @@
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
             <div class="form-group" id="form-button-group" style="margin-top:12.5%;">
-                <button class="btn btn-primary btn-block btn" id="registerbutton" type="submit">Log in</button>
+                <button class="btn btn-primary btn-block btn" style="text-transform:capitalize" id="registerbutton" type="submit">Log in</button>
             </div>
             <div style="margin-top:10%;">
                 <a id="already" class="forgot" href="register">New here? Go to register page.</a>

@@ -39,7 +39,7 @@
                             <input class="form-control profileGroup" type="text" name="companyName" placeholder="Companyname" value="@isset($user->company->name){{ $user->company->name }}@else{{ old('companyName') }}@endisset">
                             <p class="infoSearch">Please enter the name of your company and we will automically try to determine the rest of your information.</p>
                             <p class="infoSearch">Please fill in any information that was not automatically found.</p>
-                            <button class="btn btn-primary btn searchButton" type="submit" formaction="/company/match">Search</button>
+                            <button class="btn btn-primary btn searchButton" style="text-transform:capitalize" type="submit" formaction="/company/match">Search</button>
                         </div>
 
                     <div class="form-group" style="color: #011C3A;">

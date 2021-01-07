@@ -59,7 +59,6 @@
     </div>
     @isset($user->student)
     <div class="col offset-xl-0" style="text-align:right; margin-top:5%;">
-        <button class="btn btn-primary btnDeclined" type="button" style="margin-right:-6%;">Go back to list</button>
         <button class="btn btn-primary btnApproved" id="createBtn" href="/application/create/{{$internship->id}}" style="margin-right:5%;">Apply for this internship</button>
     </div>
     @endisset
