@@ -11,7 +11,7 @@
 {{-- <div class="container profile profile-view" id="profile"> --}}
     <h1 class="headerOne" style="margin:2%;">My profile</h1>
     <h3 class="headerThree" style="margin-top:2%">Information</h3>
-        <section style="margin-top:37%">
+        <section style="margin-top:45%">
             <div class="profileForm" >
 
                 <form class="profileContainer" style="margin:0" method="post" action="/company/create" enctype="multipart/form-data">
