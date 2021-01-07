@@ -121,10 +121,19 @@ class GeneralController extends Controller
     {
         $user = $this->user();
 
+        if ($user->isStudent === 1) {
+            $validation = $request->validate([
+                'firstName' => 'required',
+                'lastName' => 'required',
+                'email' => ['required','email','regex:/(.*)student\.thomasmore\.be$/i', Rule::unique('users')->ignore($user)],
+                'password' => 'required|min:8|confirmed'
+            ]);
+        }
+
         $validation = $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => ['required','email','regex:/(.*)student\.thomasmore\.be$/i', Rule::unique('users')->ignore($user)],
+            'email' => ['required','email', Rule::unique('users')->ignore($user)],
             'password' => 'required|min:8|confirmed'
         ]);
 
