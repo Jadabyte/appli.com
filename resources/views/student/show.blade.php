@@ -6,7 +6,7 @@
 @section('content')
     @component('components/general/navigation')@endcomponent
 
-    <section id="sectionDetail" style="margin-bottom:10%;">
+    <section id="sectionDetail" style="margin-bottom:15%;">
         <h1 class="nameStudent headerOne">{{$user->firstName}} {{$user->lastName}}</h1>
         @empty(!$student->picture)
             <div class="profile-header-container">
