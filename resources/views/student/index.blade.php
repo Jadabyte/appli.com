@@ -39,13 +39,12 @@
     @foreach ($internship as $i)
         <div class="card-group">
             <div class="card">
-                <img class="card-img-top" src="..." alt="logo company image">
-                    <div class="card-body">
-                        <h3 class="card-title">{{$i->title}}</h3>
-                        <h4 class="card-title">{{$i->company->name}}</h4>
-                        <p class="card-text">{{$i->description}}</p>
-                        <a href="/internship/{{$i->id}}">More</a>
-                    </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{$i->title}}</h3>
+                    <h4 class="card-title">{{$i->company->name}}</h4>
+                    <p class="card-text">{{$i->description}}</p>
+                    <a href="/internship/{{$i->id}}">More</a>
+                </div>
             </div>
         </div>
     @endforeach
