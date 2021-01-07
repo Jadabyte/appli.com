@@ -11,7 +11,7 @@
         @empty(!$company->logo)
             <div class="profile-header-container">
                 <div class="profile-header-img">
-                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/companylogos/' . $company->logo) }}" />
+                    <img class="rounded mx-auto d-block" style="width:10%" src="{{ asset('storage/companylogos/' . $company->logo) }}" />
                 </div>
             </div>
         @endempty
