@@ -39,22 +39,8 @@
         <input type="submit" value="Filter">
         </form>
 
-    @foreach ($internship as $i)
-        <div class="card-group">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">{{$i->title}}</h3>
-                    <h4 class="card-title">{{$i->company->name}}</h4>
-                    <p class="card-text">{{$i->description}}</p>
-                    <a href="/internship/{{$i->id}}">More</a>
-                </div>
-            </div>
-        </div>
-    @endforeach
-    </section>
-
     <section class="gridView">
-    @foreach ($internships as $i)
+    @foreach ($internship as $i)
         <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
             <div class="col-md-3">
                 <div class="card border rounded shadow">
