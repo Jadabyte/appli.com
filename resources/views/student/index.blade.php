@@ -25,9 +25,9 @@
                 </option>
             @endforeach
         </select>
-        <select name="internshipsSkill_id" id="input">
+        <select name="skills_id" id="input">
             <option value="0">Select Skills</option>
-            @foreach ($internshipsSkill as $sk)
+            @foreach ($skill as $sk)
                 <option value="{{ $sk->id }}">
                 {{ $sk['title'] }}
                 </option>

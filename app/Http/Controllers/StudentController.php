@@ -16,6 +16,7 @@ use App\Models\Student;
 use App\Models\User;
 use App\Models\Internship;
 use App\Models\InternshipPeriod;
+use App\Models\InternshipsSkill;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Skills;
@@ -160,21 +161,21 @@ class StudentController extends Controller
         $internshipPeriod = InternshipPeriod::get();
         $category = Category::get();
         $company = Company::get();
-        $internshipsSkill = Skills::get();
+        $skill = Skills::get();
 
         $ip = $request->get('internshipPeriod_id');
         $c = $request->get('category_id');
-        $sk = $request->get('internshipsSkill_id');
+        $sk = $request->get('skills_id');
 
         $internship = Internship::where('internshipPeriod_id', '=', $ip)
                                 ->orWhere('category_id', '=', $c)
                                 ->orWhere('skills_id', '=', $sk)
-                                ->with('internshipPeriod', 'category', 'company', 'internshipsSkill')
+                                ->with('internshipPeriod', 'category', 'company', 'skill')
                                 ->get();
 
         if($internship->isEmpty()){
-            $internship = Internship::with('internshipPeriod', 'category', 'company', 'internshipsSkill')->get();
+            $internship = Internship::with('internshipPeriod', 'category', 'company', 'skill')->get();
         }
-        return view('student.index', ['internship'=>$internship, 'internshipPeriod'=>$internshipPeriod, 'category'=>$category, 'company'=>$company, 'internshipsSkill'=>$internshipsSkill]);
+        return view('student.index', ['internship'=>$internship, 'internshipPeriod'=>$internshipPeriod, 'category'=>$category, 'company'=>$company, 'skill'=>$skill]);
     }
 }
