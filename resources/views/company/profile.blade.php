@@ -141,7 +141,7 @@
                 </div>
                 <div class="form-row" style="text-align:right;">
                     <div class="col offset-xl-0">
-                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary btnApproved" style="text-transform:lowercase" type="submit">Save</button>
                     </div>
                 </div>
                 </form>
