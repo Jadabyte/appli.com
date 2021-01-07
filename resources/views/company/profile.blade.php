@@ -54,13 +54,13 @@
                             @if(isset($user->company->logo))
                             <div class="profile-header-container">
                                 <div class="profile-header-img">
-                                    <img class="rounded mx-auto d-block" style="width:30%" src="{{ asset('storage/companylogos/' . $user->company->logo) }}" />
+                                    <img class="rounded mx-auto d-block" style="width:50%" src="{{ asset('storage/companylogos/' . $user->company->logo) }}" />
                                 </div>
                             </div>
                             @else
                             <div class="profile-header-container">
                                 <div class="profile-header-img">
-                                    <img class="rounded mx-auto d-block" style="width:80%" src="/public/images/students/profile.png" />
+                                    <img class="rounded mx-auto d-block" style="width:80%" src="../../../public/images/students/profile.png" />
                                 </div>
                             </div>
                             @endif
