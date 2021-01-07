@@ -12,7 +12,7 @@
 
     @component('components/company/filters')@endcomponent
 
-    @foreach ($users as $u->isStudent)
+    @foreach ($users as $u)
     <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
         <div class="col-md-3">
             <div class="card border rounded shadow">
