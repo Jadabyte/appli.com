@@ -3,13 +3,39 @@ body {
     font-family: Nunito, sans-serif;
 }
 
+/* HEADERS */
+
 .headerOne {
     text-align: center;
     color: #edeff0;
     margin-top: 5%;
     margin-bottom: 2.5%;
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
+
+.headerTwo {
+    color: #edbd16;
+    margin-bottom: 10%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 1.5rem;
+}
+
+.headerThree {
+    color: #edbd16;
+    margin-left: 5%;
+    text-align: left;
+}
+
+#headerFour {
+    color: #011c3a;
+    margin-left: 5%;
+    text-align: left;
+    opacity: 1;
+    font-size: 1.2rem;
+}
+
+/* INDEXPAGINA APPLI */
 
 .indexContainer {
     margin-top: 8%;
@@ -58,14 +84,18 @@ body {
 /* login */
 
 .logo {
-    width: 10em;
+    width: 8em;
     height: auto;
     margin-top: 4%;
-    margin-left: 45.5%;
+    margin-left: 40%;
 }
 
 .form-group {
     color: #011c3a;
+}
+
+.login-dark {
+    margin-left: 10%;
 }
 
 .login-dark form {
@@ -76,8 +106,8 @@ body {
     border-radius: 4px;
     transform: translate(-50%, -50%);
     position: absolute;
-    top: 28%;
-    left: 52.5%;
+    top: 15%;
+    left: 51%;
 }
 
 .login-dark form .form-control {
@@ -108,7 +138,6 @@ body {
 
 .btn {
     background-color: #00cf8d;
-    /*color: #EDEFF0;*/
 }
 
 .forgot {
@@ -119,15 +148,35 @@ body {
     text-decoration: underline;
 }
 
-/* REGISTER */
-
-.formRegister {
-    margin-top: 10%;
+.formLogin {
+    margin-top: 18%;
+    max-width: 450px;
+    height: auto;
+    background-color: #edeff0;
+    padding: 20px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
-.headerTwo {
-    color: #edbd16;
-    margin-bottom: 10%;
+/* REGISTER */
+
+#logoRegister {
+    margin-top: 2.5%;
+    margin-left: 45%;
+    height: 60px;
+}
+
+.formRegister {
+    margin-top: 20%;
+    margin-left: 50%;
+    max-width: 450px;
+    height: auto;
+    background-color: #edeff0;
+    padding: 20px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
 .form-control {
@@ -136,7 +185,7 @@ body {
 
 .form-check-label {
     color: #edbd16;
-    margin-bottom: 10%;
+    margin-bottom: 7.5%;
     margin-top: 2.5%;
 }
 
@@ -147,7 +196,7 @@ body {
 #registerbutton {
     background-color: #00cf8d;
     width: 100px;
-    margin-left: 35%;
+    margin-left: 33%;
     margin-top: 5%;
     border: none;
     border-radius: 8px;
@@ -155,8 +204,7 @@ body {
 
 #already {
     text-align: center;
-    margin-left: 10%;
-    /*margin-top: 139%;*/
+    margin-left: 2.5%;
     color: #011c3a;
     font-size: 14px;
     text-decoration: underline;
@@ -208,12 +256,10 @@ label {
     background-color: #edeff0;
     border: solid 1px #edbd16;
     border-radius: 8px;
-    /*margin-left: 10;*/
 }
 
 .createLabel {
     margin-right: 3%;
-    /*margin-bottom: 10%;*/
 }
 
 #createBtn {
@@ -225,10 +271,6 @@ label {
 
 .createGrid {
     display: grid;
-    /*grid-template-columns: repeat(2, 1fr);*/
-    /*grid-template-rows: repeat(3, 1fr);*/
-    /*grid-column-gap: 29px;*/
-    /*grid-row-gap: 10px;*/
     margin-top: 2%;
 }
 
@@ -259,8 +301,6 @@ label {
     border: 1px solid;
     border-radius: 5px;
     border-color: #edbd16;
-    /*height: auto;*/
-    /*text-align: left;*/
     margin-top: 10px;
     background-color: #eaeaea;
     width: 90%;
@@ -269,10 +309,6 @@ label {
 #editLabel {
     color: #edbd16;
     font-size: 1.1rem;
-    /*font-style: bold;*/
-    /*font-weight: bold;*/
-    /*display: grid;*/
-    /*margin-bottom: -3px;*/
 }
 
 iframe {
@@ -288,10 +324,9 @@ iframe {
 }
 
 div.avatar-bg {
-    background: url(https://www.gravatar.com/avatar/1234566?size=200&d=mm);
     background-position: 50% 50%;
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
     background-size: cover;
     border-radius: 50%;
     margin-left: calc(50% - 100px);
@@ -303,6 +338,21 @@ div.avatar-bg {
 .filter {
     margin-bottom: 2%;
     margin-top: -1%;
+    text-align: center;
+}
+
+.filterP {
+    color: #edbd16;
+    font-size: 1.1rem;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.filterDrop {
+    border: #edbd16 1px solid;
+    border-radius: 8px;
+    height: 30px;
+    margin-right: 15px;
 }
 
 .resetFilter {
@@ -321,14 +371,138 @@ div.avatar-bg {
     border-radius: 8px;
 }
 
-.pagination {
-    margin-left: 23%;
-}
-
 .page-link {
     background-color: #0e0e2c;
     border-color: #0e0e2c;
     color: #edbd16;
+}
+
+/* PROFILE STUDENT */
+
+.profile-name {
+    background-color: #00cf8d;
+    color: #eaeaea;
+    font-size: 1.2rem;
+    padding: 5px 0;
+    border-radius: 100px;
+    max-width: 300px;
+    margin: 0 auto 10px auto;
+}
+
+.portfolioLink {
+    font-size: 1.2rem;
+    color: #eaeaea;
+    padding: 8%;
+    margin: 20px;
+}
+
+.profile-back {
+    background-color: #edbd16;
+    height: 150px;
+    margin-bottom: -75px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.form-control.profileStudentInput {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #edbd16;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.profileLink {
+    background-color: #00cf8d;
+    color: #eaeaea;
+    margin-left: 50%;
+    margin-top: 5%;
+}
+
+.avatar-bg.center {
+    margin-left: 28%;
+}
+
+.profileContainer {
+    margin-top: 5%;
+}
+
+.descriptionField {
+    color: #011c3a;
+    margin-top: -8%;
+}
+
+#accountForm {
+    height: 350px;
+    margin-top: 11.5%;
+}
+
+#githubForm {
+    height: auto;
+    margin-bottom: 15%;
+}
+
+.profileForm {
+    width: 90%;
+    background-color: #edeff0;
+    padding: 40px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+}
+
+.profileGroup {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #edbd16;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.infoSearch {
+    text-align: left;
+    color: #011c3a;
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.profileFieldLabel {
+    font-weight: bold;
+}
+
+.card.border.rounded.shadow {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 10%;
+}
+
+.explanationParagraph {
+    color: #011c3a;
+    text-align: left;
+    margin-left: 5%;
+    font-size: 1rem;
+}
+
+.searchButton {
+    background-color: #edbd16;
+    margin: 2%;
+    margin-left: 1.5%;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
 }
 
 /* LABEL */
@@ -368,12 +542,15 @@ td {
 
 /* FOOTER */
 
-#footerpad {
-    margin-top: 5%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: initial;
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
     background-color: #0e0e2c;
+    padding-top: 20px;
+    /* height: 15vh; */
 }
 
 .list-inline.text-center {
@@ -409,138 +586,6 @@ a:hover {
     color: #edbd16;
 }
 
-.profile-name {
-    background-color: #00cf8d;
-    color: #eaeaea;
-    /*font-family: 'Actor', sans-serif;*/
-    font-size: 1.2rem;
-    /*font-weight: bold;*/
-    padding: 5px 0;
-    border-radius: 100px;
-    max-width: 300px;
-    margin: 0 auto 10px auto;
-}
-
-.portfolioLink {
-    font-size: 1.2rem;
-    color: #eaeaea;
-    padding: 8%;
-    margin: 20px;
-}
-
-.profile-back {
-    background-color: #edbd16;
-    height: 150px;
-    margin-bottom: -75px;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
-}
-
-.profile-card {
-    text-align: center;
-    /*margin-bottom: 15px;*/
-    /*border: 1px solid #9b1f1f;*/
-}
-
-.form-control.profileStudentInput {
-    background: none;
-    border: none;
-    border-bottom: 1px solid #edbd16;
-    border-radius: 0;
-    box-shadow: none;
-    outline: none;
-}
-
-.profileLink {
-    background-color: #00cf8d;
-    color: #eaeaea;
-    margin-left: 50%;
-    margin-top: 5%;
-}
-
-.avatar-bg.center {
-    margin-left: 28%;
-}
-
-.profileContainer {
-    margin-top: 5%;
-}
-
-.descriptionField {
-    color: #011c3a;
-    margin-top: -8%;
-}
-
-.profileForm {
-    width: 90%;
-    background-color: #edeff0;
-    padding: 40px;
-    border-radius: 4px;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    /*top: 44%;*/
-    left: 50%;
-}
-
-.profileGroup {
-    background: none;
-    border: none;
-    border-bottom: 1px solid #edbd16;
-    border-radius: 0;
-    box-shadow: none;
-    outline: none;
-}
-
-.headerThree {
-    color: #edbd16;
-    /*margin-bottom: 9%;*/
-    margin-left: 5%;
-    text-align: left;
-}
-
-.searchButton {
-    background-color: #edbd16;
-    color: #edeff0;
-    /*margin-top: 2%;*/
-    /*margin-left: 2%;*/
-    /*height: 40px;*/
-    /*text-align: center;*/
-    border: none;
-    /*font-size: 1.1rem;*/
-    border-radius: 8px;
-}
-
-.infoSearch {
-    text-align: left;
-    color: #011c3a;
-    font-size: 0.75rem;
-    font-style: italic;
-    margin-left: 2%;
-    margin-top: 2%;
-}
-
-.profileFieldLabel {
-    font-weight: bold;
-}
-
-.card.border.rounded.shadow {
-    width: 300px;
-    margin: auto;
-    margin-bottom: 10%;
-}
-
-#headerFour {
-    color: #011c3a;
-    margin-left: 5%;
-    text-align: left;
-    opacity: 1;
-    font-size: 1.2rem;
-}
-
 .btn.btn-light.active.btn-block.moreButton {
     background-color: #00cf8d;
     color: #edeff0;
@@ -550,28 +595,10 @@ a:hover {
     border: none;
 }
 
-.explanationParagraph {
-    color: #011c3a;
-    text-align: left;
-    margin-left: 5%;
-    font-size: 1rem;
-}
-
-.searchButton {
-    background-color: #edbd16;
-    margin: 2%;
-    margin-left: 1.5%;
-    border-radius: 8px;
-    border: none;
-    text-align: center;
-}
-
 #motivationForm {
     border-radius: 8px;
     width: 75%;
     margin: auto;
-    /*border-color: #EDBD16;*/
-    /*border: 1px solid;*/
     border: 2px solid #edbd16;
     font-size: 1rem;
     color: #011c3a;

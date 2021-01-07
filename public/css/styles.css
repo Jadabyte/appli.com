@@ -23,7 +23,6 @@ body {
 
 .headerThree {
     color: #edbd16;
-    /*margin-bottom: 9%;*/
     margin-left: 5%;
     text-align: left;
 }
@@ -139,6 +138,8 @@ body {
 
 .btn {
     background-color: #00cf8d;
+    font-size: 1.25rem;
+    text-align: center;
 }
 
 .forgot {
@@ -257,7 +258,6 @@ label {
     background-color: #edeff0;
     border: solid 1px #edbd16;
     border-radius: 8px;
-    /*margin-left: 10;*/
 }
 
 .createLabel {
@@ -273,10 +273,6 @@ label {
 
 .createGrid {
     display: grid;
-    /*grid-template-columns: repeat(2, 1fr);*/
-    /*grid-template-rows: repeat(3, 1fr);*/
-    /*grid-column-gap: 29px;*/
-    /*grid-row-gap: 10px;*/
     margin-top: 2%;
 }
 
@@ -307,8 +303,6 @@ label {
     border: 1px solid;
     border-radius: 5px;
     border-color: #edbd16;
-    /*height: auto;*/
-    /*text-align: left;*/
     margin-top: 10px;
     background-color: #eaeaea;
     width: 90%;
@@ -317,10 +311,6 @@ label {
 #editLabel {
     color: #edbd16;
     font-size: 1.1rem;
-    /*font-style: bold;*/
-    /*font-weight: bold;*/
-    /*display: grid;*/
-    /*margin-bottom: -3px;*/
 }
 
 iframe {
@@ -336,7 +326,6 @@ iframe {
 }
 
 div.avatar-bg {
-    /* background: url(https://www.gravatar.com/avatar/1234566?size=200&d=mm); */
     background-position: 50% 50%;
     height: 250px;
     width: 250px;
@@ -395,9 +384,7 @@ div.avatar-bg {
 .profile-name {
     background-color: #00cf8d;
     color: #eaeaea;
-    /*font-family: 'Actor', sans-serif;*/
     font-size: 1.2rem;
-    /*font-weight: bold;*/
     padding: 5px 0;
     border-radius: 100px;
     max-width: 300px;
@@ -425,8 +412,6 @@ div.avatar-bg {
 
 .profile-card {
     text-align: center;
-    /*margin-bottom: 15px;*/
-    /*border: 1px solid #9b1f1f;*/
 }
 
 .form-control.profileStudentInput {
@@ -616,8 +601,6 @@ a:hover {
     border-radius: 8px;
     width: 75%;
     margin: auto;
-    /*border-color: #EDBD16;*/
-    /*border: 1px solid;*/
     border: 2px solid #edbd16;
     font-size: 1rem;
     color: #011c3a;
