@@ -35,7 +35,7 @@ Route::post('/student/profile', [GeneralController::class, 'handleProfile'])->mi
 
 /* STUDENTS*/
 Route::get('/student/profile', [StudentController::class, 'profile'])->middleware('auth');
-Route::get('/student', [StudentController::class, 'index'])->middleware('auth');
+Route::get('/student', [StudentController::class, 'filter'])->middleware('auth');
 Route::post('/student/create', [StudentController::class, 'create'])->middleware('auth');
 Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('auth');
 Route::post('/student/github', [StudentController::class, 'github'])->middleware('auth');

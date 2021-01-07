@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Internship;
+use App\Models\InternshipPeriod;
+use App\Models\InternshipsSkill;
 use App\Models\Category;
+use App\Models\Company;
+use App\Models\Skills;
 
 class StudentController extends Controller
 {
@@ -152,5 +157,27 @@ class StudentController extends Controller
         }
 
         return view('student.show', ['student' => Student::findOrFail($id), 'user' => $user, 'categories' => $categories]);
+    }
+
+    public function filter(Request $request){
+        $internshipPeriod = InternshipPeriod::get();
+        $category = Category::get();
+        $company = Company::get();
+        $skill = Skills::get();
+
+        $ip = $request->get('internshipPeriod_id');
+        $c = $request->get('category_id');
+        $sk = $request->get('skills_id');
+
+        $internship = Internship::where('internshipPeriod_id', '=', $ip)
+                                ->orWhere('category_id', '=', $c)
+                                ->orWhere('skills_id', '=', $sk)
+                                ->with('internshipPeriod', 'category', 'company', 'skill')
+                                ->get();
+
+        if($internship->isEmpty()){
+            $internship = Internship::with('internshipPeriod', 'category', 'company', 'skill')->get();
+        }
+        return view('student.index', ['internship'=>$internship, 'internshipPeriod'=>$internshipPeriod, 'category'=>$category, 'company'=>$company, 'skill'=>$skill]);
     }
 }
