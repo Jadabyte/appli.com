@@ -1,16 +1,13 @@
 @extends('layouts/appli')
 
 @section('title')
-    Company :name
+    Company
 @endsection
 @section('content')
 
     @component('components/general/navigation')@endcomponent
 
     <h1 class="headerOne">Overview of students looking for an internship</h1>
-    <p class="explainP">Filter thru our students based on category (designer, developer or hybrid) and/ or location.</p>
-
-    @component('components/company/filters')@endcomponent
 
     @foreach ($users as $u)
     <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center">
