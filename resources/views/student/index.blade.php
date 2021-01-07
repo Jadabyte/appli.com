@@ -1,10 +1,13 @@
-@extends('layouts/detailpage')
+@extends('layouts/appli')
 
 @section('title')
     Internship
 @endsection
 
 @section('content')
+
+    @component('components/general/navigation')@endcomponent
+
     @component('components/student/filters')@endcomponent
 
     <section class="gridView">
