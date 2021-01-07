@@ -14,7 +14,7 @@ use App\Models\Internship;
 
 class ApplicationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (Gate::denies('isStudent') && Gate::denies('hasCompany')) {
             session()->flash('error', 'First add your company details.');
@@ -27,22 +27,42 @@ class ApplicationController extends Controller
         }
 
         $user = $this->user();
+        $search = $request->get('search');
+        $label = $request->get('label');
+        if(!empty($search)){
 
+        }
         if (Gate::denies('isStudent')) {
-            $applications = DB::table('internships')
+            if($label == null){
+                $applications = DB::table('internships')
                                 ->join('applications', 'applications.internship_id', '=', 'internships.id')
                                 ->join('students', 'applications.student_id', '=', 'students.id')
                                 ->join('users', 'students.user_id', '=', 'users.id')
                                 ->where('internships.company_id', $user->company->id)
+                                ->where('users.firstName', 'LIKE', '%' . $search . '%')
                                 ->select('applications.id', 'users.firstName', 'users.lastName', 'internships.title', 'applications.label', 'internships.company_id')
+                                ->orderBy('label', 'DESC')
                                 ->get();
+            }
+            if($search == null){
+                $applications = DB::table('internships')
+                                ->join('applications', 'applications.internship_id', '=', 'internships.id')
+                                ->join('students', 'applications.student_id', '=', 'students.id')
+                                ->join('users', 'students.user_id', '=', 'users.id')
+                                ->where('internships.company_id', $user->company->id)
+                                ->where('applications.label', 'LIKE', '%' . $label . '%')
+                                ->select('applications.id', 'users.firstName', 'users.lastName', 'internships.title', 'applications.label', 'internships.company_id')
+                                ->orderBy('label', 'DESC')
+                                ->get();
+            }
         }
-
+        //dd($applications);
+        //dd($label);
         if (Gate::allows('isStudent')) {
             $applications = Application::where('student_id', $user->student->id)->with('internship.company')->get();
         }
 
-        return view('application.index', ['user'=> $user, 'applications' => $applications]);
+        return view('application.index', ['user'=> $user, 'applications' => $applications, 'search' => $search]);
     }
 
     public function handleLabel(Request $request, $id)

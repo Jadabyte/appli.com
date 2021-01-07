@@ -166,7 +166,11 @@ class StudentController extends Controller
         $c = $request->get('category_id');
         $sk = $request->get('internshipsSkill_id');
 
-        $internship = Internship::where('internshipPeriod_id', '=', $ip)->orWhere('category_id', '=', $c)->orWhere('skills_id', '=', $sk)->with('internshipPeriod', 'category', 'company', 'internshipsSkill')->get();
+        $internship = Internship::where('internshipPeriod_id', '=', $ip)
+                                ->orWhere('category_id', '=', $c)
+                                ->orWhere('skills_id', '=', $sk)
+                                ->with('internshipPeriod', 'category', 'company', 'internshipsSkill')
+                                ->get();
 
         if($internship->isEmpty()){
             $internship = Internship::with('internshipPeriod', 'category', 'company', 'internshipsSkill')->get();
