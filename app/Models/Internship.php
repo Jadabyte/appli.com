@@ -16,7 +16,7 @@ class Internship extends Model
 
     public function company()
     {
-        return $this->belongsTo('\App\Models\Company');
+        return $this->belongsTo(Company::class);
     }
 
     public function application()
@@ -37,15 +37,5 @@ class Internship extends Model
     public function internshipsSkill()
     {
         return $this->hasOne(InternshipsSkill::class, 'id', 'skills_id');
-    }
-
-    public function scopeSearch($query, $q){
-        if($q == null) return $query;
-        return $query
-            ->where('title', 'LIKE', "%[$q}%")
-            ->orWhere('category_id', 'LIKE', "%[$q}%")
-            ->orWhere('skills_id', 'LIKE', "%[$q}%")
-            ->orWhere('internshipPeriod_id', 'LIKE', "%[$q}%")
-            ->orWhere('availability', 'LIKE', "%[$q}%");
     }
 }

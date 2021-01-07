@@ -25,6 +25,14 @@
                 </option>
             @endforeach
         </select>
+        <select name="internshipsSkill_id" id="input">
+            <option value="0">Select Skills</option>
+            @foreach ($internshipsSkill as $sk)
+                <option value="{{ $sk->id }}">
+                {{ $sk['title'] }}
+                </option>
+            @endforeach
+        </select>
         <input type="submit" value="Filter">
         <!--<div class='dropdown'>
             <button onclick="myFunction()" class="dropbtn">Category</button>
@@ -69,7 +77,7 @@
                 <img class="card-img-top" src="..." alt="logo company image">
                     <div class="card-body">
                         <h3 class="card-title">{{$i->title}}</h3>
-                        <h4 class="card-title">company id:{{$i->company_id}} (eigenlijk moet hier naam van bedrijf komen)</h4>
+                        <h4 class="card-title">{{$i->company->name}}</h4>
                         <p class="card-text">{{$i->description}}</p>
                         <a href="/internship/{{$i->id}}">More</a>
                     </div>
