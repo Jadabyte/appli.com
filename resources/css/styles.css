@@ -138,6 +138,8 @@ body {
 
 .btn {
     background-color: #00cf8d;
+    font-size: 1.25rem;
+    text-align: center;
 }
 
 .forgot {
@@ -608,4 +610,21 @@ a:hover {
     color: #edbd16;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.gridView {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    width: 80%;
+    margin-bottom: 10%;
+}
+
+#cardextCompany {
+    color: #0e0e2c;
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-align: left;
 }

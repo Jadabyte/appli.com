@@ -75,7 +75,7 @@
                             @endisset
                             </form>
                         </td>
-                        <td><a class="btn btn-info btnDetails btnApproved" href="/application/{{$a->id}}">Details</a></td>
+                        <td><a class="btn btn-info btnDetails btnApproved" style="text-transform:capitalize" href="/application/{{$a->id}}">Details</a></td>
                     </tr>
                 @endforeach
                 </tbody>
