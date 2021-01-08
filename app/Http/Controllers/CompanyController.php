@@ -16,6 +16,7 @@ use App\Models\Company;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\InternshipsSkill;
+use App\Models\Student;
 
 class CompanyController extends Controller
 {
@@ -29,9 +30,11 @@ class CompanyController extends Controller
             return redirect('company/profile');
         }
 
-        $companies = Company::all();
-        $users = User::all();
-        return view('company.index', ['companies' => $companies, 'users' => $users]);
+      
+        $users = User::where('isStudent', 1)->with('student')->get();
+        
+        //dd($users);
+        return view('company.index', ['users' => $users]);
     }
 
     public function show($id)

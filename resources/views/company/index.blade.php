@@ -15,9 +15,11 @@
         <div class="col-md-3">
             <div class="card border rounded shadow">
                 <div class="card-body text-center">
-                    <h3 class="card-title">{{$u->firstName}}{{$u->lastName}}</h3>
+                    <h3 class="card-title">{{$u->firstName}} {{$u->lastName}}</h3>
+                    @isset($u->student)
                     <button class="btn btn-light btn-block moreButton" style="text-transform:capitalize" type="button">
-                        <a href="/student/{{$u->id}}" style="color:#EAEAEA;">More</a></button>
+                        <a href="/student/{{$u->student->id}}" style="color:#EAEAEA;">More</a></button>
+                    @endisset
                 </div>
             </div>
         </div>
