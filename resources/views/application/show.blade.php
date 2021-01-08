@@ -7,7 +7,7 @@
 
     @component('components/general/navigation')@endcomponent
 
-    <section style="margin-bottom: 10%" id="sectionDetail">
+    <section style="margin-bottom: 20%" id="sectionDetail">
         <h1 class="headerOne">Details application</h1>
         <div class="card-group">
             <div class="card" id="cardCompany">

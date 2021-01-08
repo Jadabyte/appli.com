@@ -8,7 +8,7 @@
 
     @component('components/general/navigation')@endcomponent
 
-<section>
+<section style="margin-bottom:10%;">
     <h1 class="headerOne">Overview of companies offering an internship</h1>
     <p class="headerThree" style="text-align: center; margin: 0; margin-bottom: 2.5%">Filter through our internships based on category, required skills, and/ or internship period.</p>
     <section class="filter">

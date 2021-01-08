@@ -10,7 +10,7 @@
 
     <div class="container">
     <h1 class="headerOne">Applications</h1>
-    <section style="margin-bottom: 20%">
+    <section style="margin-bottom: 30%">
     @unless($user->isStudent)
     <form action="" method="GET">
         <input type="text" name="search" placeholder="Search by applicant name" id="search editLabel">

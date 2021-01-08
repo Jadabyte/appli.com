@@ -7,7 +7,7 @@
 @section('content')
     <img class="img-fluid logo" src="/applibranding/logoAppli.svg?h=60d8998b2af02b7c83c7ce77b565694b" loading="lazy" id="logoRegister">
 
-    <div class="formRegister">
+    <div class="formRegister" style="margin-bottom:10%;">
         <div class="form-container">
             <form method="post" action="">
                 <h2 class="text-center headerTwo">Create a new account</h2>
