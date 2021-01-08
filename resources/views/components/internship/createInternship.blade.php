@@ -1,4 +1,4 @@
-<section style="margin-bottom: 10%">
+<section style="margin-bottom: 20%">
     <div class="container" id="containerCreate">
         <div id="createExplain" class="block-heading">
             <h1 class="nameStudent headerOne">Create Internship</h1>

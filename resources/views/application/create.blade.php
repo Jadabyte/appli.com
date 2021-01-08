@@ -8,7 +8,7 @@
 
     @component('components/general/navigation')@endcomponent
 
-    <div class="container" style="margin-bottom: 10%">
+    <div class="container" style="margin-bottom: 20%">
         <h1 class="headerOne">Create application</h1>
         <h2 class="headerTwo">{{ $internship->title . ' of ' . $internship->company->name}}</h2>
         <form method="post">

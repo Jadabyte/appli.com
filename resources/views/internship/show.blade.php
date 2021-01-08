@@ -7,7 +7,7 @@
 @section('content')
 @component('components/general/navigation')@endcomponent
 
-<section style="margin-bottom: 10%" id="sectionDetail">
+<section style="margin-bottom: 20%" id="sectionDetail">
         <h1 class="nameStudent headerOne">Internship</h1>
     <div>
         <div class="container">

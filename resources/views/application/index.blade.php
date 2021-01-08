@@ -10,7 +10,7 @@
 
     <div class="container">
     <h1 class="headerOne">Applications</h1>
-    <section style="margin-bottom: 20%">
+    <section style="margin-bottom: 30%">
     @unless($user->isStudent)
     <form action="" method="GET">
         <input type="text" name="search" placeholder="Search by applicant name" id="search editLabel">
@@ -75,7 +75,7 @@
                             @endisset
                             </form>
                         </td>
-                        <td><a class="btn btn-info btnDetails btnApproved" href="/application/{{$a->id}}">Details</a></td>
+                        <td><a class="btn btn-info btnDetails btnApproved" style="text-transform:capitalize" href="/application/{{$a->id}}">Details</a></td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -6,7 +6,7 @@
 @section('content')
     @component('components/general/navigation')@endcomponent
 
-    <section id="sectionDetail">
+    <section id="sectionDetail" style="margin-bottom:10%;">
         <h1 class="headerOne">{{$company->name}}</h1>
         @empty(!$company->logo)
             <div class="profile-header-container">

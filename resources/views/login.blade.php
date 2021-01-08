@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="login-dark">
+    <div class="login-dark" style="margin-bottom:10%">
         <img class="img-fluid logo" src="/applibranding/logoAppli.svg?h=60d8998b2af02b7c83c7ce77b565694b" loading="lazy">
         <form method="post" action="" class="formLogin">
             <h1 class="text-center headerTwo">Login</h1>
