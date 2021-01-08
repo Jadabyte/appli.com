@@ -7,10 +7,10 @@
 
     @component('components/general/navigation')@endcomponent
 
-<div class="container profile profile-view" id="profile">
+<div class="container profile profile-view" id="profile" style="margin-bottom:20%">
     <h3 class="headerThree" style="margin-top:2%; margin-left:-17%;">Information</h3>
         <div class="profileForm" style="margin-top:23%">
-            <form class="profileContainer" method="post" action="/student/create" enctype="multipart/form-data">
+            <form class="profileContainer" style="margin-top:0%" method="post" action="/student/create" enctype="multipart/form-data">
                 @csrf
                 @if( $flash = session('message') )
                     <div class="alert alert-success" style="margin-top:-7%;">{{ $flash }}</div>
